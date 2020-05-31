@@ -146,17 +146,41 @@
             </objects>
             <point key="canvasLocation" x="138.75" y="137.32394366197184"/>
         </scene>
-        <!--View Controller-->
+        <!--Info View Controller-->
         <scene sceneID="Quq-g8-XYx">
             <objects>
-                <viewController id="boZ-hY-q7R" sceneMemberID="viewController">
+                <viewController id="boZ-hY-q7R" customClass="InfoViewController" customModule="Color_Picker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wHb-OO-nZ6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8I-vB-br4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="502"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4N-aD-Rea">
+                                <rect key="frame" x="140.5" y="510" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="close" destination="boZ-hY-q7R" eventType="touchUpInside" id="Zvg-YJ-6JF"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="b8I-vB-br4" firstAttribute="top" secondItem="PfM-nH-qK5" secondAttribute="top" id="3n7-3o-suf"/>
+                            <constraint firstItem="PfM-nH-qK5" firstAttribute="trailing" secondItem="b8I-vB-br4" secondAttribute="trailing" id="4WF-NK-Gka"/>
+                            <constraint firstItem="b8I-vB-br4" firstAttribute="leading" secondItem="PfM-nH-qK5" secondAttribute="leading" id="6G0-y0-9zB"/>
+                            <constraint firstItem="l4N-aD-Rea" firstAttribute="centerX" secondItem="PfM-nH-qK5" secondAttribute="centerX" id="9OP-wr-vAB"/>
+                            <constraint firstItem="l4N-aD-Rea" firstAttribute="top" secondItem="b8I-vB-br4" secondAttribute="bottom" constant="8" id="uwa-me-uvv"/>
+                            <constraint firstItem="PfM-nH-qK5" firstAttribute="bottom" secondItem="l4N-aD-Rea" secondAttribute="bottom" constant="8" id="v63-th-u2f"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PfM-nH-qK5"/>
                     </view>
                     <navigationItem key="navigationItem" id="Mbd-2h-El3"/>
+                    <connections>
+                        <outlet property="webView" destination="b8I-vB-br4" id="c93-3m-ub8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9FU-qS-v3g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
