@@ -54,7 +54,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func resetValues() {
+        colorName = ""
+        firstSliderValue = 0
+        secondSliderValue = 0
+        thirdSliderValue = 0
         
+        updateColorNameLabel()
+        updateSliderValues()
+        updateSliderValueLabels()
+        updateBackgroundColor()
     }
     
     @IBAction func sliderMoved(_ slider: UISlider) {
@@ -76,6 +84,12 @@ class ViewController: UIViewController {
 
     func updateColorNameLabel() {
         colorNameLabel.text = colorName
+    }
+
+    func updateSliderValues() {
+        firstSlider.setValue(Float(firstSliderValue), animated: true)
+        secondSlider.setValue(Float(secondSliderValue), animated: true)
+        thirdSlider.setValue(Float(thirdSliderValue), animated: true)
     }
 
     func updateSliderValueLabels() {
