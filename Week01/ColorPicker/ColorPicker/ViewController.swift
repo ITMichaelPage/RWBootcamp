@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     var secondSliderValue = 0
     var thirdSliderValue = 0
     
+    var colorName = ""
+
     @IBOutlet weak var colorNameLabel: UILabel!
 
     @IBOutlet weak var firstSliderTitleLabel: UILabel!
@@ -38,11 +40,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        updateColorNameLabel()
         updateSliderValueLabels()
     }
 
     @IBAction func setColor() {
-        
+        showColorNameAlert()
     }
 
     @IBAction func resetValues() {
@@ -65,11 +68,37 @@ class ViewController: UIViewController {
         
         updateSliderValueLabels()
     }
-        
+
+    func updateColorNameLabel() {
+        colorNameLabel.text = colorName
+    }
+
     func updateSliderValueLabels() {
         firstSliderValueLabel.text = String(firstSliderValue)
         secondSliderValueLabel.text = String(secondSliderValue)
         thirdSliderValueLabel.text = String(thirdSliderValue)
+    }
+
+    func showColorNameAlert() {
+        let title = "Fabulous!"
+        let message = "Please enter the name of this color"
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Color Name"
+            textField.autocapitalizationType = .words;
+        })
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+            if let enteredColorName = alert.textFields?.first?.text {
+                self.colorName = enteredColorName
+                self.updateColorNameLabel()
+            }
+        })
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
     }
 
 }
