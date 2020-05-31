@@ -21,6 +21,11 @@ class ViewController: UIViewController {
     var thirdSliderValue = 0
     
     var colorName = ""
+    var backgroundColor: UIColor {
+        get {
+            return UIColor.init(red: firstSliderValue, green: secondSliderValue, blue: thirdSliderValue)
+        }
+    }
 
     @IBOutlet weak var colorNameLabel: UILabel!
 
@@ -79,6 +84,10 @@ class ViewController: UIViewController {
         thirdSliderValueLabel.text = String(thirdSliderValue)
     }
 
+    func updateBackgroundColor() {
+        self.view.backgroundColor = backgroundColor
+    }
+
     func showColorNameAlert() {
         let title = "Fabulous!"
         let message = "Please enter the name of this color"
@@ -94,6 +103,7 @@ class ViewController: UIViewController {
                 self.colorName = enteredColorName
                 self.updateColorNameLabel()
             }
+            self.updateBackgroundColor()
         })
         
         alert.addAction(action)
