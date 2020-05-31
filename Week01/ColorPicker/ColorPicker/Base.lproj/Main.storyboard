@@ -35,6 +35,9 @@
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-NT-s5N">
                                                 <rect key="frame" x="-2" y="0.0" width="253.5" height="31"/>
+                                                <connections>
+                                                    <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="pk0-c7-hlg"/>
+                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOl-kK-wws">
                                                 <rect key="frame" x="257.5" y="0.0" width="30.5" height="30"/>
@@ -55,6 +58,9 @@
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="efd-tO-tOb">
                                                 <rect key="frame" x="-2" y="0.0" width="253.5" height="31"/>
+                                                <connections>
+                                                    <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="pB2-Np-mVh"/>
+                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piA-Gi-3TG">
                                                 <rect key="frame" x="257.5" y="0.0" width="30.5" height="30"/>
@@ -75,6 +81,9 @@
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="7a2-qA-819">
                                                 <rect key="frame" x="-2" y="0.0" width="253.5" height="31"/>
+                                                <connections>
+                                                    <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="ffI-Gz-vWe"/>
+                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvw-Eq-GBi">
                                                 <rect key="frame" x="257.5" y="0.0" width="30.5" height="30"/>
@@ -90,13 +99,22 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1e-Cn-OPY">
                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
                                                 <state key="normal" title="Set Color"/>
+                                                <connections>
+                                                    <action selector="setColor" destination="BYZ-38-t0r" eventType="touchUpInside" id="GAG-AI-srf"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZ0-4N-gLc">
                                                 <rect key="frame" x="144" y="0.0" width="39" height="30"/>
                                                 <state key="normal" title="Reset"/>
+                                                <connections>
+                                                    <action selector="resetValues" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ebb-e2-ymG"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivV-de-BRc">
                                                 <rect key="frame" x="263" y="0.0" width="25" height="30"/>
+                                                <connections>
+                                                    <segue destination="boZ-hY-q7R" kind="presentation" id="u9p-T2-Ysa"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -111,10 +129,38 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="colorNameLabel" destination="Hoz-n1-dFL" id="lg7-N8-NVw"/>
+                        <outlet property="firstSlider" destination="3Ff-NT-s5N" id="vDS-dU-UJ1"/>
+                        <outlet property="firstSliderTitleLabel" destination="dv7-RE-Ygz" id="vRt-i0-8cE"/>
+                        <outlet property="firstSliderValueLabel" destination="tOl-kK-wws" id="xya-LG-C6G"/>
+                        <outlet property="secondSlider" destination="efd-tO-tOb" id="SlA-7N-TeM"/>
+                        <outlet property="secondSliderTitleLabel" destination="xKw-XP-vAx" id="wMS-gP-IjR"/>
+                        <outlet property="secondSliderValueLabel" destination="piA-Gi-3TG" id="iET-9e-wJf"/>
+                        <outlet property="thirdSlider" destination="7a2-qA-819" id="ZV7-xI-Zwd"/>
+                        <outlet property="thirdSliderTitleLabel" destination="jSf-aT-h4U" id="wAa-PR-BgN"/>
+                        <outlet property="thirdSliderValueLabel" destination="Lvw-Eq-GBi" id="Ha8-nY-cSc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.75" y="137.32394366197184"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Quq-g8-XYx">
+            <objects>
+                <viewController id="boZ-hY-q7R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wHb-OO-nZ6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="PfM-nH-qK5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Mbd-2h-El3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9FU-qS-v3g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="939" y="137"/>
         </scene>
     </scenes>
 </document>
