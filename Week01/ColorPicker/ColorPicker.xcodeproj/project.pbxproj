@@ -13,6 +13,7 @@
 		AEB25FEC2483683400A9308F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB25FEA2483683400A9308F /* Main.storyboard */; };
 		AEB25FEE2483683500A9308F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEB25FED2483683500A9308F /* Assets.xcassets */; };
 		AEB25FF12483683500A9308F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB25FEF2483683500A9308F /* LaunchScreen.storyboard */; };
+		AEB25FFA24838DAB00A9308F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB25FF924838DAB00A9308F /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AEB25FED2483683500A9308F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEB25FF02483683500A9308F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEB25FF22483683500A9308F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEB25FF924838DAB00A9308F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +65,17 @@
 				AEB25FED2483683500A9308F /* Assets.xcassets */,
 				AEB25FEF2483683500A9308F /* LaunchScreen.storyboard */,
 				AEB25FF22483683500A9308F /* Info.plist */,
+				AEB25FF824838D8600A9308F /* Type Extensions */,
 			);
 			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		AEB25FF824838D8600A9308F /* Type Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AEB25FF924838DAB00A9308F /* UIColor.swift */,
+			);
+			path = "Type Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEB25FE92483683400A9308F /* ViewController.swift in Sources */,
+				AEB25FFA24838DAB00A9308F /* UIColor.swift in Sources */,
 				AEB25FE52483683400A9308F /* AppDelegate.swift in Sources */,
 				AEB25FE72483683400A9308F /* SceneDelegate.swift in Sources */,
 			);
