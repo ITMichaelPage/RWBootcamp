@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     
     var colorName = ""
     var colorModel: ColorModel = .RGB
-    var backgroundColor: UIColor {
+    var calculatedColor: UIColor {
         get {
             switch colorModel {
             case .RGB:
@@ -74,6 +74,7 @@ class ViewController: UIViewController {
         updateColorNameLabel()
         updateSliderValues()
         updateSliderValueLabels()
+        updateLivePreviewColor()
         updateBackgroundColor()
     }
     
@@ -92,6 +93,7 @@ class ViewController: UIViewController {
         }
         
         updateSliderValueLabels()
+        updateLivePreviewColor()
     }
 
     @IBAction func colorModelChanged(_ segmentedControl: UISegmentedControl) {
@@ -140,8 +142,12 @@ class ViewController: UIViewController {
         thirdSliderValueLabel.text = String(thirdSliderValue)
     }
 
+    func updateLivePreviewColor() {
+        liveColorPreviewView.backgroundColor = calculatedColor
+    }
+
     func updateBackgroundColor() {
-        self.view.backgroundColor = backgroundColor
+        self.view.backgroundColor = calculatedColor
     }
 
     func showColorNameAlert() {
