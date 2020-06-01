@@ -15,4 +15,18 @@ extension UIColor {
     convenience init(hue: Int, saturation: Int, brightness: Int) {
         self.init(hue: CGFloat(hue)/360, saturation: CGFloat(saturation)/100, brightness: CGFloat(brightness)/100, alpha: 1.0)
     }
+    var isDark: Bool? {
+        guard let components = self.cgColor.components else {
+            return nil
+        }
+
+        // Color brightness formula from http://www.w3.org/WAI/ER/WD-AERT/#color-contrast
+        let red = components[0] * 299
+        let green = components[1] * 587
+        let blue = components[2] * 114
+        
+        let brightness = (red + green + blue) / 1000
+        
+        return brightness < 0.5 ? true : false
+    }
 }
