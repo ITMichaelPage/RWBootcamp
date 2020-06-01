@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstSliderTitleLabel: UILabel!
     @IBOutlet weak var firstSlider: UISlider!
     @IBOutlet weak var firstSliderValueLabel: UILabel!
+    @IBOutlet weak var firstSliderBackgroundView: UIView!
 
     @IBOutlet weak var secondSliderTitleLabel: UILabel!
     @IBOutlet weak var secondSlider: UISlider!
@@ -88,10 +89,34 @@ class ViewController: UIViewController {
 
         switch slider.tag {
         case SelectedSliderTag.First.rawValue:
+            switch colorModel {
+            case .RGB:
+                // Red slider
+                slider.minimumTrackTintColor = UIColor(red: Int(slider.value), green: 0, blue: 0)
+            case .HSB:
+                // Hue slider, no tint required as hue slider track will be visible
+                break
+            }
             firstSliderValue = roundedValue
         case SelectedSliderTag.Second.rawValue:
+            switch colorModel {
+            case .RGB:
+                // Green slider
+                slider.minimumTrackTintColor = UIColor(red: 0, green: Int(slider.value), blue: 0)
+            case .HSB:
+                // Saturation slider
+                slider.minimumTrackTintColor = UIColor(hue: 0, saturation: Int(slider.value), brightness: 100)
+            }
             secondSliderValue = roundedValue
         case SelectedSliderTag.Third.rawValue:
+            switch colorModel {
+            case .RGB:
+                // Blue slider
+                slider.minimumTrackTintColor = UIColor(red: 0, green: 0, blue: Int(slider.value))
+            case .HSB:
+                // Brightness slider
+                slider.minimumTrackTintColor = UIColor(hue: 0, saturation: 0, brightness: Int(slider.value))
+            }
             thirdSliderValue = roundedValue
         default:
             return
@@ -129,6 +154,7 @@ class ViewController: UIViewController {
             thirdSlider.maximumValue = 100
         }
         
+        updateHueSliderTrackVisibility()
         resetValues()
     }
 
@@ -197,6 +223,36 @@ class ViewController: UIViewController {
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
+    }
+
+    func updateHueSliderTrackVisibility() {
+        switch colorModel {
+        case .RGB:
+            // Remove hue slider track
+            if let hueSliderBackgroundImageView = firstSliderBackgroundView.viewWithTag(100) {
+                hueSliderBackgroundImageView.removeFromSuperview()
+            }
+            
+            // Restore maximum slider track
+            firstSlider.maximumTrackTintColor = nil
+        case .HSB:
+            // Create hue slider track
+            let hueSliderBackgroundImageView = UIImageView(image: #imageLiteral(resourceName: "SliderHueTrack"))
+            // Place image where slider track would normally appear
+            hueSliderBackgroundImageView.frame = CGRect(x: 0, y: firstSlider.frame.height / 2.2,
+                                                        width: firstSlider.frame.width - 4,
+                                                        height: 3)
+            // Resize on device orientation change
+            hueSliderBackgroundImageView.autoresizingMask = .flexibleWidth
+            hueSliderBackgroundImageView.tag = 100
+            firstSliderBackgroundView.addSubview(hueSliderBackgroundImageView)
+            firstSliderBackgroundView.sendSubviewToBack(hueSliderBackgroundImageView)
+            
+            // Hide regular slider tracks
+            firstSlider.minimumTrackTintColor = UIColor.clear
+            firstSlider.maximumTrackTintColor = UIColor.clear
+        }
+
     }
 
 }
