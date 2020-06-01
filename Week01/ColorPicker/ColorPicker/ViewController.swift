@@ -14,6 +14,11 @@ enum SelectedSliderTag: Int {
     case Third
 }
 
+enum ColorModel {
+    case RGB
+    case HSB
+}
+
 class ViewController: UIViewController {
 
     var firstSliderValue = 0
@@ -21,9 +26,15 @@ class ViewController: UIViewController {
     var thirdSliderValue = 0
     
     var colorName = ""
+    var colorModel: ColorModel = .RGB
     var backgroundColor: UIColor {
         get {
-            return UIColor.init(red: firstSliderValue, green: secondSliderValue, blue: thirdSliderValue)
+            switch colorModel {
+            case .RGB:
+                return UIColor.init(red: firstSliderValue, green: secondSliderValue, blue: thirdSliderValue)
+            case .HSB:
+                return UIColor.init(hue: firstSliderValue, saturation: secondSliderValue, brightness: thirdSliderValue)
+            }
         }
     }
 
@@ -80,6 +91,36 @@ class ViewController: UIViewController {
         }
         
         updateSliderValueLabels()
+    }
+
+    @IBAction func colorModelChanged(_ segmentedControl: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            colorModel = .RGB
+        case 1:
+            colorModel = .HSB
+        default:
+            return
+        }
+        
+        switch colorModel {
+        case .RGB:
+            firstSliderTitleLabel.text = "Red"
+            firstSlider.maximumValue = 255
+            secondSliderTitleLabel.text = "Green"
+            secondSlider.maximumValue = 255
+            thirdSliderTitleLabel.text = "Blue"
+            thirdSlider.maximumValue = 255
+        case .HSB:
+            firstSliderTitleLabel.text = "Hue"
+            firstSlider.maximumValue = 360
+            secondSliderTitleLabel.text = "Saturation"
+            secondSlider.maximumValue = 100
+            thirdSliderTitleLabel.text = "Brightness"
+            thirdSlider.maximumValue = 100
+        }
+        
+        resetValues()
     }
 
     func updateColorNameLabel() {
