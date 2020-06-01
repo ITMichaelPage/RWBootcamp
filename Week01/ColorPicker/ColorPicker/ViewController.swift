@@ -39,6 +39,7 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak var colorNameLabel: UILabel!
+    @IBOutlet weak var liveColorPreviewView: UIView!
 
     @IBOutlet weak var firstSliderTitleLabel: UILabel!
     @IBOutlet weak var firstSlider: UISlider!
