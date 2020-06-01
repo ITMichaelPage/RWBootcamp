@@ -66,12 +66,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func resetValues() {
-        colorName = ""
         firstSliderValue = 0
         secondSliderValue = 0
         thirdSliderValue = 0
         
-        updateColorNameLabel()
+        updateColorNameLabel(reset: true)
         updateSliderValues()
         updateSliderValueLabels()
         updateLivePreviewColor()
@@ -92,6 +91,7 @@ class ViewController: UIViewController {
             return
         }
         
+        updateColorNameLabel(reset: true)
         updateSliderValueLabels()
         updateLivePreviewColor()
     }
@@ -126,7 +126,10 @@ class ViewController: UIViewController {
         resetValues()
     }
 
-    func updateColorNameLabel() {
+    func updateColorNameLabel(reset: Bool = false) {
+        if reset {
+            colorName = ""
+        }
         colorNameLabel.text = colorName
     }
 
