@@ -37,6 +37,11 @@ class ViewController: UIViewController {
             }
         }
     }
+    var labelsColor: UIColor {
+        get {
+            return (calculatedColor.isDark ?? true) ? UIColor.white : UIColor.black
+        }
+    }
 
     @IBOutlet weak var colorNameLabel: UILabel!
     @IBOutlet weak var liveColorPreviewView: UIView!
@@ -75,6 +80,7 @@ class ViewController: UIViewController {
         updateSliderValueLabels()
         updateLivePreviewColor()
         updateBackgroundColor()
+        updateLabelsColor()
     }
     
     @IBAction func sliderMoved(_ slider: UISlider) {
@@ -153,6 +159,22 @@ class ViewController: UIViewController {
         self.view.backgroundColor = calculatedColor
     }
 
+    func updateLabelsColor() {
+        let labels = [
+            colorNameLabel,
+            firstSliderTitleLabel,
+            firstSliderValueLabel,
+            secondSliderTitleLabel,
+            secondSliderValueLabel,
+            thirdSliderTitleLabel,
+            thirdSliderValueLabel
+        ]
+        
+        for label in labels {
+            label?.textColor = labelsColor
+        }
+    }
+
     func showColorNameAlert() {
         let title = "Fabulous!"
         let message = "Please enter the name of this color"
@@ -169,6 +191,7 @@ class ViewController: UIViewController {
                 self.updateColorNameLabel()
             }
             self.updateBackgroundColor()
+            self.updateLabelsColor()
         })
         
         alert.addAction(action)
