@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-hr-3be">
-                                <rect key="frame" x="16" y="20" width="288" height="339.5"/>
+                                <rect key="frame" x="16" y="20" width="288" height="346.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dA-w3-vYH">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
@@ -151,24 +151,34 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Yy6-iV-dGc">
-                                        <rect key="frame" x="0.0" y="309.5" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="309.5" width="288" height="37"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1e-Cn-OPY">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
-                                                <state key="normal" title="Set Color"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1e-Cn-OPY">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="37"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <state key="normal" title="Set Color" backgroundImage="LongButton">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="setColor" destination="BYZ-38-t0r" eventType="touchUpInside" id="GAG-AI-srf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZ0-4N-gLc">
-                                                <rect key="frame" x="134.5" y="0.0" width="39" height="30"/>
-                                                <state key="normal" title="Reset"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZ0-4N-gLc">
+                                                <rect key="frame" x="94" y="0.0" width="100" height="37"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <state key="normal" title="Reset" backgroundImage="LongButton">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="resetValues" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ebb-e2-ymG"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivV-de-BRc">
-                                                <rect key="frame" x="263" y="0.0" width="25" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivV-de-BRc">
+                                                <rect key="frame" x="194" y="0.0" width="94" height="37"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <state key="normal" title="Info" backgroundImage="LongButton">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="boZ-hY-q7R" kind="presentation" id="u9p-T2-Ysa"/>
                                                 </connections>
@@ -214,25 +224,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8I-vB-br4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="502"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4N-aD-Rea">
-                                <rect key="frame" x="140.5" y="510" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4N-aD-Rea">
+                                <rect key="frame" x="110" y="507" width="100" height="37"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <state key="normal" title="Close" backgroundImage="LongButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="close" destination="boZ-hY-q7R" eventType="touchUpInside" id="Zvg-YJ-6JF"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="b8I-vB-br4" firstAttribute="top" secondItem="PfM-nH-qK5" secondAttribute="top" id="3n7-3o-suf"/>
                             <constraint firstItem="PfM-nH-qK5" firstAttribute="trailing" secondItem="b8I-vB-br4" secondAttribute="trailing" id="4WF-NK-Gka"/>
                             <constraint firstItem="b8I-vB-br4" firstAttribute="leading" secondItem="PfM-nH-qK5" secondAttribute="leading" id="6G0-y0-9zB"/>
                             <constraint firstItem="l4N-aD-Rea" firstAttribute="centerX" secondItem="PfM-nH-qK5" secondAttribute="centerX" id="9OP-wr-vAB"/>
-                            <constraint firstItem="l4N-aD-Rea" firstAttribute="top" secondItem="b8I-vB-br4" secondAttribute="bottom" constant="8" id="uwa-me-uvv"/>
-                            <constraint firstItem="PfM-nH-qK5" firstAttribute="bottom" secondItem="l4N-aD-Rea" secondAttribute="bottom" constant="8" id="v63-th-u2f"/>
+                            <constraint firstItem="l4N-aD-Rea" firstAttribute="top" secondItem="b8I-vB-br4" secondAttribute="bottom" constant="4" id="uwa-me-uvv"/>
+                            <constraint firstItem="PfM-nH-qK5" firstAttribute="bottom" secondItem="l4N-aD-Rea" secondAttribute="bottom" constant="4" id="v63-th-u2f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PfM-nH-qK5"/>
                     </view>
@@ -246,4 +259,7 @@
             <point key="canvasLocation" x="939" y="137"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LongButton" width="100" height="37"/>
+    </resources>
 </document>
