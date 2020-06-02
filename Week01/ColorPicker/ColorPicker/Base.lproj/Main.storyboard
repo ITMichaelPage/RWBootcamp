@@ -193,6 +193,7 @@
                             <constraint firstItem="oeD-hr-3be" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Wlc-5C-qRI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oeD-hr-3be" secondAttribute="trailing" constant="16" id="bKM-QY-Dnv"/>
                             <constraint firstItem="oeD-hr-3be" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="dz3-Iu-TIw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oeD-hr-3be" secondAttribute="bottom" constant="20" id="wFw-aK-GAv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
