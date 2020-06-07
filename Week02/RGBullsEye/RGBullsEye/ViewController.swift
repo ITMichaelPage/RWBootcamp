@@ -44,7 +44,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var roundLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   
-  let game = BullsEyeGame()
+  var game = BullsEyeGame()
   var rgb = RGB()
   
   @IBAction func aSliderMoved(sender: UISlider) {
@@ -67,19 +67,45 @@ class ViewController: UIViewController {
   }
   
   @IBAction func showAlert(sender: AnyObject) {
-
+    guard let (title, message) = game.evaluatePlayerSelection(rgb) else {
+      return
+    }
+    
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    
+    let action = UIAlertAction(title: "OK", style: .default, handler: {
+      action in
+        self.game.startNewRound()
+        self.updateView()
+      })
+      
+      alert.addAction(action)
+      
+      present(alert, animated: true, completion: nil)
   }
   
   @IBAction func startOver(sender: AnyObject) {
-
+    game.startNewGame()
+    updateView()
   }
   
   func updateView() {
-
+    guard let targetValue = game.currentRound?.targetValue else {
+      return
+    }
+    
+    targetLabel.backgroundColor = UIColor.init(rgbStruct: targetValue)
+    redLabel.text = String("R \(Int(redSlider.value))")
+    greenLabel.text = String("G \(Int(greenSlider.value))")
+    blueLabel.text = String("B \(Int(blueSlider.value))")
+    roundLabel.text = String("Round: \(game.roundNumber)")
+    scoreLabel.text = String("Score: \(game.score)")
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    game.startNewGame()
+    updateView()
   }
 }
 
