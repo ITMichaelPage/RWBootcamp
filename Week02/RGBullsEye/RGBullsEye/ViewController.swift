@@ -22,6 +22,12 @@
 
 import UIKit
 
+enum SelectedSliderTag: Int {
+    case Red
+    case Green
+    case Blue
+}
+
 class ViewController: UIViewController {
   @IBOutlet weak var targetLabel: UILabel!
   @IBOutlet weak var targetTextLabel: UILabel!
@@ -42,7 +48,22 @@ class ViewController: UIViewController {
   var rgb = RGB()
   
   @IBAction func aSliderMoved(sender: UISlider) {
-
+    let roundedValue = Int(sender.value.rounded())
+    
+    switch sender.tag {
+    case SelectedSliderTag.Red.rawValue:
+      redLabel.text = String("R \(roundedValue)")
+      rgb.r = roundedValue
+    case SelectedSliderTag.Green.rawValue:
+      greenLabel.text = String("G \(roundedValue)")
+      rgb.g = roundedValue
+    case SelectedSliderTag.Blue.rawValue:
+      blueLabel.text = String("B \(roundedValue)")
+      rgb.b = roundedValue
+    default:
+      return
+    }
+    guessLabel.backgroundColor = UIColor.init(rgbStruct: rgb)
   }
   
   @IBAction func showAlert(sender: AnyObject) {
