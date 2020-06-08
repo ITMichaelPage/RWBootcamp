@@ -89,6 +89,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
       return
     }
     currentValue = numericValue
+    updateGuessValueTextColor()
     hitMeButton.isEnabled = true
   }
   
@@ -101,6 +102,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     let range = 1...100
     return range.contains(numericValue) ? true : false
+  }
+  
+  // Update the guess value text color to indicate proximity to correct answer
+  func updateGuessValueTextColor() {
+    if let quickDiff = quickDiff {
+      var textColor: UIColor
+      switch quickDiff {
+      case 0...5:
+        textColor = .red
+      case 6...50:
+        textColor = .orange
+      case 51...100:
+        textColor = .blue
+      default:
+        textColor = .black
+      }
+      guessValueTextField.textColor = textColor
+    }
   }
   
 }
