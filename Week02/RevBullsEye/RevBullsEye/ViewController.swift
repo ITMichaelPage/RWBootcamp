@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
   @IBOutlet weak var guessValueTextField: UITextField!
+  @IBOutlet weak var hitMeButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -83,9 +84,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
   
   @objc private func guessValueChanged() {
     guard let textValue = guessValueTextField.text, let numericValue = Int(textValue) else {
+      hitMeButton.isEnabled = false
       return
     }
     currentValue = numericValue
+    hitMeButton.isEnabled = true
   }
   
 }

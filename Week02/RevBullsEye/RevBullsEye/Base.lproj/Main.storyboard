@@ -110,6 +110,7 @@
                     </view>
                     <connections>
                         <outlet property="guessValueTextField" destination="YGB-AW-4qe" id="5dZ-st-aL2"/>
+                        <outlet property="hitMeButton" destination="cb6-qy-Ppl" id="yib-oj-vZD"/>
                         <outlet property="roundLabel" destination="BlE-KH-m68" id="4vx-Fa-f2Q"/>
                         <outlet property="scoreLabel" destination="5BQ-na-ZWz" id="b9e-qq-l1Z"/>
                         <outlet property="slider" destination="SeE-O6-5dd" id="L1R-Sr-QbT"/>
