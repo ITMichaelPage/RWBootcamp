@@ -77,6 +77,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     updateView()
   }
   
+  @IBAction func tapped(sender: AnyObject) {
+    view.endEditing(true)
+  }
+  
   @objc private func guessValueChanged() {
     guard let textValue = guessValueTextField.text, let numericValue = Int(textValue) else {
       return
