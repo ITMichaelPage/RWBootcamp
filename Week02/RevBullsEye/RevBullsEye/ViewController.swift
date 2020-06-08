@@ -70,6 +70,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     scoreLabel.text = String("Score: \(score)")
     roundLabel.text = String("Round: \(round)")
     guessValueTextField.text = ""
+    hitMeButton.isEnabled = false
     currentValue = 0
   }
   
