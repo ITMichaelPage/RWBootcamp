@@ -39,6 +39,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // Do any additional setup after loading the view.
     game.startNewGame()
     updateView()
+    themeSlider()
     
     guessValueTextField.delegate = self
     guessValueTextField.addTarget(self, action: #selector(guessValueChanged), for: .editingChanged)
@@ -66,9 +67,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     guard let targetValue = targetValue else {
       return
     }
-    slider.setValue(Float(targetValue) / 100, animated: true)
-    scoreLabel.text = String("Score: \(score)")
-    roundLabel.text = String("Round: \(round)")
+    slider.setValue(Float(targetValue), animated: true)
+    scoreLabel.text = String(score)
+    roundLabel.text = String(round)
     guessValueTextField.text = ""
     hitMeButton.isEnabled = false
     currentValue = 0
@@ -120,6 +121,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
       }
       guessValueTextField.textColor = textColor
     }
+  }
+  
+  func themeSlider() {
+    slider.isUserInteractionEnabled = false
+    let thumbImageNormal = #imageLiteral(resourceName: "SliderThumb-Normal")
+    slider.setThumbImage(thumbImageNormal, for: .normal)
+    
+    let insets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+    
+    let trackLeftImage = #imageLiteral(resourceName: "SliderTrackLeft")
+    let trackLeftResizable = trackLeftImage.resizableImage(withCapInsets: insets)
+    slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+    
+    let trackRightImage = #imageLiteral(resourceName: "SliderTrackRight")
+    let trackRightResizable = trackRightImage.resizableImage(withCapInsets: insets)
+    slider.setMaximumTrackImage(trackRightResizable, for: .normal)
   }
   
 }

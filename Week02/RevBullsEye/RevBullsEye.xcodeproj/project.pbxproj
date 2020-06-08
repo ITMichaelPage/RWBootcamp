@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		352A67AB20D1B72500D5BF05 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A67AA20D1B72500D5BF05 /* AboutViewController.swift */; };
+		AE07ED22248E560D00C04ECB /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 352A67AE20D1CA7A00D5BF05 /* BullsEye.html */; };
 		AE0A1960248CB2CD007EDD32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0A195F248CB2CD007EDD32 /* AppDelegate.swift */; };
 		AE0A1962248CB2CD007EDD32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0A1961248CB2CD007EDD32 /* SceneDelegate.swift */; };
 		AE0A1964248CB2CD007EDD32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0A1963248CB2CD007EDD32 /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		352A67AA20D1B72500D5BF05 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		352A67AE20D1CA7A00D5BF05 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 		AE0A195C248CB2CD007EDD32 /* RevBullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevBullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE0A195F248CB2CD007EDD32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE0A1961248CB2CD007EDD32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +32,7 @@
 		AE0A196D248CB2CE007EDD32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE0A1973248DD86E007EDD32 /* BullsEyeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeGame.swift; sourceTree = "<group>"; };
 		AE0A1975248DD894007EDD32 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
+		E1C7066F2475899500C6615E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +51,7 @@
 			children = (
 				AE0A195E248CB2CD007EDD32 /* RevBullsEye */,
 				AE0A195D248CB2CD007EDD32 /* Products */,
+				E1C7066E2475899500C6615E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,13 +70,23 @@
 				AE0A1961248CB2CD007EDD32 /* SceneDelegate.swift */,
 				AE0A1963248CB2CD007EDD32 /* ViewController.swift */,
 				AE0A1965248CB2CD007EDD32 /* Main.storyboard */,
+				352A67AA20D1B72500D5BF05 /* AboutViewController.swift */,
 				AE0A1968248CB2CE007EDD32 /* Assets.xcassets */,
 				AE0A196A248CB2CE007EDD32 /* LaunchScreen.storyboard */,
 				AE0A196D248CB2CE007EDD32 /* Info.plist */,
+				352A67AE20D1CA7A00D5BF05 /* BullsEye.html */,
 				AE0A1973248DD86E007EDD32 /* BullsEyeGame.swift */,
 				AE0A1975248DD894007EDD32 /* Round.swift */,
 			);
 			path = RevBullsEye;
+			sourceTree = "<group>";
+		};
+		E1C7066E2475899500C6615E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1C7066F2475899500C6615E /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE07ED22248E560D00C04ECB /* BullsEye.html in Resources */,
 				AE0A196C248CB2CE007EDD32 /* LaunchScreen.storyboard in Resources */,
 				AE0A1969248CB2CE007EDD32 /* Assets.xcassets in Resources */,
 				AE0A1967248CB2CD007EDD32 /* Main.storyboard in Resources */,
@@ -145,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE0A1974248DD86E007EDD32 /* BullsEyeGame.swift in Sources */,
+				352A67AB20D1B72500D5BF05 /* AboutViewController.swift in Sources */,
 				AE0A1964248CB2CD007EDD32 /* ViewController.swift in Sources */,
 				AE0A1960248CB2CD007EDD32 /* AppDelegate.swift in Sources */,
 				AE0A1976248DD894007EDD32 /* Round.swift in Sources */,
