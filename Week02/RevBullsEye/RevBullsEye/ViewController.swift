@@ -91,5 +91,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     hitMeButton.isEnabled = true
   }
   
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    let textFieldPriorValue = textField.text ?? ""
+    let textFieldEnteredValue = string
+    let textFieldValue = textFieldPriorValue + textFieldEnteredValue
+    guard let numericValue = Int(textFieldValue) else {
+      return false
+    }
+    let range = 1...100
+    return range.contains(numericValue) ? true : false
+  }
+  
 }
 
