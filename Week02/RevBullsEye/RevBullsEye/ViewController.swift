@@ -29,6 +29,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
   }
   
   @IBOutlet weak var slider: UISlider!
+  @IBOutlet weak var scoreLabel: UILabel!
+  @IBOutlet weak var roundLabel: UILabel!
   @IBOutlet weak var guessValueTextField: UITextField!
   
   override func viewDidLoad() {
@@ -64,8 +66,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
       return
     }
     slider.setValue(Float(targetValue) / 100, animated: true)
+    scoreLabel.text = String("Score: \(score)")
+    roundLabel.text = String("Round: \(round)")
     guessValueTextField.text = ""
     currentValue = 0
+  }
+  
+  @IBAction func startNewGame() {
+    game.startNewGame()
+    updateView()
   }
   
   @objc private func guessValueChanged() {
