@@ -15,6 +15,7 @@
 		352A67AB20D1B72500D5BF05 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A67AA20D1B72500D5BF05 /* AboutViewController.swift */; };
 		352A67AD20D1B8F400D5BF05 /* AboutAuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A67AC20D1B8F400D5BF05 /* AboutAuthorViewController.swift */; };
 		AE07ED22248E560D00C04ECB /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 352A67AE20D1CA7A00D5BF05 /* BullsEye.html */; };
+		AE533EEE248EFAB3001E2E55 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE533EED248EFAB3001E2E55 /* UIColor.swift */; };
 		AEC65AF3248B4EC5000A4618 /* BullsEyeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65AF2248B4EC5000A4618 /* BullsEyeGame.swift */; };
 		AEC65AF5248B4FAB000A4618 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65AF4248B4FAB000A4618 /* Round.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		352A67AA20D1B72500D5BF05 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		352A67AC20D1B8F400D5BF05 /* AboutAuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAuthorViewController.swift; sourceTree = "<group>"; };
 		352A67AE20D1CA7A00D5BF05 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
+		AE533EED248EFAB3001E2E55 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		AEC65AF2248B4EC5000A4618 /* BullsEyeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeGame.swift; sourceTree = "<group>"; };
 		AEC65AF4248B4FAB000A4618 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		E1C7066F2475899500C6615E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -77,8 +79,17 @@
 				352A67AE20D1CA7A00D5BF05 /* BullsEye.html */,
 				AEC65AF2248B4EC5000A4618 /* BullsEyeGame.swift */,
 				AEC65AF4248B4FAB000A4618 /* Round.swift */,
+				AE533EEC248EFA87001E2E55 /* Extensions */,
 			);
 			path = BullsEye;
+			sourceTree = "<group>";
+		};
+		AE533EEC248EFA87001E2E55 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AE533EED248EFAB3001E2E55 /* UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E1C7066E2475899500C6615E /* Frameworks */ = {
@@ -162,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				352A67AB20D1B72500D5BF05 /* AboutViewController.swift in Sources */,
+				AE533EEE248EFAB3001E2E55 /* UIColor.swift in Sources */,
 				352A679B20D171E800D5BF05 /* ViewController.swift in Sources */,
 				352A679920D171E800D5BF05 /* AppDelegate.swift in Sources */,
 				352A67AD20D1B8F400D5BF05 /* AboutAuthorViewController.swift in Sources */,
