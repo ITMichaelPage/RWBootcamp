@@ -56,10 +56,14 @@ class HomeViewController: UIViewController{
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    registerForTheme()
+    // Display LightTheme be default
+    ThemeManager.shared.set(theme: LightTheme())
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    unregisterForTheme()
   }
 
   func setupViews() {
@@ -121,5 +125,38 @@ class HomeViewController: UIViewController{
   }
   
   @IBAction func switchPressed(_ sender: Any) {
+    let theme: Theme = themeSwitch.isOn ? DarkTheme() : LightTheme()
+    ThemeManager.shared.set(theme: theme)
   }
+}
+
+extension HomeViewController: Themeable {
+  
+  func registerForTheme() {
+    NotificationCenter.default.addObserver(self, selector: #selector(themeChanged), name: Notification.Name.init("themeChanged"), object: nil)
+  }
+  
+  func unregisterForTheme() {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
+  @objc func themeChanged() {
+    guard let theme = ThemeManager.shared.currentTheme else {
+      return
+    }
+    
+    let views = [view1, view2, view3]
+    views.forEach { (view) in
+      view?.backgroundColor = theme.widgetBackgroundColor
+      view?.layer.borderColor = theme.borderColor.cgColor
+    }
+    
+    let labels = [headingLabel, view1TextLabel, view2TextLabel, view3TextLabel]
+    labels.forEach { (label) in
+      label?.textColor = theme.textColor
+    }
+    
+    view.backgroundColor = theme.backgroundColor
+  }
+  
 }
