@@ -43,6 +43,8 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
     
+  let cryptoData = DataGenerator.shared.generateData()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
@@ -94,12 +96,28 @@ class HomeViewController: UIViewController{
   }
   
   func setView1Data() {
+    let ownedCryptoCurrencyNames = cryptoData?.reduce("") { (result, cryptoCurrency) in
+      result == "" ? cryptoCurrency.name : result + ", " + cryptoCurrency.name
+    }
+    view1TextLabel.text = ownedCryptoCurrencyNames
   }
   
   func setView2Data() {
+    let increasedValueCryptoCurrencyNames = cryptoData?.filter{
+      $0.currentValue > $0.previousValue
+    }.reduce("") { (result, cryptoCurrency) in
+      result == "" ? cryptoCurrency.name : result + ", " + cryptoCurrency.name
+    }
+    view2TextLabel.text = increasedValueCryptoCurrencyNames
   }
   
   func setView3Data() {
+    let decreasedValueCryptoCurrencyNames = cryptoData?.filter{
+        $0.currentValue < $0.previousValue
+      }.reduce("") { (result, cryptoCurrency) in
+        result == "" ? cryptoCurrency.name : result + ", " + cryptoCurrency.name
+      }
+    view3TextLabel.text = decreasedValueCryptoCurrencyNames
   }
   
   @IBAction func switchPressed(_ sender: Any) {
