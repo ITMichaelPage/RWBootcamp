@@ -57,6 +57,8 @@ class HomeViewController: UIViewController{
     setView1Data()
     setView2Data()
     setView3Data()
+    setMostFallingData()
+    setMostRisingData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +102,20 @@ class HomeViewController: UIViewController{
         result == "" ? cryptoCurrency.name : result + ", " + cryptoCurrency.name
       }
     view3TextLabel.text = decreasedValueCryptoCurrencyNames
+  }
+  
+  func setMostFallingData() {
+    let mostFallingCryptoCurrencyValue = cryptoData?.map{
+      $0.currentValue - $0.previousValue
+    }.min()
+    mostFallingValueLabel.text = String(format: "%.1f", mostFallingCryptoCurrencyValue ?? 0)
+  }
+  
+  func setMostRisingData() {
+    let mostRisingCryptoCurrencyValue = cryptoData?.map{
+      $0.currentValue - $0.previousValue
+    }.max()
+    mostRisingValueLabel.text = String(format: "%.1f", mostRisingCryptoCurrencyValue ?? 0)
   }
   
   @IBAction func switchPressed(_ sender: Any) {
