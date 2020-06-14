@@ -132,7 +132,7 @@ class HomeViewController: UIViewController{
     }
     mostFallingHeadingLabel.text = String(mostFallingCryptoCurrency.name)
     mostFallingImageView.downloadImage(url: mostFallingCryptoCurrency.imageURLString)
-    mostFallingValueLabel.text = String(format: "%.1f", mostFallingCryptoCurrency.priceChange24h)
+    mostFallingValueLabel.text = mostFallingCryptoCurrency.priceChange24h.asDollarString()
   }
   
   func setMostRisingData() {
@@ -147,7 +147,7 @@ class HomeViewController: UIViewController{
     }
     mostRisingHeadingLabel.text = String(mostRisingCryptoCurrency.name)
     mostRisingImageView.downloadImage(url: mostRisingCryptoCurrency.imageURLString)
-    mostRisingValueLabel.text = String(format: "%.1f", mostRisingCryptoCurrency.priceChange24h)
+    mostRisingValueLabel.text = mostRisingCryptoCurrency.priceChange24h.asDollarString()
   }
   
   @IBAction func switchPressed(_ sender: Any) {
