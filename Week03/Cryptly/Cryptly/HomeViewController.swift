@@ -37,12 +37,18 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view1: SummaryView!
   @IBOutlet weak var view2: SummaryView!
   @IBOutlet weak var view3: SummaryView!
+  @IBOutlet weak var mostFallingView: SummaryView!
+  @IBOutlet weak var mostRisingView: SummaryView!
   @IBOutlet weak var headingLabel: UILabel!
   @IBOutlet weak var view1TextLabel: UILabel!
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
+  @IBOutlet weak var mostFallingHeadingLabel: UILabel!
+  @IBOutlet weak var mostFallingValueLabel: UILabel!
+  @IBOutlet weak var mostRisingHeadingLabel: UILabel!
+  @IBOutlet weak var mostRisingValueLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
-    
+  
   let cryptoData = DataGenerator.shared.generateData()
   
   override func viewDidLoad() {
@@ -117,13 +123,13 @@ extension HomeViewController: Themeable {
       return
     }
     
-    let views = [view1, view2, view3]
+    let views = [view1, view2, view3, mostFallingView, mostRisingView]
     views.forEach { (view) in
       view?.backgroundColor = theme.widgetBackgroundColor
       view?.layer.borderColor = theme.borderColor.cgColor
     }
     
-    let labels = [headingLabel, view1TextLabel, view2TextLabel, view3TextLabel]
+    let labels = [headingLabel, view1TextLabel, view2TextLabel, view3TextLabel, mostFallingHeadingLabel, mostFallingValueLabel, mostRisingHeadingLabel, mostRisingValueLabel]
     labels.forEach { (label) in
       label?.textColor = theme.textColor
     }
