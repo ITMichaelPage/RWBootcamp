@@ -48,6 +48,8 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var mostRisingHeadingLabel: UILabel!
   @IBOutlet weak var mostRisingImageView: UIImageView!
   @IBOutlet weak var mostRisingValueLabel: UILabel!
+  @IBOutlet weak var refreshButton: UIBarButtonItem!
+  @IBOutlet weak var dataUpdatingActivityIndicator: UIActivityIndicatorView!
   @IBOutlet weak var themeSwitch: UISwitch!
   
   var cryptoData: [CryptoCurrency]?
@@ -63,9 +65,7 @@ class HomeViewController: UIViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     setupLabels()
-    DataGenerator.shared.updateData {
-      self.cryptoData = DataGenerator.shared.cryptoCurrencies
-    }
+    updateCryptoData(self)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +88,7 @@ class HomeViewController: UIViewController{
     setView3Data()
     setMostFallingData()
     setMostRisingData()
+    dataUpdatingActivityIndicator.stopAnimating()
   }
   
   func setupLabels() {
@@ -148,6 +149,13 @@ class HomeViewController: UIViewController{
     mostRisingHeadingLabel.text = String(mostRisingCryptoCurrency.name)
     mostRisingImageView.downloadImage(url: mostRisingCryptoCurrency.imageURLString)
     mostRisingValueLabel.text = mostRisingCryptoCurrency.priceChange24h.asDollarString()
+  }
+  
+  @IBAction func updateCryptoData(_ sender: Any) {
+    dataUpdatingActivityIndicator.startAnimating()
+    DataGenerator.shared.updateData {
+      self.cryptoData = DataGenerator.shared.cryptoCurrencies
+    }
   }
   
   @IBAction func switchPressed(_ sender: Any) {
