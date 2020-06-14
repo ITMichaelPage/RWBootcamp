@@ -39,7 +39,6 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view3: SummaryView!
   @IBOutlet weak var mostFallingView: SummaryView!
   @IBOutlet weak var mostRisingView: SummaryView!
-  @IBOutlet weak var headingLabel: UILabel!
   @IBOutlet weak var view1TextLabel: UILabel!
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
@@ -82,7 +81,6 @@ class HomeViewController: UIViewController{
   }
   
   func setupLabels() {
-    headingLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
     view1TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
     view2TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
   }
@@ -153,7 +151,7 @@ extension HomeViewController: Themeable {
       view?.layer.borderColor = theme.borderColor.cgColor
     }
     
-    let labels = [headingLabel, view1TextLabel, view2TextLabel, view3TextLabel, mostFallingHeadingLabel, mostFallingValueLabel, mostRisingHeadingLabel, mostRisingValueLabel]
+    let labels = [view1TextLabel, view2TextLabel, view3TextLabel, mostFallingHeadingLabel, mostFallingValueLabel, mostRisingHeadingLabel, mostRisingValueLabel]
     labels.forEach { (label) in
       label?.textColor = theme.textColor
     }
