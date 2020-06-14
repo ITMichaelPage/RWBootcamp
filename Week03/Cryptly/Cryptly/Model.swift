@@ -32,9 +32,29 @@
 
 import Foundation
 
+enum Trend: Int, Codable {
+  case rising, falling, unchanging
+}
+
 struct CryptoCurrency: Codable {
   var name: String
   var symbol: String
   var currentValue: Double
   var previousValue: Double
+  var trend: Trend {
+    switch percentageRise {
+    case _ where percentageRise > 0:
+      return .rising
+    case _ where percentageRise < 0:
+      return .falling
+    default:
+      return .unchanging
+    }
+  }
+  var percentageRise: Float {
+    guard previousValue != 0 else {
+      return 0
+    }
+    return Float((currentValue / previousValue) * 100)
+  }
 }
