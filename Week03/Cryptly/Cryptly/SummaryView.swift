@@ -32,7 +32,13 @@
 
 import UIKit
 
-class SummaryView: UIView {
+class SummaryView: UIView, Roundable {
+  
+  var cornerRadius: CGFloat = 0 {
+    didSet {
+      round()
+    }
+  }
   
   required init(coder: NSCoder) {
     super.init(coder: coder)!
@@ -40,13 +46,18 @@ class SummaryView: UIView {
   }
   
   func setup() {
-    self.backgroundColor = .systemGray6
-    self.layer.borderColor = UIColor.lightGray.cgColor
-    self.layer.borderWidth = 1.0
-    self.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    self.layer.shadowOffset = CGSize(width: 0, height: 2)
-    self.layer.shadowRadius = 4
-    self.layer.shadowOpacity = 0.8
+    backgroundColor = .systemGray6
+    layer.borderColor = UIColor.lightGray.cgColor
+    layer.borderWidth = 1.0
+    layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+    layer.shadowOffset = CGSize(width: 0, height: 2)
+    layer.shadowRadius = 4
+    layer.shadowOpacity = 0.8
+    cornerRadius = 10
+  }
+  
+  func round() {
+    layer.cornerRadius = cornerRadius
   }
   
 }
