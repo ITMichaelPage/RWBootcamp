@@ -49,16 +49,14 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var mostRisingValueLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
   
-  let cryptoData = DataGenerator.shared.generateData()
+  var cryptoData: [CryptoCurrency]?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setupLabels()
-    setView1Data()
-    setView2Data()
-    setView3Data()
-    setMostFallingData()
-    setMostRisingData()
+    DataGenerator.shared.updateData {
+      self.cryptoData = DataGenerator.shared.cryptoCurrencies
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -66,11 +64,21 @@ class HomeViewController: UIViewController{
     registerForTheme()
     // Display LightTheme be default
     ThemeManager.shared.set(theme: LightTheme())
+    registerForDataUpdated()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     unregisterForTheme()
+    unregisterForDataUpdated()
+  }
+  
+  func updateViewData() {
+    setView1Data()
+    setView2Data()
+    setView3Data()
+    setMostFallingData()
+    setMostRisingData()
   }
   
   func setupLabels() {
@@ -131,7 +139,7 @@ extension HomeViewController: Themeable {
   }
   
   func unregisterForTheme() {
-    NotificationCenter.default.removeObserver(self)
+    NotificationCenter.default.removeObserver(self, name: Notification.Name.init("themeChanged"), object: nil)
   }
   
   @objc func themeChanged() {
@@ -151,6 +159,24 @@ extension HomeViewController: Themeable {
     }
     
     view.backgroundColor = theme.backgroundColor
+  }
+  
+}
+
+extension HomeViewController {
+  
+  func registerForDataUpdated() {
+    NotificationCenter.default.addObserver(self, selector: #selector(dataUpdated), name: Notification.Name.init("dataUpdated"), object: nil)
+  }
+  
+  func unregisterForDataUpdated() {
+    NotificationCenter.default.removeObserver(self, name: Notification.Name.init("dataUpdated"), object: nil)
+  }
+  
+  @objc func dataUpdated() {
+    DispatchQueue.main.async {
+      self.updateViewData()
+    }
   }
   
 }

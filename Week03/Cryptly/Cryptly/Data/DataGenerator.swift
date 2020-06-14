@@ -34,22 +34,20 @@
 import Foundation
 
 class DataGenerator {
-    static let shared = DataGenerator()
-    private init() { }
-    
-    func generateData() -> [CryptoCurrency]? {
-        
-        if let filePath = Bundle.main.path(forResource: "Data", ofType: "json") {
-            let fileURL = URL(fileURLWithPath: filePath)
-            do {
-                let data = try Data(contentsOf: fileURL)
-                let decoder = JSONDecoder()
-                let decodedData = try decoder.decode([CryptoCurrency].self, from: data)
-                return decodedData
-            } catch let error {
-                print("Error in parsing \(error.localizedDescription)")
-            }
-        }
-        return nil
+  
+  static let shared = DataGenerator()
+
+  var cryptoCurrencies: [CryptoCurrency]? {
+    didSet {
+        NotificationCenter.default.post(name: Notification.Name.init("dataUpdated"), object: nil)
     }
+  }
+
+  func updateData(completionHandler: @escaping () -> Void) {
+    CoinGeckoAPI().getTopCoinsByMarketCap { (cryptoCurrencies) in
+      self.cryptoCurrencies = cryptoCurrencies
+      completionHandler()
+    }
+  }
+  
 }
