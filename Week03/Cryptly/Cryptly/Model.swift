@@ -46,20 +46,17 @@ struct CryptoCurrency: Codable {
   var priceChange24h: Double
   var imageURLString: String
   var trend: Trend {
-    switch percentageRise {
-    case _ where percentageRise > 0:
+    switch valueRise {
+    case _ where valueRise > 0:
       return .rising
-    case _ where percentageRise < 0:
+    case _ where valueRise < 0:
       return .falling
     default:
       return .unchanging
     }
   }
-  var percentageRise: Float {
-    guard previousValue != 0 else {
-      return 0
-    }
-    return Float((currentValue / previousValue) * 100)
+  var valueRise: Float {
+    return Float(currentValue - previousValue)
   }
   
   private enum CodingKeys: String, CodingKey {
