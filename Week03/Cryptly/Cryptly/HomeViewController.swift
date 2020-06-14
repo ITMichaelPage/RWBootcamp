@@ -43,12 +43,22 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var mostFallingHeadingLabel: UILabel!
+  @IBOutlet weak var mostFallingImageView: UIImageView!
   @IBOutlet weak var mostFallingValueLabel: UILabel!
   @IBOutlet weak var mostRisingHeadingLabel: UILabel!
+  @IBOutlet weak var mostRisingImageView: UIImageView!
   @IBOutlet weak var mostRisingValueLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
   
   var cryptoData: [CryptoCurrency]?
+  var cryptoCurrenciesSortedByMostRising: [CryptoCurrency] {
+    guard let cryptoData = cryptoData else {
+      return []
+    }
+    return cryptoData.sorted {
+      ($0.currentValue - $0.previousValue) > ($1.currentValue - $1.previousValue)
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -111,17 +121,33 @@ class HomeViewController: UIViewController{
   }
   
   func setMostFallingData() {
+    // The code below demonstrates original approach, commented out as code is now redundant.
+    /*
     let mostFallingCryptoCurrencyValue = cryptoData?.map{
       $0.currentValue - $0.previousValue
     }.min()
-    mostFallingValueLabel.text = String(format: "%.1f", mostFallingCryptoCurrencyValue ?? 0)
+    */
+    guard let mostFallingCryptoCurrency = cryptoCurrenciesSortedByMostRising.last else {
+      return
+    }
+    mostFallingHeadingLabel.text = String(mostFallingCryptoCurrency.name)
+    mostFallingImageView.downloadImage(url: mostFallingCryptoCurrency.imageURLString)
+    mostFallingValueLabel.text = String(format: "%.1f", mostFallingCryptoCurrency.priceChange24h)
   }
   
   func setMostRisingData() {
+    // The code below demonstrates original approach, commented out as code is now redundant.
+    /*
     let mostRisingCryptoCurrencyValue = cryptoData?.map{
       $0.currentValue - $0.previousValue
     }.max()
-    mostRisingValueLabel.text = String(format: "%.1f", mostRisingCryptoCurrencyValue ?? 0)
+    */
+    guard let mostRisingCryptoCurrency = cryptoCurrenciesSortedByMostRising.first else {
+      return
+    }
+    mostRisingHeadingLabel.text = String(mostRisingCryptoCurrency.name)
+    mostRisingImageView.downloadImage(url: mostRisingCryptoCurrency.imageURLString)
+    mostRisingValueLabel.text = String(format: "%.1f", mostRisingCryptoCurrency.priceChange24h)
   }
   
   @IBAction func switchPressed(_ sender: Any) {

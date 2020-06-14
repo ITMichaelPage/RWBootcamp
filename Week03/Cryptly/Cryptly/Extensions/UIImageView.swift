@@ -1,15 +1,15 @@
 /// Copyright (c) 2020 Razeware LLC
-///
+/// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-///
+/// 
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-///
+/// 
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-///
+/// 
 /// This project and source code may use libraries or frameworks that are
 /// released under various Open-Source licenses. Use of those libraries and
 /// frameworks are governed by their own individual licenses.
@@ -30,43 +30,31 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-enum Trend: Int, Codable {
-  case rising, falling, unchanging
-}
-
-struct CryptoCurrency: Codable {
-  var name: String
-  var symbol: String
-  var currentValue: Double
-  var previousValue: Double {
-    return currentValue - priceChange24h
-  }
-  var priceChange24h: Double
-  var imageURLString: String
-  var trend: Trend {
-    switch percentageRise {
-    case _ where percentageRise > 0:
-      return .rising
-    case _ where percentageRise < 0:
-      return .falling
-    default:
-      return .unchanging
+extension UIImageView {
+  
+  func downloadImage(url: String) {
+    guard let url = URL(string: url) else {
+      return
     }
-  }
-  var percentageRise: Float {
-    guard previousValue != 0 else {
-      return 0
-    }
-    return Float((currentValue / previousValue) * 100)
+    self.downloadImage(url: url)
   }
   
-  private enum CodingKeys: String, CodingKey {
-    case name
-    case symbol
-    case currentValue = "current_price"
-    case priceChange24h = "price_change_24h"
-    case imageURLString = "image"
+  func downloadImage(url: URL) {
+    let session = URLSession.shared
+    
+    let downloadTask = session.downloadTask(with: url) { [weak self] (url, response, error) in
+      if error == nil, let localDiskURL = url, let imageData = try? Data(contentsOf: localDiskURL), let image = UIImage(data: imageData) {
+        DispatchQueue.main.async {
+          if let strongSelf = self {
+            strongSelf.image = image
+          }
+        }
+      }
+    }
+    
+    downloadTask.resume()
   }
+  
 }

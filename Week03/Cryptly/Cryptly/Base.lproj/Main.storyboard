@@ -100,13 +100,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Falling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oh-ic-DUJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nLk-y5-c5x">
+                                                        <rect key="frame" x="0.0" y="40" width="177" height="40"/>
+                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgV-cF-8sJ">
-                                                        <rect key="frame" x="0.0" y="60" width="177" height="60"/>
+                                                        <rect key="frame" x="0.0" y="80" width="177" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -130,13 +133,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Rising" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXL-Te-svH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jyy-9E-lVq">
+                                                        <rect key="frame" x="0.0" y="40" width="177" height="40"/>
+                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsV-1k-Dqb">
-                                                        <rect key="frame" x="0.0" y="60" width="177" height="60"/>
+                                                        <rect key="frame" x="0.0" y="80" width="177" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -168,6 +174,7 @@
                             <constraint firstItem="DNM-6D-sSb" firstAttribute="leading" secondItem="mvF-6T-uLm" secondAttribute="leading" constant="20" id="e8x-Td-nAc"/>
                             <constraint firstItem="DpI-h7-D97" firstAttribute="top" secondItem="4oo-MW-3FZ" secondAttribute="bottom" constant="20" id="g2p-cS-0t7"/>
                             <constraint firstItem="DNM-6D-sSb" firstAttribute="top" secondItem="DpI-h7-D97" secondAttribute="bottom" constant="20" id="mig-iG-dA2"/>
+                            <constraint firstItem="4oo-MW-3FZ" firstAttribute="top" secondItem="Fco-UW-GoN" secondAttribute="top" constant="20" id="mjd-ns-amj"/>
                             <constraint firstItem="es9-ob-1Xr" firstAttribute="leading" secondItem="Fco-UW-GoN" secondAttribute="leading" constant="20" id="ysq-Kq-Qfx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fco-UW-GoN"/>
@@ -185,9 +192,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mostFallingHeadingLabel" destination="5Oh-ic-DUJ" id="hwa-tu-JZB"/>
+                        <outlet property="mostFallingImageView" destination="nLk-y5-c5x" id="htD-NS-h3u"/>
                         <outlet property="mostFallingValueLabel" destination="jgV-cF-8sJ" id="gss-TS-Nrp"/>
                         <outlet property="mostFallingView" destination="j7P-YW-F3h" id="haC-3Z-VLc"/>
                         <outlet property="mostRisingHeadingLabel" destination="zXL-Te-svH" id="DeU-Rh-FHU"/>
+                        <outlet property="mostRisingImageView" destination="jyy-9E-lVq" id="EY0-7Q-hmi"/>
                         <outlet property="mostRisingValueLabel" destination="XsV-1k-Dqb" id="lhR-FM-ZTb"/>
                         <outlet property="mostRisingView" destination="9Dh-nB-FxX" id="7GO-at-isZ"/>
                         <outlet property="themeSwitch" destination="kW6-Ms-UCP" id="Vpv-W6-XtS"/>
