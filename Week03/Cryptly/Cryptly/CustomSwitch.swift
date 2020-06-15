@@ -156,7 +156,7 @@ class CustomSwitch: UIControl {
     layoutTrackLayer(for: layer.bounds)
     layoutInnerLayer(for: layer.bounds)
     layoutThumbLayer(for: layer.bounds)
-    contentsLayer.frame = layer.bounds
+    layoutContentsLayer(for: layer.bounds)
     layoutOffContentLayer(for: layer.bounds)
     layoutOnContentLayer(for: layer.bounds)
   }
@@ -182,6 +182,11 @@ class CustomSwitch: UIControl {
     let origin = getThumbOrigin(for: size.width)
     thumbLayer.frame = CGRect(origin: origin, size: size)
     thumbLayer.cornerRadius = size.height / 2
+  }
+  
+  func layoutContentsLayer(for bounds: CGRect) {
+    contentsLayer.frame = bounds
+    contentsLayer.cornerRadius = contentsLayer.bounds.height / 2
   }
   
   func layoutOffContentLayer(for bounds: CGRect) {
