@@ -53,14 +53,6 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var themeSwitch: UISwitch!
   
   var cryptoData: [CryptoCurrency]?
-  var cryptoCurrenciesSortedByMostRising: [CryptoCurrency] {
-    guard let cryptoData = cryptoData else {
-      return []
-    }
-    return cryptoData.sorted {
-      ($0.currentValue - $0.previousValue) > ($1.currentValue - $1.previousValue)
-    }
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
