@@ -122,13 +122,12 @@ class HomeViewController: UIViewController{
   }
   
   func setMostFallingData() {
-    // The code below demonstrates original approach, commented out as code is now redundant.
-    /*
-    let mostFallingCryptoCurrencyValue = cryptoData?.map{
-      $0.currentValue - $0.previousValue
-    }.min()
-    */
-    guard let mostFallingCryptoCurrency = cryptoCurrenciesSortedByMostRising.last else {
+    let mostFallingCryptoCurrency = cryptoData?.filter {
+      $0.trend == .falling
+    }.max(by: { $0.valueRise > $1.valueRise })
+    
+    guard mostFallingCryptoCurrency != nil else {
+      mostFallingValueLabel.text = "N/A"
       return
     }
     mostFallingHeadingLabel.text = String(mostFallingCryptoCurrency.name)
@@ -137,13 +136,12 @@ class HomeViewController: UIViewController{
   }
   
   func setMostRisingData() {
-    // The code below demonstrates original approach, commented out as code is now redundant.
-    /*
-    let mostRisingCryptoCurrencyValue = cryptoData?.map{
-      $0.currentValue - $0.previousValue
-    }.max()
-    */
-    guard let mostRisingCryptoCurrency = cryptoCurrenciesSortedByMostRising.first else {
+    let mostRisingCryptoCurrency = cryptoData?.filter {
+      $0.trend == .rising
+    }.max(by: { $0.valueRise < $1.valueRise })
+    
+    guard mostRisingCryptoCurrency != nil else {
+      mostRisingValueLabel.text = "N/A"
       return
     }
     mostRisingHeadingLabel.text = String(mostRisingCryptoCurrency.name)
