@@ -47,7 +47,7 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var mostFallingValueLabel: UILabel!
   @IBOutlet weak var mostRisingHeadingLabel: UILabel!
   @IBOutlet weak var mostRisingValueLabel: UILabel!
-  @IBOutlet weak var themeSwitch: UISwitch!
+  @IBOutlet weak var themeSwitch: CustomSwitch!
   
   let cryptoData = DataGenerator.shared.generateData()
   

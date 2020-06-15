@@ -183,14 +183,15 @@
                         <viewLayoutGuide key="safeArea" id="Fco-UW-GoN"/>
                     </view>
                     <navigationItem key="navigationItem" id="mL2-rx-U9s">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ug4-v8-lt1">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="kW6-Ms-UCP">
-                                <rect key="frame" x="343" y="6.5" width="51" height="31"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="NS0-9h-Uu1">
+                            <view key="customView" contentMode="scaleToFill" id="GNj-hx-sOr" customClass="CustomSwitch" customModule="Cryptly" customModuleProvider="target">
+                                <rect key="frame" x="243" y="5.6666666666666679" width="92" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="switchPressed:" destination="5r6-eT-R08" eventType="valueChanged" id="enD-a4-1Dd"/>
+                                    <action selector="switchPressed:" destination="5r6-eT-R08" eventType="valueChanged" id="3qF-k0-3ZX"/>
                                 </connections>
-                            </switch>
+                            </view>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -201,7 +202,7 @@
                         <outlet property="mostRisingHeadingLabel" destination="zXL-Te-svH" id="DeU-Rh-FHU"/>
                         <outlet property="mostRisingValueLabel" destination="XsV-1k-Dqb" id="lhR-FM-ZTb"/>
                         <outlet property="mostRisingView" destination="9Dh-nB-FxX" id="7GO-at-isZ"/>
-                        <outlet property="themeSwitch" destination="kW6-Ms-UCP" id="Vpv-W6-XtS"/>
+                        <outlet property="themeSwitch" destination="GNj-hx-sOr" id="RaK-Wy-Cx7"/>
                         <outlet property="view1" destination="4oo-MW-3FZ" id="7mY-sa-8ZH"/>
                         <outlet property="view1TextLabel" destination="2pP-O3-GIK" id="L2m-KB-P6Q"/>
                         <outlet property="view2" destination="DpI-h7-D97" id="Y0z-cT-8qw"/>
