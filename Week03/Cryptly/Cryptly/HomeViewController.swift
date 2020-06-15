@@ -53,6 +53,7 @@ class HomeViewController: UIViewController{
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupThemeSwitch()
     setupLabels()
     setView1Data()
     setView2Data()
@@ -161,6 +162,18 @@ extension HomeViewController: Themeable {
     }
     
     view.backgroundColor = theme.backgroundColor
+  }
+  
+}
+
+extension HomeViewController {
+  
+  func setupThemeSwitch() {
+    themeSwitch.onImage = #imageLiteral(resourceName: "DarkThemeSwitchBackground").cgImage
+    themeSwitch.onTintColor = #colorLiteral(red: 0.01176470588, green: 0.2431372549, blue: 0.368627451, alpha: 1)
+    themeSwitch.offImage = #imageLiteral(resourceName: "LightThemeSwitchBackground").cgImage
+    themeSwitch.offBorderTintColor = #colorLiteral(red: 0.6156862745, green: 0.8549019608, blue: 0.9254901961, alpha: 1)
+    themeSwitch.innerLayer.backgroundColor = #colorLiteral(red: 0.6156862745, green: 0.8549019608, blue: 0.9254901961, alpha: 1)
   }
   
 }
