@@ -209,6 +209,7 @@ class CustomSwitch: UIControl {
   }
   
   func stateDidChange() {
+    sendActions(for: .valueChanged)
     trackLayer.backgroundColor = getBackgroundColor()
     trackLayer.borderWidth = isOn ? 0 : borderWidth
   }
