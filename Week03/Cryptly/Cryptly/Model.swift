@@ -40,7 +40,11 @@ struct CryptoCurrency: Codable {
   var name: String
   var symbol: String
   var currentValue: Double
-  var previousValue: Double
+  var previousValue: Double {
+    return currentValue - priceChange24h
+  }
+  var priceChange24h: Double
+  var imageURLString: String
   var trend: Trend {
     switch valueRise {
     case _ where valueRise > 0:
@@ -53,5 +57,13 @@ struct CryptoCurrency: Codable {
   }
   var valueRise: Float {
     return Float(currentValue - previousValue)
+  }
+  
+  private enum CodingKeys: String, CodingKey {
+    case name
+    case symbol
+    case currentValue = "current_price"
+    case priceChange24h = "price_change_24h"
+    case imageURLString = "image"
   }
 }

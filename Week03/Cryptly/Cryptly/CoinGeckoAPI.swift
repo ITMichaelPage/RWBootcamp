@@ -1,15 +1,15 @@
 /// Copyright (c) 2020 Razeware LLC
-///
+/// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-///
+/// 
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-///
+/// 
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-///
+/// 
 /// This project and source code may use libraries or frameworks that are
 /// released under various Open-Source licenses. Use of those libraries and
 /// frameworks are governed by their own individual licenses.
@@ -30,24 +30,39 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-
 import Foundation
 
-class DataGenerator {
+class CoinGeckoAPI {
   
-  static let shared = DataGenerator()
-
-  var cryptoCurrencies: [CryptoCurrency]? {
-    didSet {
-        NotificationCenter.default.post(name: Notification.Name.init("dataUpdated"), object: nil)
+  let apiBaseURLString = "https://api.coingecko.com"
+  
+  func getTopCoinsByMarketCap(completionHandler: @escaping ([CryptoCurrency]) -> Void) {
+    let apiRequestURLString = apiBaseURLString + "/api/v3/coins/markets?vs_currency=aud&order=market_cap_desc&per_page=10"
+    
+    guard let url = URL(string: apiRequestURLString) else {
+      return
     }
-  }
-
-  func updateData(completionHandler: @escaping () -> Void) {
-    CoinGeckoAPI().getTopCoinsByMarketCap { (cryptoCurrencies) in
-      self.cryptoCurrencies = cryptoCurrencies
-      completionHandler()
+    
+    var request = URLRequest(url: url)
+    request.setValue("application/json", forHTTPHeaderField: "Accept")
+    
+    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+      guard let dataResponse = data, error == nil else {
+        print(error?.localizedDescription ?? "Response Error")
+        return
+      }
+      
+      do {
+        let decoder = JSONDecoder()
+        let model = try decoder.decode([CryptoCurrency].self, from: dataResponse)
+        let cryptoCurrencies = model
+        completionHandler(cryptoCurrencies)
+      } catch let parsingError {
+        print("Error", parsingError)
+      }
     }
+    
+    task.resume()
   }
   
 }

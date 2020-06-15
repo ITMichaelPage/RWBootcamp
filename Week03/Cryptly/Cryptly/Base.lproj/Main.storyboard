@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="627.536231884058" y="38.839285714285715"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Cryptly-->
         <scene sceneID="9KI-BV-L4a">
             <objects>
                 <viewController id="5r6-eT-R08" customClass="HomeViewController" customModule="Cryptly" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,14 +33,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CryptoCurrencies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrp-g0-HX2">
-                                <rect key="frame" x="20" y="128" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oo-MW-3FZ" userLabel="Owned" customClass="SummaryView" customModule="Cryptly" customModuleProvider="target">
-                                <rect key="frame" x="20" y="189" width="374" height="120"/>
+                                <rect key="frame" x="20" y="108" width="374" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pP-O3-GIK">
                                         <rect key="frame" x="20" y="20" width="334" height="80"/>
@@ -59,7 +53,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DpI-h7-D97" userLabel="Increased" customClass="SummaryView" customModule="Cryptly" customModuleProvider="target">
-                                <rect key="frame" x="20" y="329" width="374" height="120"/>
+                                <rect key="frame" x="20" y="248" width="374" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPy-T8-YB9">
                                         <rect key="frame" x="20" y="20" width="334" height="80"/>
@@ -78,7 +72,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNM-6D-sSb" userLabel="Decreased" customClass="SummaryView" customModule="Cryptly" customModuleProvider="target">
-                                <rect key="frame" x="20" y="469" width="374" height="120"/>
+                                <rect key="frame" x="20" y="388" width="374" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCh-Bb-EWS">
                                         <rect key="frame" x="20" y="20" width="334" height="80"/>
@@ -97,7 +91,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="es9-ob-1Xr" userLabel="Trends">
-                                <rect key="frame" x="20" y="608.33333333333337" width="374" height="120"/>
+                                <rect key="frame" x="20" y="528" width="374" height="120"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7P-YW-F3h" userLabel="Most Falling" customClass="SummaryView" customModule="Cryptly" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
@@ -106,13 +100,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Falling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oh-ic-DUJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nLk-y5-c5x">
+                                                        <rect key="frame" x="0.0" y="40" width="177" height="40"/>
+                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgV-cF-8sJ">
-                                                        <rect key="frame" x="0.0" y="60" width="177" height="60"/>
+                                                        <rect key="frame" x="0.0" y="80" width="177" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -136,13 +133,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Rising" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXL-Te-svH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="177" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jyy-9E-lVq">
+                                                        <rect key="frame" x="0.0" y="40" width="177" height="40"/>
+                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsV-1k-Dqb">
-                                                        <rect key="frame" x="0.0" y="60" width="177" height="60"/>
+                                                        <rect key="frame" x="0.0" y="80" width="177" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -165,24 +165,46 @@
                         <constraints>
                             <constraint firstItem="Fco-UW-GoN" firstAttribute="trailing" secondItem="es9-ob-1Xr" secondAttribute="trailing" constant="20" id="2ZW-6O-qY2"/>
                             <constraint firstItem="DpI-h7-D97" firstAttribute="leading" secondItem="mvF-6T-uLm" secondAttribute="leading" constant="20" id="2cv-RA-EmD"/>
-                            <constraint firstItem="zrp-g0-HX2" firstAttribute="leading" secondItem="mvF-6T-uLm" secondAttribute="leading" constant="20" id="BgQ-lJ-slU"/>
                             <constraint firstItem="Fco-UW-GoN" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="es9-ob-1Xr" secondAttribute="bottom" constant="20" id="CiT-je-JgY"/>
                             <constraint firstItem="4oo-MW-3FZ" firstAttribute="leading" secondItem="mvF-6T-uLm" secondAttribute="leading" constant="20" id="GvF-pu-eyv"/>
                             <constraint firstItem="Fco-UW-GoN" firstAttribute="trailing" secondItem="DNM-6D-sSb" secondAttribute="trailing" constant="20" id="I1I-JT-7up"/>
                             <constraint firstItem="es9-ob-1Xr" firstAttribute="top" secondItem="DNM-6D-sSb" secondAttribute="bottom" constant="20" id="IjF-bw-k5e"/>
                             <constraint firstItem="Fco-UW-GoN" firstAttribute="trailing" secondItem="4oo-MW-3FZ" secondAttribute="trailing" constant="20" id="MxD-dP-hsS"/>
                             <constraint firstItem="Fco-UW-GoN" firstAttribute="trailing" secondItem="DpI-h7-D97" secondAttribute="trailing" constant="20" id="RFO-t4-BUV"/>
-                            <constraint firstItem="Fco-UW-GoN" firstAttribute="trailing" secondItem="zrp-g0-HX2" secondAttribute="trailing" constant="20" id="Vzo-W1-7AZ"/>
                             <constraint firstItem="DNM-6D-sSb" firstAttribute="leading" secondItem="mvF-6T-uLm" secondAttribute="leading" constant="20" id="e8x-Td-nAc"/>
                             <constraint firstItem="DpI-h7-D97" firstAttribute="top" secondItem="4oo-MW-3FZ" secondAttribute="bottom" constant="20" id="g2p-cS-0t7"/>
-                            <constraint firstItem="zrp-g0-HX2" firstAttribute="top" secondItem="Fco-UW-GoN" secondAttribute="top" constant="40" id="g3g-yP-sVY"/>
-                            <constraint firstItem="4oo-MW-3FZ" firstAttribute="top" secondItem="zrp-g0-HX2" secondAttribute="bottom" constant="40" id="it9-nc-0c9"/>
                             <constraint firstItem="DNM-6D-sSb" firstAttribute="top" secondItem="DpI-h7-D97" secondAttribute="bottom" constant="20" id="mig-iG-dA2"/>
+                            <constraint firstItem="4oo-MW-3FZ" firstAttribute="top" secondItem="Fco-UW-GoN" secondAttribute="top" constant="20" id="mjd-ns-amj"/>
                             <constraint firstItem="es9-ob-1Xr" firstAttribute="leading" secondItem="Fco-UW-GoN" secondAttribute="leading" constant="20" id="ysq-Kq-Qfx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fco-UW-GoN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mL2-rx-U9s">
+                    <navigationItem key="navigationItem" title="Cryptly" id="mL2-rx-U9s">
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="Jka-3Z-Tjc">
+                                <connections>
+                                    <action selector="updateCryptoData:" destination="5r6-eT-R08" id="haE-rn-plo"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="An9-t4-2Un">
+                                <view key="customView" contentMode="scaleToFill" id="dqf-D8-OIu">
+                                    <rect key="frame" x="60.666666666666664" y="10" width="23.999999999999993" height="24"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="7gw-iA-6AI">
+                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="7gw-iA-6AI" firstAttribute="top" secondItem="dqf-D8-OIu" secondAttribute="top" id="KnD-fu-gVo"/>
+                                        <constraint firstItem="7gw-iA-6AI" firstAttribute="leading" secondItem="dqf-D8-OIu" secondAttribute="leading" id="P88-pD-asc"/>
+                                        <constraint firstAttribute="bottom" secondItem="7gw-iA-6AI" secondAttribute="bottom" id="Wnf-AX-r51"/>
+                                        <constraint firstAttribute="trailing" secondItem="7gw-iA-6AI" secondAttribute="trailing" id="aPd-b7-Egb"/>
+                                    </constraints>
+                                </view>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="ug4-v8-lt1">
                             <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="kW6-Ms-UCP">
                                 <rect key="frame" x="343" y="6.5" width="51" height="31"/>
@@ -194,13 +216,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="headingLabel" destination="zrp-g0-HX2" id="CEx-vX-zmI"/>
+                        <outlet property="dataUpdatingActivityIndicator" destination="7gw-iA-6AI" id="LIj-RX-evm"/>
                         <outlet property="mostFallingHeadingLabel" destination="5Oh-ic-DUJ" id="hwa-tu-JZB"/>
+                        <outlet property="mostFallingImageView" destination="nLk-y5-c5x" id="htD-NS-h3u"/>
                         <outlet property="mostFallingValueLabel" destination="jgV-cF-8sJ" id="gss-TS-Nrp"/>
                         <outlet property="mostFallingView" destination="j7P-YW-F3h" id="haC-3Z-VLc"/>
                         <outlet property="mostRisingHeadingLabel" destination="zXL-Te-svH" id="DeU-Rh-FHU"/>
+                        <outlet property="mostRisingImageView" destination="jyy-9E-lVq" id="EY0-7Q-hmi"/>
                         <outlet property="mostRisingValueLabel" destination="XsV-1k-Dqb" id="lhR-FM-ZTb"/>
                         <outlet property="mostRisingView" destination="9Dh-nB-FxX" id="7GO-at-isZ"/>
+                        <outlet property="refreshButton" destination="Jka-3Z-Tjc" id="anD-ek-R5C"/>
                         <outlet property="themeSwitch" destination="kW6-Ms-UCP" id="Vpv-W6-XtS"/>
                         <outlet property="view1" destination="4oo-MW-3FZ" id="7mY-sa-8ZH"/>
                         <outlet property="view1TextLabel" destination="2pP-O3-GIK" id="L2m-KB-P6Q"/>

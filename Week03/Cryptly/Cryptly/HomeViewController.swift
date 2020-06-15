@@ -33,32 +33,31 @@
 import UIKit
 
 class HomeViewController: UIViewController{
-
+  
   @IBOutlet weak var view1: SummaryView!
   @IBOutlet weak var view2: SummaryView!
   @IBOutlet weak var view3: SummaryView!
   @IBOutlet weak var mostFallingView: SummaryView!
   @IBOutlet weak var mostRisingView: SummaryView!
-  @IBOutlet weak var headingLabel: UILabel!
   @IBOutlet weak var view1TextLabel: UILabel!
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var mostFallingHeadingLabel: UILabel!
+  @IBOutlet weak var mostFallingImageView: UIImageView!
   @IBOutlet weak var mostFallingValueLabel: UILabel!
   @IBOutlet weak var mostRisingHeadingLabel: UILabel!
+  @IBOutlet weak var mostRisingImageView: UIImageView!
   @IBOutlet weak var mostRisingValueLabel: UILabel!
+  @IBOutlet weak var refreshButton: UIBarButtonItem!
+  @IBOutlet weak var dataUpdatingActivityIndicator: UIActivityIndicatorView!
   @IBOutlet weak var themeSwitch: UISwitch!
   
-  let cryptoData = DataGenerator.shared.generateData()
+  var cryptoData: [CryptoCurrency]?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setupLabels()
-    setView1Data()
-    setView2Data()
-    setView3Data()
-    setMostFallingData()
-    setMostRisingData()
+    updateCryptoData(self)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -66,15 +65,25 @@ class HomeViewController: UIViewController{
     registerForTheme()
     // Display LightTheme be default
     ThemeManager.shared.set(theme: LightTheme())
+    registerForDataUpdated()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     unregisterForTheme()
+    unregisterForDataUpdated()
+  }
+  
+  func updateViewData() {
+    setView1Data()
+    setView2Data()
+    setView3Data()
+    setMostFallingData()
+    setMostRisingData()
+    dataUpdatingActivityIndicator.stopAnimating()
   }
   
   func setupLabels() {
-    headingLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
     view1TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
     view2TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
   }
@@ -87,7 +96,7 @@ class HomeViewController: UIViewController{
   }
   
   func setView2Data() {
-    let increasedValueCryptoCurrencyNames = cryptoData?.filter{
+    let increasedValueCryptoCurrencyNames = cryptoData?.filter {
       $0.currentValue > $0.previousValue
     }.reduce("") { (result, cryptoCurrency) in
       result == "" ? cryptoCurrency.name : result + ", " + cryptoCurrency.name
@@ -96,11 +105,11 @@ class HomeViewController: UIViewController{
   }
   
   func setView3Data() {
-    let decreasedValueCryptoCurrencyNames = cryptoData?.filter{
-        $0.currentValue < $0.previousValue
-      }.reduce("") { (result, cryptoCurrency) in
-        result == "" ? cryptoCurrency.name : result + ", " + cryptoCurrency.name
-      }
+    let decreasedValueCryptoCurrencyNames = cryptoData?.filter {
+      $0.currentValue < $0.previousValue
+    }.reduce("") { (result, cryptoCurrency) in
+      result == "" ? cryptoCurrency.name : result + ", " + cryptoCurrency.name
+    }
     view3TextLabel.text = decreasedValueCryptoCurrencyNames
   }
   
@@ -113,7 +122,9 @@ class HomeViewController: UIViewController{
       mostFallingValueLabel.text = "N/A"
       return
     }
-    mostFallingValueLabel.text = String(format: "%.1f", mostFallingCryptoCurrency!.valueRise)
+    mostFallingHeadingLabel.text = String(mostFallingCryptoCurrency!.name)
+    mostFallingImageView.downloadImage(url: mostFallingCryptoCurrency!.imageURLString)
+    mostFallingValueLabel.text = mostFallingCryptoCurrency!.priceChange24h.asDollarString()
   }
   
   func setMostRisingData() {
@@ -125,7 +136,16 @@ class HomeViewController: UIViewController{
       mostRisingValueLabel.text = "N/A"
       return
     }
-    mostRisingValueLabel.text = String(format: "%.1f", mostRisingCryptoCurrency!.valueRise)
+    mostRisingHeadingLabel.text = String(mostRisingCryptoCurrency!.name)
+    mostRisingImageView.downloadImage(url: mostRisingCryptoCurrency!.imageURLString)
+    mostRisingValueLabel.text = mostRisingCryptoCurrency!.priceChange24h.asDollarString()
+  }
+  
+  @IBAction func updateCryptoData(_ sender: Any) {
+    dataUpdatingActivityIndicator.startAnimating()
+    DataGenerator.shared.updateData {
+      self.cryptoData = DataGenerator.shared.cryptoCurrencies
+    }
   }
   
   @IBAction func switchPressed(_ sender: Any) {
@@ -141,7 +161,7 @@ extension HomeViewController: Themeable {
   }
   
   func unregisterForTheme() {
-    NotificationCenter.default.removeObserver(self)
+    NotificationCenter.default.removeObserver(self, name: Notification.Name.init("themeChanged"), object: nil)
   }
   
   @objc func themeChanged() {
@@ -155,12 +175,30 @@ extension HomeViewController: Themeable {
       view?.layer.borderColor = theme.borderColor.cgColor
     }
     
-    let labels = [headingLabel, view1TextLabel, view2TextLabel, view3TextLabel, mostFallingHeadingLabel, mostFallingValueLabel, mostRisingHeadingLabel, mostRisingValueLabel]
+    let labels = [view1TextLabel, view2TextLabel, view3TextLabel, mostFallingHeadingLabel, mostFallingValueLabel, mostRisingHeadingLabel, mostRisingValueLabel]
     labels.forEach { (label) in
       label?.textColor = theme.textColor
     }
     
     view.backgroundColor = theme.backgroundColor
+  }
+  
+}
+
+extension HomeViewController {
+  
+  func registerForDataUpdated() {
+    NotificationCenter.default.addObserver(self, selector: #selector(dataUpdated), name: Notification.Name.init("dataUpdated"), object: nil)
+  }
+  
+  func unregisterForDataUpdated() {
+    NotificationCenter.default.removeObserver(self, name: Notification.Name.init("dataUpdated"), object: nil)
+  }
+  
+  @objc func dataUpdated() {
+    DispatchQueue.main.async {
+      self.updateViewData()
+    }
   }
   
 }
