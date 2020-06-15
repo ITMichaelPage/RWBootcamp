@@ -33,7 +33,7 @@
 import UIKit
 
 class HomeViewController: UIViewController{
-
+  
   @IBOutlet weak var view1: SummaryView!
   @IBOutlet weak var view2: SummaryView!
   @IBOutlet weak var view3: SummaryView!
@@ -96,7 +96,7 @@ class HomeViewController: UIViewController{
   }
   
   func setView2Data() {
-    let increasedValueCryptoCurrencyNames = cryptoData?.filter{
+    let increasedValueCryptoCurrencyNames = cryptoData?.filter {
       $0.currentValue > $0.previousValue
     }.reduce("") { (result, cryptoCurrency) in
       result == "" ? cryptoCurrency.name : result + ", " + cryptoCurrency.name
@@ -105,11 +105,11 @@ class HomeViewController: UIViewController{
   }
   
   func setView3Data() {
-    let decreasedValueCryptoCurrencyNames = cryptoData?.filter{
-        $0.currentValue < $0.previousValue
-      }.reduce("") { (result, cryptoCurrency) in
-        result == "" ? cryptoCurrency.name : result + ", " + cryptoCurrency.name
-      }
+    let decreasedValueCryptoCurrencyNames = cryptoData?.filter {
+      $0.currentValue < $0.previousValue
+    }.reduce("") { (result, cryptoCurrency) in
+      result == "" ? cryptoCurrency.name : result + ", " + cryptoCurrency.name
+    }
     view3TextLabel.text = decreasedValueCryptoCurrencyNames
   }
   
