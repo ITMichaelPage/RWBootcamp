@@ -105,17 +105,27 @@ class HomeViewController: UIViewController{
   }
   
   func setMostFallingData() {
-    let mostFallingCryptoCurrencyValue = cryptoData?.map{
-      $0.currentValue - $0.previousValue
-    }.min()
-    mostFallingValueLabel.text = String(format: "%.1f", mostFallingCryptoCurrencyValue ?? 0)
+    let mostFallingCryptoCurrency = cryptoData?.filter {
+      $0.trend == .falling
+    }.max(by: { $0.valueRise > $1.valueRise })
+    
+    guard mostFallingCryptoCurrency != nil else {
+      mostFallingValueLabel.text = "N/A"
+      return
+    }
+    mostFallingValueLabel.text = String(format: "%.1f", mostFallingCryptoCurrency!.valueRise)
   }
   
   func setMostRisingData() {
-    let mostRisingCryptoCurrencyValue = cryptoData?.map{
-      $0.currentValue - $0.previousValue
-    }.max()
-    mostRisingValueLabel.text = String(format: "%.1f", mostRisingCryptoCurrencyValue ?? 0)
+    let mostRisingCryptoCurrency = cryptoData?.filter {
+      $0.trend == .rising
+    }.max(by: { $0.valueRise < $1.valueRise })
+    
+    guard mostRisingCryptoCurrency != nil else {
+      mostRisingValueLabel.text = "N/A"
+      return
+    }
+    mostRisingValueLabel.text = String(format: "%.1f", mostRisingCryptoCurrency!.valueRise)
   }
   
   @IBAction func switchPressed(_ sender: Any) {
