@@ -298,7 +298,7 @@ class CustomSwitch: UIControl {
       return
     }
     let imageLayer = CALayer()
-    imageLayer.contentsGravity = .resizeAspect
+    imageLayer.contentsGravity = .resizeAspectFill
     imageLayer.contentsScale = UIScreen.main.scale
     contentsLayer.addSublayer(imageLayer)
     onContentLayer = imageLayer
@@ -310,7 +310,7 @@ class CustomSwitch: UIControl {
       return
     }
     let imageLayer = CALayer()
-    imageLayer.contentsGravity = .resizeAspect
+    imageLayer.contentsGravity = .resizeAspectFill
     imageLayer.contentsScale = UIScreen.main.scale
     contentsLayer.addSublayer(imageLayer)
     offContentLayer = imageLayer
