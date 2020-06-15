@@ -22,6 +22,7 @@
 		AE883EDE2495963C00330CCC /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE883EDD2495963C00330CCC /* SummaryView.swift */; };
 		AE883EE02495C68E00330CCC /* Roundable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE883EDF2495C68E00330CCC /* Roundable.swift */; };
 		AEA843A02495D71C00EA37F4 /* CoinGeckoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8439F2495D71C00EA37F4 /* CoinGeckoAPI.swift */; };
+		AE78E45C2497396400B7A6E9 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE78E45B2497396400B7A6E9 /* CustomSwitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		AE883EDD2495963C00330CCC /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		AE883EDF2495C68E00330CCC /* Roundable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roundable.swift; sourceTree = "<group>"; };
 		AEA8439F2495D71C00EA37F4 /* CoinGeckoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoAPI.swift; sourceTree = "<group>"; };
+		AE78E45B2497396400B7A6E9 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				A1F9E04E249268D200323226 /* Model.swift */,
 				A1F9E0522492690B00323226 /* Theme.swift */,
 				AE883EDF2495C68E00330CCC /* Roundable.swift */,
+				AE78E45B2497396400B7A6E9 /* CustomSwitch.swift */,
 				AEA8439F2495D71C00EA37F4 /* CoinGeckoAPI.swift */,
 				AE7B702B2496248500F95238 /* Extensions */,
 				185CB20423C78CE8009F7571 /* Assets.xcassets */,
@@ -224,6 +227,7 @@
 				A1F9E0512492690000323226 /* ThemeManager.swift in Sources */,
 				AE7B702F2496307400F95238 /* Double.swift in Sources */,
 				A1F9E0532492690B00323226 /* Theme.swift in Sources */,
+				AE78E45C2497396400B7A6E9 /* CustomSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

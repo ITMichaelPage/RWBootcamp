@@ -50,12 +50,13 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var mostRisingValueLabel: UILabel!
   @IBOutlet weak var refreshButton: UIBarButtonItem!
   @IBOutlet weak var dataUpdatingActivityIndicator: UIActivityIndicatorView!
-  @IBOutlet weak var themeSwitch: UISwitch!
+  @IBOutlet weak var themeSwitch: CustomSwitch!
   
   var cryptoData: [CryptoCurrency]?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupThemeSwitch()
     setupLabels()
     updateCryptoData(self)
   }
@@ -199,6 +200,18 @@ extension HomeViewController {
     DispatchQueue.main.async {
       self.updateViewData()
     }
+  }
+  
+}
+
+extension HomeViewController {
+  
+  func setupThemeSwitch() {
+    themeSwitch.onImage = #imageLiteral(resourceName: "DarkThemeSwitchBackground").cgImage
+    themeSwitch.onTintColor = #colorLiteral(red: 0.01176470588, green: 0.2431372549, blue: 0.368627451, alpha: 1)
+    themeSwitch.offImage = #imageLiteral(resourceName: "LightThemeSwitchBackground").cgImage
+    themeSwitch.offBorderTintColor = #colorLiteral(red: 0.6156862745, green: 0.8549019608, blue: 0.9254901961, alpha: 1)
+    themeSwitch.innerLayer.backgroundColor = #colorLiteral(red: 0.6156862745, green: 0.8549019608, blue: 0.9254901961, alpha: 1)
   }
   
 }
