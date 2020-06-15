@@ -1,15 +1,15 @@
 /// Copyright (c) 2020 Razeware LLC
-///
+/// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-///
+/// 
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-///
+/// 
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-///
+/// 
 /// This project and source code may use libraries or frameworks that are
 /// released under various Open-Source licenses. Use of those libraries and
 /// frameworks are governed by their own individual licenses.
@@ -30,28 +30,34 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-enum Trend: Int, Codable {
-  case rising, falling, unchanging
-}
-
-struct CryptoCurrency: Codable {
-  var name: String
-  var symbol: String
-  var currentValue: Double
-  var previousValue: Double
-  var trend: Trend {
-    switch valueRise {
-    case _ where valueRise > 0:
-      return .rising
-    case _ where valueRise < 0:
-      return .falling
-    default:
-      return .unchanging
+class SummaryView: UIView, Roundable {
+  
+  var cornerRadius: CGFloat = 0 {
+    didSet {
+      round()
     }
   }
-  var valueRise: Float {
-    return Float(currentValue - previousValue)
+  
+  required init(coder: NSCoder) {
+    super.init(coder: coder)!
+    setup()
   }
+  
+  func setup() {
+    backgroundColor = .systemGray6
+    layer.borderColor = UIColor.lightGray.cgColor
+    layer.borderWidth = 1.0
+    layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+    layer.shadowOffset = CGSize(width: 0, height: 2)
+    layer.shadowRadius = 4
+    layer.shadowOpacity = 0.8
+    cornerRadius = 10
+  }
+  
+  func round() {
+    layer.cornerRadius = cornerRadius
+  }
+  
 }

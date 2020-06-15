@@ -34,24 +34,31 @@ import UIKit
 
 class HomeViewController: UIViewController{
 
-  @IBOutlet weak var view1: UIView!
-  @IBOutlet weak var view2: UIView!
-  @IBOutlet weak var view3: UIView!
+  @IBOutlet weak var view1: SummaryView!
+  @IBOutlet weak var view2: SummaryView!
+  @IBOutlet weak var view3: SummaryView!
+  @IBOutlet weak var mostFallingView: SummaryView!
+  @IBOutlet weak var mostRisingView: SummaryView!
   @IBOutlet weak var headingLabel: UILabel!
   @IBOutlet weak var view1TextLabel: UILabel!
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
+  @IBOutlet weak var mostFallingHeadingLabel: UILabel!
+  @IBOutlet weak var mostFallingValueLabel: UILabel!
+  @IBOutlet weak var mostRisingHeadingLabel: UILabel!
+  @IBOutlet weak var mostRisingValueLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
-    
+  
   let cryptoData = DataGenerator.shared.generateData()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViews()
     setupLabels()
     setView1Data()
     setView2Data()
     setView3Data()
+    setMostFallingData()
+    setMostRisingData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -64,33 +71,6 @@ class HomeViewController: UIViewController{
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     unregisterForTheme()
-  }
-
-  func setupViews() {
-      
-    view1.backgroundColor = .systemGray6
-    view1.layer.borderColor = UIColor.lightGray.cgColor
-    view1.layer.borderWidth = 1.0
-    view1.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view1.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view1.layer.shadowRadius = 4
-    view1.layer.shadowOpacity = 0.8
-    
-    view2.backgroundColor = .systemGray6
-    view2.layer.borderColor = UIColor.lightGray.cgColor
-    view2.layer.borderWidth = 1.0
-    view2.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view2.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view2.layer.shadowRadius = 4
-    view2.layer.shadowOpacity = 0.8
-    
-    view3.backgroundColor = .systemGray6
-    view3.layer.borderColor = UIColor.lightGray.cgColor
-    view3.layer.borderWidth = 1.0
-    view3.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view3.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view3.layer.shadowRadius = 4
-    view3.layer.shadowOpacity = 0.8
   }
   
   func setupLabels() {
@@ -124,6 +104,30 @@ class HomeViewController: UIViewController{
     view3TextLabel.text = decreasedValueCryptoCurrencyNames
   }
   
+  func setMostFallingData() {
+    let mostFallingCryptoCurrency = cryptoData?.filter {
+      $0.trend == .falling
+    }.max(by: { $0.valueRise > $1.valueRise })
+    
+    guard mostFallingCryptoCurrency != nil else {
+      mostFallingValueLabel.text = "N/A"
+      return
+    }
+    mostFallingValueLabel.text = String(format: "%.1f", mostFallingCryptoCurrency!.valueRise)
+  }
+  
+  func setMostRisingData() {
+    let mostRisingCryptoCurrency = cryptoData?.filter {
+      $0.trend == .rising
+    }.max(by: { $0.valueRise < $1.valueRise })
+    
+    guard mostRisingCryptoCurrency != nil else {
+      mostRisingValueLabel.text = "N/A"
+      return
+    }
+    mostRisingValueLabel.text = String(format: "%.1f", mostRisingCryptoCurrency!.valueRise)
+  }
+  
   @IBAction func switchPressed(_ sender: Any) {
     let theme: Theme = themeSwitch.isOn ? DarkTheme() : LightTheme()
     ThemeManager.shared.set(theme: theme)
@@ -145,13 +149,13 @@ extension HomeViewController: Themeable {
       return
     }
     
-    let views = [view1, view2, view3]
+    let views = [view1, view2, view3, mostFallingView, mostRisingView]
     views.forEach { (view) in
       view?.backgroundColor = theme.widgetBackgroundColor
       view?.layer.borderColor = theme.borderColor.cgColor
     }
     
-    let labels = [headingLabel, view1TextLabel, view2TextLabel, view3TextLabel]
+    let labels = [headingLabel, view1TextLabel, view2TextLabel, view3TextLabel, mostFallingHeadingLabel, mostFallingValueLabel, mostRisingHeadingLabel, mostRisingValueLabel]
     labels.forEach { (label) in
       label?.textColor = theme.textColor
     }
