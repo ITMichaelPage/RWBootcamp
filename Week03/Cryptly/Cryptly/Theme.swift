@@ -43,6 +43,8 @@ protocol Theme {
   var textColor: UIColor { get }
   var borderColor: UIColor { get }
   var widgetBackgroundColor: UIColor { get }
+  var navigationBarTintColor: UIColor { get }
+  var navigationBarTitleTextColor: UIColor { get }
 }
 
 struct LightTheme: Theme {
@@ -50,6 +52,8 @@ struct LightTheme: Theme {
   var textColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
   var borderColor: UIColor = #colorLiteral(red: 0.7882352941, green: 0.5137254902, blue: 0.9333333333, alpha: 1)
   var widgetBackgroundColor: UIColor = #colorLiteral(red: 0.8696005344, green: 0.8736253977, blue: 0.883461833, alpha: 1)
+  var navigationBarTintColor: UIColor = #colorLiteral(red: 0.8696005344, green: 0.8736253977, blue: 0.883461833, alpha: 1)
+  var navigationBarTitleTextColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 }
 
 struct DarkTheme: Theme {
@@ -57,4 +61,6 @@ struct DarkTheme: Theme {
   var textColor: UIColor = #colorLiteral(red: 0.9960784314, green: 0.9960784314, blue: 0.9960784314, alpha: 1)
   var borderColor: UIColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
   var widgetBackgroundColor: UIColor = #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2862745098, alpha: 1)
+  var navigationBarTintColor: UIColor = #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2862745098, alpha: 1)
+  var navigationBarTitleTextColor: UIColor = #colorLiteral(red: 0.9960784314, green: 0.9960784314, blue: 0.9960784314, alpha: 1)
 }
