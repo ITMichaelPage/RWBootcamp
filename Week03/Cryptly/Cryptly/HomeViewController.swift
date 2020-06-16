@@ -182,6 +182,12 @@ extension HomeViewController: Themeable {
     }
     
     view.backgroundColor = theme.backgroundColor
+    refreshButton.tintColor = theme.borderColor
+    
+    if let navigationBar = navigationController?.navigationBar {
+      navigationBar.barTintColor = theme.navigationBarTintColor
+      navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.navigationBarTitleTextColor]
+    }
   }
   
 }
