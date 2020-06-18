@@ -101,6 +101,7 @@
                         <outlet property="imageViewRight" destination="6Tl-ho-9j4" id="JJb-bG-W7M"/>
                         <outlet property="priceLabelLeft" destination="isC-pG-JOl" id="mEG-tv-J4m"/>
                         <outlet property="priceLabelRight" destination="8Zs-8b-Ndd" id="duf-oQ-ZbI"/>
+                        <outlet property="roomLabelLeft" destination="eWY-yX-Vmp" id="Znc-qh-55O"/>
                         <outlet property="roomLabelRight" destination="273-4y-mHA" id="Xhk-iC-AQN"/>
                         <outlet property="titleLabelLeft" destination="8cF-bQ-XH9" id="HOg-o4-mDJ"/>
                         <outlet property="titleLabelRight" destination="qR3-N9-oJU" id="Gdp-J4-v9F"/>

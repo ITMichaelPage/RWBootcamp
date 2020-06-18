@@ -27,30 +27,55 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpLeftSideUI()
-        setUpRightSideUI()
-
+        house1 = House()
         house1?.price = "$12,000"
         house1?.bedrooms = "3 bedrooms"
+        setUpLeftSideUI()
+        setUpRightSideUI()
     }
 
-    func setUpLeftSideUI() {
-        titleLabelLeft.text = house1!.address!
-        priceLabelLeft.text = house1!.price!
-        roomLabelLeft.text = house1!.bedrooms!
+    enum Side {
+        case left, right
     }
-
-    func setUpRightSideUI() {
-        if house2 == nil {
-            titleLabelRight.alpha = 0
-            imageViewRight.alpha = 0
-            priceLabelRight.alpha = 0
-            roomLabelRight.alpha = 0
-        } else {
-            titleLabelRight.text! = house2!.address!
-            priceLabelRight.text! = house2!.price!
-            roomLabelRight.text! = house2!.bedrooms!
+    
+    func updateSideUIVisibility(_ side: Side, hide: Bool) {
+        let alpha: CGFloat = hide ? 0 : 1
+        switch side {
+        case .left:
+            titleLabelLeft.alpha = alpha
+            imageViewLeft.alpha = alpha
+            priceLabelLeft.alpha = alpha
+            roomLabelLeft.alpha = alpha
+        case .right:
+            titleLabelRight.alpha = alpha
+            imageViewRight.alpha = alpha
+            priceLabelRight.alpha = alpha
+            roomLabelRight.alpha = alpha
         }
+    }
+    
+    func setUpLeftSideUI() {
+        guard let house1 = house1 else {
+            updateSideUIVisibility(.left, hide: true)
+            return
+        }
+        
+        updateSideUIVisibility(.left, hide: false)
+        titleLabelLeft.text = house1.address
+        priceLabelLeft.text = house1.price
+        roomLabelLeft.text = house1.bedrooms
+    }
+    
+    func setUpRightSideUI() {
+        guard let house2 = house2 else {
+            updateSideUIVisibility(.right, hide: true)
+            return
+        }
+
+        updateSideUIVisibility(.right, hide: false)
+        titleLabelRight.text = house2.address
+        priceLabelRight.text = house2.price
+        roomLabelRight.text = house2.bedrooms
     }
 
     @IBAction func didPressAddRightHouseButton(_ sender: Any) {
