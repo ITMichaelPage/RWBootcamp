@@ -43,9 +43,8 @@ class ViewController: UIViewController {
         }
 
         let sumOfAllPercentages = percentagesForAllItems.reduce(0, +)
-        let matchPercentage = sumOfAllPercentages/Double(compatibilityItems.count)
-        print(matchPercentage, "%")
-        let matchString = (matchPercentage * 100).rounded()
+        let mismatchPercentage = sumOfAllPercentages / Double(compatibilityItems.count)
+        let matchString = 100 - (mismatchPercentage * 100).rounded()
         return "\(matchString)%"
     }
 
