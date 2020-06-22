@@ -18,6 +18,7 @@
 		AE22EAD724A0E3FD00812AFD /* PunchingBears.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EAD624A0E3FD00812AFD /* PunchingBears.json */; };
 		AE3BF4CD249F42A700C932F3 /* CompatibilityScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3BF4CC249F42A700C932F3 /* CompatibilityScoreViewController.swift */; };
 		AE3BF4CF249F44E500C932F3 /* CompatibilitySliderGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3BF4CE249F44E500C932F3 /* CompatibilitySliderGame.swift */; };
+		AEB1D99124A10CBC00E0C853 /* BackgroundRotatingGradientPink.json in Resources */ = {isa = PBXBuildFile; fileRef = AEB1D99024A10CBC00E0C853 /* BackgroundRotatingGradientPink.json */; };
 		C3017C402499C83A00B1E49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3017C3F2499C83A00B1E49A /* AppDelegate.swift */; };
 		C3017C422499C83A00B1E49A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3017C412499C83A00B1E49A /* SceneDelegate.swift */; };
 		C3017C442499C83A00B1E49A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3017C432499C83A00B1E49A /* ViewController.swift */; };
@@ -58,6 +59,7 @@
 		AE22EAD624A0E3FD00812AFD /* PunchingBears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PunchingBears.json; sourceTree = "<group>"; };
 		AE3BF4CC249F42A700C932F3 /* CompatibilityScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityScoreViewController.swift; sourceTree = "<group>"; };
 		AE3BF4CE249F44E500C932F3 /* CompatibilitySliderGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilitySliderGame.swift; sourceTree = "<group>"; };
+		AEB1D99024A10CBC00E0C853 /* BackgroundRotatingGradientPink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BackgroundRotatingGradientPink.json; sourceTree = "<group>"; };
 		C3017C3C2499C83A00B1E49A /* CompatibilitySlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompatibilitySlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3017C3F2499C83A00B1E49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3017C412499C83A00B1E49A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				AE22EAD224A0E31400812AFD /* FaceRubbingBears.json */,
+				AEB1D99024A10CBC00E0C853 /* BackgroundRotatingGradientPink.json */,
 				AE22EAC824A0C2D500812AFD /* FloatingHearts.json */,
 				AE22EACE24A0E0DE00812AFD /* HyperKissingBears.json */,
 				AE22EACA24A0D09000812AFD /* KissingBears.json */,
@@ -293,6 +296,7 @@
 				AE22EACD24A0D1CD00812AFD /* SnugglingBears.json in Resources */,
 				AE22EAC924A0C2D600812AFD /* FloatingHearts.json in Resources */,
 				AE22EACF24A0E0DE00812AFD /* HyperKissingBears.json in Resources */,
+				AEB1D99124A10CBC00E0C853 /* BackgroundRotatingGradientPink.json in Resources */,
 				AE22EAD524A0E3A000812AFD /* PokingBears.json in Resources */,
 				AE22EAD124A0E2CC00812AFD /* ToastingBears.json in Resources */,
 			);

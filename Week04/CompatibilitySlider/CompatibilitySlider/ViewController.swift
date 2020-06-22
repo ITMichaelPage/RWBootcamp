@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Lottie
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var compatibilityItemLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var backgroundAnimationView: AnimationView!
 
     let game = CompatibilitySliderGame()
 
@@ -22,6 +24,7 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         game.startNewGame()
+        setupBackgroundAnimation()
         updateView()
     }
 
@@ -50,6 +53,14 @@ class ViewController: UIViewController {
         questionLabel.text = "User \(game.currentPerson!.id), what do you think about..."
         compatibilityItemLabel.text = game.compatibilityItems[game.currentItemIndex]
         slider.setValue(2.5, animated: true)
+    }
+
+    func setupBackgroundAnimation() {
+        backgroundAnimationView.animation = Animation.named("BackgroundRotatingGradientPink")
+        backgroundAnimationView.animationSpeed = 0.1
+        backgroundAnimationView.contentMode = .scaleAspectFill
+        backgroundAnimationView.loopMode = .loop
+        backgroundAnimationView.play()
     }
 
 }

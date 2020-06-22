@@ -15,6 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sd-9Y-YG7" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="lS4-AD-qju">
                                 <rect key="frame" x="20" y="64" width="374" height="778"/>
                                 <subviews>
@@ -24,7 +28,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you feel about..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPk-A6-VfC">
                                                 <rect key="frame" x="94.5" y="0.0" width="185.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="AQX-uJ-C5l" userLabel="Topic">
@@ -40,7 +44,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ITEM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yar-uD-3oE">
                                                         <rect key="frame" x="68" y="0.0" width="56.5" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Q30-xt-i6I">
@@ -104,16 +108,21 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lS4-AD-qju" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="OyH-2L-HB8"/>
+                            <constraint firstAttribute="trailing" secondItem="3sd-9Y-YG7" secondAttribute="trailing" id="Wq4-jx-tf0"/>
+                            <constraint firstItem="3sd-9Y-YG7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wvn-Wt-Eyn"/>
                             <constraint firstItem="lS4-AD-qju" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="YxI-A8-9y2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lS4-AD-qju" secondAttribute="bottom" constant="20" id="hyG-Du-6M6"/>
+                            <constraint firstAttribute="bottom" secondItem="3sd-9Y-YG7" secondAttribute="bottom" id="oNy-dP-NCX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lS4-AD-qju" secondAttribute="trailing" constant="20" id="s9S-kp-DVA"/>
+                            <constraint firstItem="3sd-9Y-YG7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wxz-bq-uD7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundAnimationView" destination="3sd-9Y-YG7" id="Clw-08-dRM"/>
                         <outlet property="compatibilityItemLabel" destination="yar-uD-3oE" id="4Pa-pD-xpU"/>
                         <outlet property="questionLabel" destination="vPk-A6-VfC" id="a1h-Ts-g2X"/>
                         <outlet property="slider" destination="gla-p5-0eu" id="GBD-bb-khO"/>
