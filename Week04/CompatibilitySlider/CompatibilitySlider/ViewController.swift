@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         game.startNewGame()
         setupBackgroundAnimation()
         setupEmojiAnimations()
+        themeSlider()
         updateView()
     }
 
@@ -99,6 +100,24 @@ class ViewController: UIViewController {
         emojiConfusedAnimationView.animation = Animation.named("EmojiConfused")
         emojiHappyAnimationView.animation = Animation.named("EmojiHappy")
         emojiAwesomeAnimationView.animation = Animation.named("EmojiAwesome")
+    }
+
+    func themeSlider() {
+        let thumbImageNormal = #imageLiteral(resourceName: "SliderThumbNormal")
+        slider.setThumbImage(thumbImageNormal, for: .normal)
+
+        let thumbImageHighlighted = #imageLiteral(resourceName: "SliderThumbHighlighted")
+        slider.setThumbImage(thumbImageHighlighted, for: .highlighted)
+
+        let insets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+
+        let trackLeftImage = #imageLiteral(resourceName: "PinkButton")
+        let trackLeftResizable = trackLeftImage.resizableImage(withCapInsets: insets)
+        slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+
+        let trackRightImage = #imageLiteral(resourceName: "WhiteButton")
+        let trackRightResizable = trackRightImage.resizableImage(withCapInsets: insets)
+        slider.setMaximumTrackImage(trackRightResizable, for: .normal)
     }
 
 }

@@ -61,36 +61,36 @@
                                             <constraint firstAttribute="height" constant="88" id="SpE-6S-2FP"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LDv-p0-Grm" userLabel="Emojis and Slider">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="LDv-p0-Grm" userLabel="Emojis and Slider">
                                         <rect key="frame" x="0.0" y="368.5" width="374" height="90"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="hXq-Mh-zkz" userLabel="Emoji">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="58"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZiG-Ck-Fwn" customClass="AnimationView" customModule="Lottie">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="58"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amj-uH-qm1" customClass="AnimationView" customModule="Lottie">
-                                                        <rect key="frame" x="81" y="0.0" width="50" height="60"/>
+                                                        <rect key="frame" x="81" y="0.0" width="50" height="58"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-Gw-sTD" customClass="AnimationView" customModule="Lottie">
-                                                        <rect key="frame" x="162" y="0.0" width="50" height="60"/>
+                                                        <rect key="frame" x="162" y="0.0" width="50" height="58"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdz-rT-Bhf" customClass="AnimationView" customModule="Lottie">
-                                                        <rect key="frame" x="243" y="0.0" width="50" height="60"/>
+                                                        <rect key="frame" x="243" y="0.0" width="50" height="58"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRS-TX-lGR" customClass="AnimationView" customModule="Lottie">
-                                                        <rect key="frame" x="324" y="0.0" width="50" height="60"/>
+                                                        <rect key="frame" x="324" y="0.0" width="50" height="58"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2.5" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="gla-p5-0eu">
-                                                <rect key="frame" x="-2" y="76" width="378" height="15"/>
+                                                <rect key="frame" x="-2" y="74" width="378" height="17"/>
                                                 <connections>
                                                     <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="SXf-un-kS3"/>
                                                 </connections>
@@ -99,6 +99,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="Msc-h3-B4h"/>
                                         </constraints>
+                                        <variation key="heightClass=regular-widthClass=compact" spacing="16"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="htQ-jZ-vYr" userLabel="Buttom Controls">
                                         <rect key="frame" x="0.0" y="739" width="374" height="39"/>
