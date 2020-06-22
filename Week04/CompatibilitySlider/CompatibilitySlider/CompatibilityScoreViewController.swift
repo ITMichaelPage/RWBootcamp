@@ -22,12 +22,30 @@ class CompatibilityScoreViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let compatibilityScoreInt = Int(game.calculateCompatibilityScore())
-        scoreLabel.text = "\(compatibilityScoreInt)%"
-        relationshipAdvice.text = game.calculateRelationshipAdvice()
+        setupBackgroundAnimation()
+        setupForegroundAnimation()
+        updateView()
+    }
 
+    @IBAction func close() {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func updateView() {
+        scoreLabel.text = "\(Int(game.calculateCompatibilityScore()))%"
+        relationshipAdvice.text = game.calculateRelationshipAdvice()
+    }
+
+    func setupBackgroundAnimation() {
+        backgroundAnimationView.animation = Animation.named("FloatingHearts")
+        backgroundAnimationView.contentMode = .scaleAspectFill
+        backgroundAnimationView.loopMode = .loop
+        backgroundAnimationView.play()
+    }
+
+    func setupForegroundAnimation() {
         var foregroundAnimationName = String()
-        switch compatibilityScoreInt {
+        switch Int(game.calculateCompatibilityScore()) {
         case 0...20:
             foregroundAnimationName = "PunchingBears"
         case 21...40:
@@ -49,15 +67,6 @@ class CompatibilityScoreViewController: UIViewController {
         foregroundAnimationView.animation = Animation.named(foregroundAnimationName)
         foregroundAnimationView.loopMode = .loop
         foregroundAnimationView.play()
-
-        backgroundAnimationView.animation = Animation.named("FloatingHearts")
-        backgroundAnimationView.contentMode = .scaleAspectFill
-        backgroundAnimationView.loopMode = .loop
-        backgroundAnimationView.play()
-    }
-
-    @IBAction func close() {
-        dismiss(animated: true, completion: nil)
     }
 
 }
