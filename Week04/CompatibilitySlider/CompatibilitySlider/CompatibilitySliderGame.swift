@@ -58,8 +58,7 @@ class CompatibilitySliderGame {
     }
 
     func calculateRelationshipAdvice() -> String {
-        let compatibilityScore = calculateCompatibilityScore()
-        switch compatibilityScore {
+        switch Int(calculateCompatibilityScore()) {
         case 0...20:
             return "You don't see eye to eye, on many things."
         case 21...30:
@@ -77,7 +76,7 @@ class CompatibilitySliderGame {
         case 81...90:
             return "Love is on the cards for these two!"
         case 91...100:
-            return "Skip dating and go get married!"
+            return "Skip dating and get married!"
         default:
             return "Invalid compatibility score."
         }
