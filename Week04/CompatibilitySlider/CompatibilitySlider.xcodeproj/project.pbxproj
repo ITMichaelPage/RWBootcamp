@@ -3,10 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE22EABF24A0A7BA00812AFD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AE22EABE24A0A7BA00812AFD /* Lottie */; };
+		AE22EAC924A0C2D600812AFD /* FloatingHearts.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EAC824A0C2D500812AFD /* FloatingHearts.json */; };
+		AE22EACB24A0D09000812AFD /* KissingBears.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EACA24A0D09000812AFD /* KissingBears.json */; };
+		AE22EACD24A0D1CD00812AFD /* SnugglingBears.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EACC24A0D1CD00812AFD /* SnugglingBears.json */; };
+		AE22EACF24A0E0DE00812AFD /* HyperKissingBears.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EACE24A0E0DE00812AFD /* HyperKissingBears.json */; };
+		AE22EAD124A0E2CC00812AFD /* ToastingBears.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EAD024A0E2CC00812AFD /* ToastingBears.json */; };
+		AE22EAD324A0E31400812AFD /* FaceRubbingBears.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EAD224A0E31400812AFD /* FaceRubbingBears.json */; };
+		AE22EAD524A0E3A000812AFD /* PokingBears.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EAD424A0E3A000812AFD /* PokingBears.json */; };
+		AE22EAD724A0E3FD00812AFD /* PunchingBears.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EAD624A0E3FD00812AFD /* PunchingBears.json */; };
 		AE3BF4CD249F42A700C932F3 /* CompatibilityScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3BF4CC249F42A700C932F3 /* CompatibilityScoreViewController.swift */; };
 		AE3BF4CF249F44E500C932F3 /* CompatibilitySliderGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3BF4CE249F44E500C932F3 /* CompatibilitySliderGame.swift */; };
 		C3017C402499C83A00B1E49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3017C3F2499C83A00B1E49A /* AppDelegate.swift */; };
@@ -27,18 +36,26 @@
 			containerPortal = C3017C342499C83A00B1E49A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C3017C3B2499C83A00B1E49A;
-			remoteInfo = "CompatibilitySlider";
+			remoteInfo = CompatibilitySlider;
 		};
 		C3017C612499C83B00B1E49A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3017C342499C83A00B1E49A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C3017C3B2499C83A00B1E49A;
-			remoteInfo = "CompatibilitySlider";
+			remoteInfo = CompatibilitySlider;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE22EAC824A0C2D500812AFD /* FloatingHearts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FloatingHearts.json; sourceTree = "<group>"; };
+		AE22EACA24A0D09000812AFD /* KissingBears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = KissingBears.json; sourceTree = "<group>"; };
+		AE22EACC24A0D1CD00812AFD /* SnugglingBears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SnugglingBears.json; sourceTree = "<group>"; };
+		AE22EACE24A0E0DE00812AFD /* HyperKissingBears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HyperKissingBears.json; sourceTree = "<group>"; };
+		AE22EAD024A0E2CC00812AFD /* ToastingBears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ToastingBears.json; sourceTree = "<group>"; };
+		AE22EAD224A0E31400812AFD /* FaceRubbingBears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FaceRubbingBears.json; sourceTree = "<group>"; };
+		AE22EAD424A0E3A000812AFD /* PokingBears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PokingBears.json; sourceTree = "<group>"; };
+		AE22EAD624A0E3FD00812AFD /* PunchingBears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PunchingBears.json; sourceTree = "<group>"; };
 		AE3BF4CC249F42A700C932F3 /* CompatibilityScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityScoreViewController.swift; sourceTree = "<group>"; };
 		AE3BF4CE249F44E500C932F3 /* CompatibilitySliderGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilitySliderGame.swift; sourceTree = "<group>"; };
 		C3017C3C2499C83A00B1E49A /* CompatibilitySlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompatibilitySlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,10 +67,10 @@
 		C3017C4B2499C83B00B1E49A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3017C4E2499C83B00B1E49A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3017C502499C83B00B1E49A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3017C552499C83B00B1E49A /* CompatibilitySliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CompatibilitySliderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3017C552499C83B00B1E49A /* CompatibilitySliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompatibilitySliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3017C592499C83B00B1E49A /* CompatibilitySliderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilitySliderTests.swift; sourceTree = "<group>"; };
 		C3017C5B2499C83B00B1E49A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3017C602499C83B00B1E49A /* CompatibilitySliderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CompatibilitySliderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3017C602499C83B00B1E49A /* CompatibilitySliderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompatibilitySliderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3017C642499C83B00B1E49A /* CompatibilitySliderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilitySliderUITests.swift; sourceTree = "<group>"; };
 		C3017C662499C83B00B1E49A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3017C722499C91700B1E49A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -64,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE22EABF24A0A7BA00812AFD /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +102,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE22EAD824A0E53600812AFD /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				AE22EAD224A0E31400812AFD /* FaceRubbingBears.json */,
+				AE22EAC824A0C2D500812AFD /* FloatingHearts.json */,
+				AE22EACE24A0E0DE00812AFD /* HyperKissingBears.json */,
+				AE22EACA24A0D09000812AFD /* KissingBears.json */,
+				AE22EAD424A0E3A000812AFD /* PokingBears.json */,
+				AE22EAD624A0E3FD00812AFD /* PunchingBears.json */,
+				AE22EACC24A0D1CD00812AFD /* SnugglingBears.json */,
+				AE22EAD024A0E2CC00812AFD /* ToastingBears.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		C3017C332499C83A00B1E49A = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +151,9 @@
 				C3017C4D2499C83B00B1E49A /* LaunchScreen.storyboard */,
 				C3017C502499C83B00B1E49A /* Info.plist */,
 				C3017C482499C83A00B1E49A /* CompatibilitySlider.xcdatamodeld */,
+				AE22EAD824A0E53600812AFD /* Animations */,
 			);
-			path = "CompatibilitySlider";
+			path = CompatibilitySlider;
 			sourceTree = "<group>";
 		};
 		C3017C582499C83B00B1E49A /* CompatibilitySliderTests */ = {
@@ -128,7 +162,7 @@
 				C3017C592499C83B00B1E49A /* CompatibilitySliderTests.swift */,
 				C3017C5B2499C83B00B1E49A /* Info.plist */,
 			);
-			path = "CompatibilitySliderTests";
+			path = CompatibilitySliderTests;
 			sourceTree = "<group>";
 		};
 		C3017C632499C83B00B1E49A /* CompatibilitySliderUITests */ = {
@@ -137,7 +171,7 @@
 				C3017C642499C83B00B1E49A /* CompatibilitySliderUITests.swift */,
 				C3017C662499C83B00B1E49A /* Info.plist */,
 			);
-			path = "CompatibilitySliderUITests";
+			path = CompatibilitySliderUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +189,11 @@
 			);
 			dependencies = (
 			);
-			name = "CompatibilitySlider";
-			productName = "CompatibilitySlider";
+			name = CompatibilitySlider;
+			packageProductDependencies = (
+				AE22EABE24A0A7BA00812AFD /* Lottie */,
+			);
+			productName = CompatibilitySlider;
 			productReference = C3017C3C2499C83A00B1E49A /* CompatibilitySlider.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -173,8 +210,8 @@
 			dependencies = (
 				C3017C572499C83B00B1E49A /* PBXTargetDependency */,
 			);
-			name = "CompatibilitySliderTests";
-			productName = "CompatibilitySliderTests";
+			name = CompatibilitySliderTests;
+			productName = CompatibilitySliderTests;
 			productReference = C3017C552499C83B00B1E49A /* CompatibilitySliderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -191,8 +228,8 @@
 			dependencies = (
 				C3017C622499C83B00B1E49A /* PBXTargetDependency */,
 			);
-			name = "CompatibilitySliderUITests";
-			productName = "CompatibilitySliderUITests";
+			name = CompatibilitySliderUITests;
+			productName = CompatibilitySliderUITests;
 			productReference = C3017C602499C83B00B1E49A /* CompatibilitySliderUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -228,6 +265,9 @@
 				Base,
 			);
 			mainGroup = C3017C332499C83A00B1E49A;
+			packageReferences = (
+				AE22EABD24A0A7BA00812AFD /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = C3017C3D2499C83A00B1E49A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -245,8 +285,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3017C4F2499C83B00B1E49A /* LaunchScreen.storyboard in Resources */,
+				AE22EACB24A0D09000812AFD /* KissingBears.json in Resources */,
 				C3017C4C2499C83B00B1E49A /* Assets.xcassets in Resources */,
 				C3017C472499C83A00B1E49A /* Main.storyboard in Resources */,
+				AE22EAD324A0E31400812AFD /* FaceRubbingBears.json in Resources */,
+				AE22EAD724A0E3FD00812AFD /* PunchingBears.json in Resources */,
+				AE22EACD24A0D1CD00812AFD /* SnugglingBears.json in Resources */,
+				AE22EAC924A0C2D600812AFD /* FloatingHearts.json in Resources */,
+				AE22EACF24A0E0DE00812AFD /* HyperKissingBears.json in Resources */,
+				AE22EAD524A0E3A000812AFD /* PokingBears.json in Resources */,
+				AE22EAD124A0E2CC00812AFD /* ToastingBears.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -436,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -452,12 +500,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
-				INFOPLIST_FILE = "CompatibilitySlider/Info.plist";
+				INFOPLIST_FILE = CompatibilitySlider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CompatibilitySlider";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CompatibilitySlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -470,12 +518,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
-				INFOPLIST_FILE = "CompatibilitySlider/Info.plist";
+				INFOPLIST_FILE = CompatibilitySlider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CompatibilitySlider";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CompatibilitySlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -489,14 +537,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
-				INFOPLIST_FILE = "CompatibilitySliderTests/Info.plist";
+				INFOPLIST_FILE = CompatibilitySliderTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CompatibilitySliderTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CompatibilitySliderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -511,14 +559,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
-				INFOPLIST_FILE = "CompatibilitySliderTests/Info.plist";
+				INFOPLIST_FILE = CompatibilitySliderTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CompatibilitySliderTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CompatibilitySliderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -532,17 +580,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
-				INFOPLIST_FILE = "CompatibilitySliderUITests/Info.plist";
+				INFOPLIST_FILE = CompatibilitySliderUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CompatibilitySliderUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CompatibilitySliderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "CompatibilitySlider";
+				TEST_TARGET_NAME = CompatibilitySlider;
 			};
 			name = Debug;
 		};
@@ -552,17 +600,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
-				INFOPLIST_FILE = "CompatibilitySliderUITests/Info.plist";
+				INFOPLIST_FILE = CompatibilitySliderUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CompatibilitySliderUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CompatibilitySliderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "CompatibilitySlider";
+				TEST_TARGET_NAME = CompatibilitySlider;
 			};
 			name = Release;
 		};
@@ -606,6 +654,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AE22EABD24A0A7BA00812AFD /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AE22EABE24A0A7BA00812AFD /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE22EABD24A0A7BA00812AFD /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C3017C482499C83A00B1E49A /* CompatibilitySlider.xcdatamodeld */ = {

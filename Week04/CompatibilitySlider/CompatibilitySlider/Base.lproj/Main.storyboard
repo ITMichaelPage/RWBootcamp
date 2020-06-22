@@ -132,44 +132,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="DPn-YR-IAc">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g14-uh-Nml" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="DPn-YR-IAc">
                                 <rect key="frame" x="20" y="64" width="374" height="778"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="great" translatesAutoresizingMaskIntoConstraints="NO" id="QIt-nd-MJQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="kPI-Sn-4uE"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GpG-HR-R2J" userLabel="Score">
-                                        <rect key="frame" x="0.0" y="254" width="374" height="121"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aZg-an-uMO">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="748"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The two of you are" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTv-tC-4KC">
-                                                <rect key="frame" x="116" y="0.0" width="142.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NYE-g5-dhy">
-                                                <rect key="frame" x="103" y="24.5" width="168.5" height="72"/>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="60"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="compatible!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47Z-is-bXg">
-                                                <rect key="frame" x="142" y="100.5" width="90" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GpG-HR-R2J" userLabel="Score">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="150.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The two of you are" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTv-tC-4KC">
+                                                        <rect key="frame" x="113.5" y="0.0" width="147.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NYE-g5-dhy">
+                                                        <rect key="frame" x="103" y="24.5" width="168.5" height="72"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="60"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="compatible!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47Z-is-bXg">
+                                                        <rect key="frame" x="139.5" y="100.5" width="95" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skip dating and get married!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHA-pI-7w3">
+                                                        <rect key="frame" x="59.5" y="125" width="255.5" height="25.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Ral-ut-Kte" customClass="AnimationView" customModule="Lottie">
+                                                <rect key="frame" x="0.0" y="150.5" width="374" height="597.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skip dating and go get married!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHA-pI-7w3">
-                                        <rect key="frame" x="0.0" y="548.5" width="374" height="25.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVf-yj-M2a">
                                         <rect key="frame" x="0.0" y="748" width="374" height="30"/>
                                         <constraints>
@@ -183,17 +190,23 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="g14-uh-Nml" secondAttribute="trailing" id="5TQ-ju-1KL"/>
+                            <constraint firstItem="g14-uh-Nml" firstAttribute="leading" secondItem="HpO-4b-ohX" secondAttribute="leading" id="Emt-dh-dXX"/>
                             <constraint firstItem="DPn-YR-IAc" firstAttribute="leading" secondItem="gWN-AX-ZT0" secondAttribute="leading" constant="20" id="Eu3-Pt-1yu"/>
+                            <constraint firstItem="g14-uh-Nml" firstAttribute="top" secondItem="HpO-4b-ohX" secondAttribute="top" id="PZi-jr-dpV"/>
                             <constraint firstItem="DPn-YR-IAc" firstAttribute="top" secondItem="gWN-AX-ZT0" secondAttribute="top" constant="20" id="cHC-C8-wrl"/>
-                            <constraint firstItem="gWN-AX-ZT0" firstAttribute="bottom" secondItem="DPn-YR-IAc" secondAttribute="bottom" constant="20" id="cNd-LP-CA0"/>
                             <constraint firstItem="gWN-AX-ZT0" firstAttribute="trailing" secondItem="DPn-YR-IAc" secondAttribute="trailing" constant="20" id="fBw-VS-Obc"/>
+                            <constraint firstItem="gWN-AX-ZT0" firstAttribute="bottom" secondItem="DPn-YR-IAc" secondAttribute="bottom" constant="20" id="hq8-Oq-2lm"/>
+                            <constraint firstAttribute="bottom" secondItem="g14-uh-Nml" secondAttribute="bottom" id="x3Y-0m-nTh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gWN-AX-ZT0"/>
                     </view>
                     <navigationItem key="navigationItem" id="xfQ-MA-65w"/>
                     <connections>
+                        <outlet property="backgroundAnimationView" destination="g14-uh-Nml" id="ZFJ-rb-nNm"/>
+                        <outlet property="foregroundAnimationView" destination="Ral-ut-Kte" id="T9I-5S-ezv"/>
                         <outlet property="relationshipAdvice" destination="vHA-pI-7w3" id="HbN-R9-haQ"/>
                         <outlet property="scoreLabel" destination="NYE-g5-dhy" id="8pi-3i-BXS"/>
                     </connections>
