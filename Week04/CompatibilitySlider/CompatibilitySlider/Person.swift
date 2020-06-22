@@ -16,6 +16,9 @@ import Foundation
 // If we change "items" in `currentPerson` it won't change `person1`
 class Person {
     var id: Int
+    var name: String {
+        return "Player \(id)"
+    }
     var items: [String: Float]
 
     init(id: Int, items: [String: Float]) {
