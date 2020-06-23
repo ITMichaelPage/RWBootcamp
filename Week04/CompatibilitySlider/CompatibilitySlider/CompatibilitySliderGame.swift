@@ -10,7 +10,7 @@ import Foundation
 
 class CompatibilitySliderGame {
 
-    var compatibilityItems = ["Cats", "Dogs"] // Add more!
+    var compatibilityItems = ["Cats", "Dogs", "Eurovision", "Dark Mode", "Travelling", "Tomato Sauce"]
     var currentItemIndex = 0
 
     var person1 = Person(id: 1, items: [:])
