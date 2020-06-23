@@ -61,31 +61,36 @@
                                             <constraint firstAttribute="height" constant="88" id="SpE-6S-2FP"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LDv-p0-Grm" userLabel="Emojis and Slider">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="LDv-p0-Grm" userLabel="Emojis and Slider">
                                         <rect key="frame" x="0.0" y="368.5" width="374" height="90"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="hXq-Mh-zkz" userLabel="Emoji">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="58"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terrible" translatesAutoresizingMaskIntoConstraints="NO" id="O26-Gb-aZ2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
-                                                    </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bad" translatesAutoresizingMaskIntoConstraints="NO" id="zCo-Ck-zvA">
-                                                        <rect key="frame" x="81" y="0.0" width="50" height="30"/>
-                                                    </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meh" translatesAutoresizingMaskIntoConstraints="NO" id="tk6-yO-zMr">
-                                                        <rect key="frame" x="162" y="0.0" width="50" height="30"/>
-                                                    </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good" translatesAutoresizingMaskIntoConstraints="NO" id="zmI-ka-CKA">
-                                                        <rect key="frame" x="243" y="0.0" width="50" height="30"/>
-                                                    </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="great" translatesAutoresizingMaskIntoConstraints="NO" id="S5w-sP-7A3">
-                                                        <rect key="frame" x="324" y="0.0" width="50" height="30"/>
-                                                    </imageView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZiG-Ck-Fwn" customClass="AnimationView" customModule="Lottie">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="58"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amj-uH-qm1" customClass="AnimationView" customModule="Lottie">
+                                                        <rect key="frame" x="81" y="0.0" width="50" height="58"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-Gw-sTD" customClass="AnimationView" customModule="Lottie">
+                                                        <rect key="frame" x="162" y="0.0" width="50" height="58"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdz-rT-Bhf" customClass="AnimationView" customModule="Lottie">
+                                                        <rect key="frame" x="243" y="0.0" width="50" height="58"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRS-TX-lGR" customClass="AnimationView" customModule="Lottie">
+                                                        <rect key="frame" x="324" y="0.0" width="50" height="58"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2.5" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="gla-p5-0eu">
-                                                <rect key="frame" x="-2" y="30" width="378" height="61"/>
+                                                <rect key="frame" x="-2" y="74" width="378" height="17"/>
                                                 <connections>
                                                     <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="SXf-un-kS3"/>
                                                 </connections>
@@ -94,6 +99,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="Msc-h3-B4h"/>
                                         </constraints>
+                                        <variation key="heightClass=regular-widthClass=compact" spacing="16"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="htQ-jZ-vYr" userLabel="Buttom Controls">
                                         <rect key="frame" x="0.0" y="739" width="374" height="39"/>
@@ -130,6 +136,11 @@
                     <connections>
                         <outlet property="backgroundAnimationView" destination="3sd-9Y-YG7" id="Clw-08-dRM"/>
                         <outlet property="compatibilityItemLabel" destination="yar-uD-3oE" id="4Pa-pD-xpU"/>
+                        <outlet property="emojiAwesomeAnimationView" destination="aRS-TX-lGR" id="tMv-sS-IJw"/>
+                        <outlet property="emojiConfusedAnimationView" destination="dyS-Gw-sTD" id="AUN-nu-27c"/>
+                        <outlet property="emojiCryingAnimationView" destination="ZiG-Ck-Fwn" id="2pm-JU-uql"/>
+                        <outlet property="emojiHappyAnimationView" destination="zdz-rT-Bhf" id="19O-aG-IcH"/>
+                        <outlet property="emojiSadAnimationView" destination="Amj-uH-qm1" id="9oJ-y1-Kxa"/>
                         <outlet property="questionLabel" destination="vPk-A6-VfC" id="a1h-Ts-g2X"/>
                         <outlet property="slider" destination="gla-p5-0eu" id="GBD-bb-khO"/>
                         <segue destination="5Sc-t0-WyP" kind="show" identifier="ShowCompatibilityScore" id="Dzm-BL-PuL"/>
@@ -242,11 +253,6 @@
     </scenes>
     <resources>
         <image name="PinkButton" width="81" height="30"/>
-        <image name="bad" width="30" height="30"/>
-        <image name="good" width="30" height="30"/>
-        <image name="great" width="30" height="30"/>
-        <image name="meh" width="30" height="30"/>
         <image name="star" width="1000" height="1000"/>
-        <image name="terrible" width="30" height="30"/>
     </resources>
 </document>

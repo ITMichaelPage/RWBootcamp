@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE1ACE6F24A12C6A00860E56 /* EmojiSad.json in Resources */ = {isa = PBXBuildFile; fileRef = AE1ACE6A24A12C6A00860E56 /* EmojiSad.json */; };
+		AE1ACE7024A12C6A00860E56 /* EmojiHappy.json in Resources */ = {isa = PBXBuildFile; fileRef = AE1ACE6B24A12C6A00860E56 /* EmojiHappy.json */; };
+		AE1ACE7124A12C6A00860E56 /* EmojiCrying.json in Resources */ = {isa = PBXBuildFile; fileRef = AE1ACE6C24A12C6A00860E56 /* EmojiCrying.json */; };
+		AE1ACE7224A12C6A00860E56 /* EmojiConfused.json in Resources */ = {isa = PBXBuildFile; fileRef = AE1ACE6D24A12C6A00860E56 /* EmojiConfused.json */; };
+		AE1ACE7324A12C6A00860E56 /* EmojiAwesome.json in Resources */ = {isa = PBXBuildFile; fileRef = AE1ACE6E24A12C6A00860E56 /* EmojiAwesome.json */; };
 		AE22EABF24A0A7BA00812AFD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AE22EABE24A0A7BA00812AFD /* Lottie */; };
 		AE22EAC924A0C2D600812AFD /* FloatingHearts.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EAC824A0C2D500812AFD /* FloatingHearts.json */; };
 		AE22EACB24A0D09000812AFD /* KissingBears.json in Resources */ = {isa = PBXBuildFile; fileRef = AE22EACA24A0D09000812AFD /* KissingBears.json */; };
@@ -49,6 +54,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE1ACE6A24A12C6A00860E56 /* EmojiSad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmojiSad.json; sourceTree = "<group>"; };
+		AE1ACE6B24A12C6A00860E56 /* EmojiHappy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmojiHappy.json; sourceTree = "<group>"; };
+		AE1ACE6C24A12C6A00860E56 /* EmojiCrying.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmojiCrying.json; sourceTree = "<group>"; };
+		AE1ACE6D24A12C6A00860E56 /* EmojiConfused.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmojiConfused.json; sourceTree = "<group>"; };
+		AE1ACE6E24A12C6A00860E56 /* EmojiAwesome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmojiAwesome.json; sourceTree = "<group>"; };
 		AE22EAC824A0C2D500812AFD /* FloatingHearts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FloatingHearts.json; sourceTree = "<group>"; };
 		AE22EACA24A0D09000812AFD /* KissingBears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = KissingBears.json; sourceTree = "<group>"; };
 		AE22EACC24A0D1CD00812AFD /* SnugglingBears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SnugglingBears.json; sourceTree = "<group>"; };
@@ -107,8 +117,13 @@
 		AE22EAD824A0E53600812AFD /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				AE22EAD224A0E31400812AFD /* FaceRubbingBears.json */,
 				AEB1D99024A10CBC00E0C853 /* BackgroundRotatingGradientPink.json */,
+				AE1ACE6E24A12C6A00860E56 /* EmojiAwesome.json */,
+				AE1ACE6D24A12C6A00860E56 /* EmojiConfused.json */,
+				AE1ACE6C24A12C6A00860E56 /* EmojiCrying.json */,
+				AE1ACE6B24A12C6A00860E56 /* EmojiHappy.json */,
+				AE1ACE6A24A12C6A00860E56 /* EmojiSad.json */,
+				AE22EAD224A0E31400812AFD /* FaceRubbingBears.json */,
 				AE22EAC824A0C2D500812AFD /* FloatingHearts.json */,
 				AE22EACE24A0E0DE00812AFD /* HyperKissingBears.json */,
 				AE22EACA24A0D09000812AFD /* KissingBears.json */,
@@ -291,13 +306,18 @@
 				AE22EACB24A0D09000812AFD /* KissingBears.json in Resources */,
 				C3017C4C2499C83B00B1E49A /* Assets.xcassets in Resources */,
 				C3017C472499C83A00B1E49A /* Main.storyboard in Resources */,
+				AE1ACE7124A12C6A00860E56 /* EmojiCrying.json in Resources */,
+				AE1ACE7224A12C6A00860E56 /* EmojiConfused.json in Resources */,
 				AE22EAD324A0E31400812AFD /* FaceRubbingBears.json in Resources */,
+				AE1ACE7024A12C6A00860E56 /* EmojiHappy.json in Resources */,
 				AE22EAD724A0E3FD00812AFD /* PunchingBears.json in Resources */,
+				AE1ACE6F24A12C6A00860E56 /* EmojiSad.json in Resources */,
 				AE22EACD24A0D1CD00812AFD /* SnugglingBears.json in Resources */,
 				AE22EAC924A0C2D600812AFD /* FloatingHearts.json in Resources */,
 				AE22EACF24A0E0DE00812AFD /* HyperKissingBears.json in Resources */,
 				AEB1D99124A10CBC00E0C853 /* BackgroundRotatingGradientPink.json in Resources */,
 				AE22EAD524A0E3A000812AFD /* PokingBears.json in Resources */,
+				AE1ACE7324A12C6A00860E56 /* EmojiAwesome.json in Resources */,
 				AE22EAD124A0E2CC00812AFD /* ToastingBears.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
