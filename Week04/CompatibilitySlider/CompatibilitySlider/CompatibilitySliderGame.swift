@@ -15,7 +15,12 @@ class CompatibilitySliderGame {
 
     var person1 = Person(id: 1, items: [:])
     var person2 = Person(id: 2, items: [:])
-    var currentPerson: Person?
+    var currentPerson: Person? {
+        didSet {
+            switchPerson = true
+        }
+    }
+    var switchPerson = false
 
     func startNewGame() {
         currentItemIndex = -1
@@ -26,6 +31,7 @@ class CompatibilitySliderGame {
     }
 
     func updateQuestion() -> Bool {
+        switchPerson = false
         if currentPerson?.items.count ?? 0 < compatibilityItems.count {
             // Move on to next question
             currentItemIndex += 1

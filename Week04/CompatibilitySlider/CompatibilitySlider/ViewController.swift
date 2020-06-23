@@ -74,6 +74,9 @@ class ViewController: UIViewController {
         game.currentPerson?.items.updateValue(slider.value, forKey: currentItem)
         
         if game.updateQuestion() {
+            if game.switchPerson {
+                showSwitchPersonAlert()
+            }
             updateView()
         } else {
             performSegue(withIdentifier: "ShowCompatibilityScore", sender: self)
@@ -81,7 +84,7 @@ class ViewController: UIViewController {
     }
 
     func updateView() {
-        questionLabel.text = "User \(game.currentPerson!.id), what do you think about..."
+        questionLabel.text = "\(game.currentPerson?.name ?? "Player"), what do you think about..."
         compatibilityItemLabel.text = game.compatibilityItems[game.currentItemIndex]
         slider.setValue(2.5, animated: true)
     }
@@ -118,6 +121,17 @@ class ViewController: UIViewController {
         let trackRightImage = #imageLiteral(resourceName: "WhiteButton")
         let trackRightResizable = trackRightImage.resizableImage(withCapInsets: insets)
         slider.setMaximumTrackImage(trackRightResizable, for: .normal)
+    }
+
+    func showSwitchPersonAlert() {
+        let title = "Switch Players"
+        let message = "Please hand the device over to \(game.currentPerson?.name ?? "other player")."
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+
+        present(alert, animated: true, completion: nil)
     }
 
 }
