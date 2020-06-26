@@ -30,21 +30,15 @@ class ViewController: UIViewController {
     }
 
     func presentCreatePostAlert() {
+        var userName: String?
+        var textBody: String?
+
         let title = "Create Post"
 
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        alert.addTextField(configurationHandler: { (textField) in
-            textField.placeholder = "Username"
-            textField.autocapitalizationType = .words
-        })
-
-        alert.addTextField { (textField) in
-            textField.placeholder = "Words of wisdom"
-            textField.autocapitalizationType = .sentences
-        }
 
         let okAction = UIAlertAction(title: "OK", style: .default) { action in
-            if let userName = alert.textFields?[0].text, let textBody = alert.textFields?[1].text {
+            if let userName = userName, let textBody = textBody {
 
                 if let selectedImage = self.selectedImage {
                     self.selectedImage = nil
@@ -58,9 +52,37 @@ class ViewController: UIViewController {
             }
             self.tableview.reloadData()
         }
+        okAction.isEnabled = false
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
             self.selectedImage = nil
+        }
+
+        alert.addTextField { (textField) in
+            textField.placeholder = "Username"
+            textField.autocapitalizationType = .words
+
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: .main) { _ in
+                userName = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+                validateTextInput()
+            }
+        }
+
+        alert.addTextField { (textField) in
+            textField.placeholder = "Words of wisdom"
+            textField.autocapitalizationType = .sentences
+
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: .main) { _ in
+                textBody = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+                validateTextInput()
+            }
+        }
+
+        func validateTextInput() {
+            let userNameCharacterCount = userName?.count ?? 0
+            let textBodyCharacterCount = textBody?.count ?? 0
+
+            okAction.isEnabled = (userNameCharacterCount > 0) && (textBodyCharacterCount > 0)
         }
 
         alert.addAction(cancelAction)
