@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AECC187724A477DF00A8F9FC /* TextPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AECC187624A477DF00A8F9FC /* TextPostCell.xib */; };
+		AECC187924A47F6100A8F9FC /* ImagePostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AECC187824A47F6100A8F9FC /* ImagePostCell.xib */; };
+		AECC187B24A4807600A8F9FC /* ImagePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC187A24A4807600A8F9FC /* ImagePostCell.swift */; };
 		AECC187E24A4846E00A8F9FC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC187D24A4846E00A8F9FC /* Date.swift */; };
+		AECC188024A49A4A00A8F9FC /* TextPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC187F24A49A4A00A8F9FC /* TextPostCell.swift */; };
 		C3C9D35E249B324B001F55A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35D249B324B001F55A6 /* AppDelegate.swift */; };
 		C3C9D360249B324B001F55A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */; };
 		C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D361249B324B001F55A6 /* ViewController.swift */; };
@@ -41,7 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AECC187624A477DF00A8F9FC /* TextPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextPostCell.xib; sourceTree = "<group>"; };
+		AECC187824A47F6100A8F9FC /* ImagePostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePostCell.xib; sourceTree = "<group>"; };
+		AECC187A24A4807600A8F9FC /* ImagePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostCell.swift; sourceTree = "<group>"; };
 		AECC187D24A4846E00A8F9FC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		AECC187F24A49A4A00A8F9FC /* TextPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPostCell.swift; sourceTree = "<group>"; };
 		C3C9D35A249B324B001F55A6 /* Birdie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C9D35D249B324B001F55A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +96,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AECC187324A4774E00A8F9FC /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AECC187624A477DF00A8F9FC /* TextPostCell.xib */,
+				AECC187F24A49A4A00A8F9FC /* TextPostCell.swift */,
+				AECC187824A47F6100A8F9FC /* ImagePostCell.xib */,
+				AECC187A24A4807600A8F9FC /* ImagePostCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		AECC187C24A4844200A8F9FC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +143,7 @@
 				C3C9D398249B3479001F55A6 /* Model */,
 				C3C9D391249B326C001F55A6 /* View */,
 				C3C9D39E249B3C30001F55A6 /* ViewModel */,
+				AECC187324A4774E00A8F9FC /* TableViewCell */,
 				AECC187C24A4844200A8F9FC /* Extension */,
 				C3C9D369249B324C001F55A6 /* Assets.xcassets */,
 				C3C9D36E249B324C001F55A6 /* Info.plist */,
@@ -298,6 +318,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AECC187724A477DF00A8F9FC /* TextPostCell.xib in Resources */,
+				AECC187924A47F6100A8F9FC /* ImagePostCell.xib in Resources */,
 				C3C9D36D249B324C001F55A6 /* LaunchScreen.storyboard in Resources */,
 				C3C9D36A249B324C001F55A6 /* Assets.xcassets in Resources */,
 				C3C9D365249B324B001F55A6 /* Main.storyboard in Resources */,
@@ -329,6 +351,8 @@
 				AECC187E24A4846E00A8F9FC /* Date.swift in Sources */,
 				C3C9D395249B3453001F55A6 /* ImagePostModel.swift in Sources */,
 				C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */,
+				AECC187B24A4807600A8F9FC /* ImagePostCell.swift in Sources */,
+				AECC188024A49A4A00A8F9FC /* TextPostCell.swift in Sources */,
 				C3C9D397249B346E001F55A6 /* MediaPostProtocol.swift in Sources */,
 				C3C9D39B249B3711001F55A6 /* MediaPostsHandler.swift in Sources */,
 				C3C9D368249B324B001F55A6 /* Birdie.xcdatamodeld in Sources */,
