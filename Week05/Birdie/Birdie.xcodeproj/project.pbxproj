@@ -12,6 +12,8 @@
 		AECC187B24A4807600A8F9FC /* ImagePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC187A24A4807600A8F9FC /* ImagePostCell.swift */; };
 		AECC187E24A4846E00A8F9FC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC187D24A4846E00A8F9FC /* Date.swift */; };
 		AECC188024A49A4A00A8F9FC /* TextPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC187F24A49A4A00A8F9FC /* TextPostCell.swift */; };
+		AECC188224A49C8B00A8F9FC /* TableViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC188124A49C8B00A8F9FC /* TableViewCellIdentifier.swift */; };
+		AECC188424A576EB00A8F9FC /* RegisterTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECC188324A576EB00A8F9FC /* RegisterTableViewCells.swift */; };
 		C3C9D35E249B324B001F55A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35D249B324B001F55A6 /* AppDelegate.swift */; };
 		C3C9D360249B324B001F55A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */; };
 		C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D361249B324B001F55A6 /* ViewController.swift */; };
@@ -50,6 +52,8 @@
 		AECC187A24A4807600A8F9FC /* ImagePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostCell.swift; sourceTree = "<group>"; };
 		AECC187D24A4846E00A8F9FC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		AECC187F24A49A4A00A8F9FC /* TextPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPostCell.swift; sourceTree = "<group>"; };
+		AECC188124A49C8B00A8F9FC /* TableViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellIdentifier.swift; sourceTree = "<group>"; };
+		AECC188324A576EB00A8F9FC /* RegisterTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewCells.swift; sourceTree = "<group>"; };
 		C3C9D35A249B324B001F55A6 /* Birdie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C9D35D249B324B001F55A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		AECC18A724A5B0E200A8F9FC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AECC188124A49C8B00A8F9FC /* TableViewCellIdentifier.swift */,
+				AECC188324A576EB00A8F9FC /* RegisterTableViewCells.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		C3C9D351249B324B001F55A6 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +158,7 @@
 				C3C9D39E249B3C30001F55A6 /* ViewModel */,
 				AECC187324A4774E00A8F9FC /* TableViewCell */,
 				AECC187C24A4844200A8F9FC /* Extension */,
+				AECC18A724A5B0E200A8F9FC /* Helper */,
 				C3C9D369249B324C001F55A6 /* Assets.xcassets */,
 				C3C9D36E249B324C001F55A6 /* Info.plist */,
 				C3C9D366249B324B001F55A6 /* Birdie.xcdatamodeld */,
@@ -349,9 +363,11 @@
 			files = (
 				C3C9D393249B3448001F55A6 /* TextPostModel.swift in Sources */,
 				AECC187E24A4846E00A8F9FC /* Date.swift in Sources */,
+				AECC188224A49C8B00A8F9FC /* TableViewCellIdentifier.swift in Sources */,
 				C3C9D395249B3453001F55A6 /* ImagePostModel.swift in Sources */,
 				C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */,
 				AECC187B24A4807600A8F9FC /* ImagePostCell.swift in Sources */,
+				AECC188424A576EB00A8F9FC /* RegisterTableViewCells.swift in Sources */,
 				AECC188024A49A4A00A8F9FC /* TextPostCell.swift in Sources */,
 				C3C9D397249B346E001F55A6 /* MediaPostProtocol.swift in Sources */,
 				C3C9D39B249B3711001F55A6 /* MediaPostsHandler.swift in Sources */,
