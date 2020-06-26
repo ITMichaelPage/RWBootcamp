@@ -27,8 +27,35 @@ class ViewController: UIViewController {
         registerTableViewCells(tableView: tableview, cellIdentifiers: [.textPostCell, .imagePostCell])
     }
 
-    @IBAction func didPressCreateTextPostButton(_ sender: Any) {
+    func presentCreatePostAlert() {
+        let title = "Create Post"
 
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Username"
+            textField.autocapitalizationType = .words
+        })
+
+        alert.addTextField { (textField) in
+            textField.placeholder = "Words of wisdom"
+            textField.autocapitalizationType = .sentences
+        }
+
+        let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+            if let userName = alert.textFields?[0].text, let textBody = alert.textFields?[1].text {
+                let textPost = TextPost(textBody: textBody, userName: userName, timestamp: Date())
+                MediaPostsHandler.shared.addTextPost(textPost: textPost)
+            }
+            self.tableview.reloadData()
+        })
+
+        alert.addAction(action)
+
+        present(alert, animated: true, completion: nil)
+    }
+
+    @IBAction func didPressCreateTextPostButton(_ sender: Any) {
+        presentCreatePostAlert()
     }
 
     @IBAction func didPressCreateImagePostButton(_ sender: Any) {
