@@ -14,6 +14,8 @@ class ViewController: UIViewController {
         return MediaPostsHandler.shared.mediaPosts
     }
 
+    var selectedImage: UIImage?
+
     @IBOutlet weak var tableview: UITableView!
 
     override func viewDidLoad() {
@@ -41,15 +43,28 @@ class ViewController: UIViewController {
             textField.autocapitalizationType = .sentences
         }
 
-        let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+        let okAction = UIAlertAction(title: "OK", style: .default) { action in
             if let userName = alert.textFields?[0].text, let textBody = alert.textFields?[1].text {
-                let textPost = TextPost(textBody: textBody, userName: userName, timestamp: Date())
-                MediaPostsHandler.shared.addTextPost(textPost: textPost)
+
+                if let selectedImage = self.selectedImage {
+                    self.selectedImage = nil
+                    let imagePost = ImagePost(textBody: textBody, userName: userName, timestamp: Date(), image: selectedImage)
+                    MediaPostsHandler.shared.addImagePost(imagePost: imagePost)
+                } else {
+                    let textPost = TextPost(textBody: textBody, userName: userName, timestamp: Date())
+                    MediaPostsHandler.shared.addTextPost(textPost: textPost)
+                }
+
             }
             self.tableview.reloadData()
-        })
+        }
 
-        alert.addAction(action)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            self.selectedImage = nil
+        }
+
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
 
         present(alert, animated: true, completion: nil)
     }
@@ -59,7 +74,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didPressCreateImagePostButton(_ sender: Any) {
-
+        presentImagePicker()
     }
 
 }
@@ -92,6 +107,32 @@ extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+}
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    func presentImagePicker() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = false
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .camera
+        } else {
+            picker.sourceType = .photoLibrary
+            picker.modalPresentationStyle = .fullScreen
+        }
+        present(picker, animated: true)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] {
+            selectedImage = image as? UIImage
+            dismiss(animated: true) {
+                self.presentCreatePostAlert()
+            }
+        }
     }
 
 }
