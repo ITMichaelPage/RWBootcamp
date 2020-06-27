@@ -16,11 +16,23 @@ class ImagePostCell: UITableViewCell {
     @IBOutlet weak var textBodyLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupProfileImage()
+    }
+
     func configure(for post: ImagePost) {
+        profileImageView.image = post.profileImage
         userNameLabel.text = post.userName
         timestampLabel.text = post.timestamp.asString(format: "d MMM, HH:mm")
         textBodyLabel.text = post.textBody
         postImageView.image = post.image
+    }
+
+    private func setupProfileImage() {
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.layer.borderColor = #colorLiteral(red: 0.8820986675, green: 0.8820986675, blue: 0.8820986675, alpha: 1)
+        profileImageView.layer.borderWidth = 2
     }
 
 }
