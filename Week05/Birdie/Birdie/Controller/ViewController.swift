@@ -108,19 +108,7 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let textPost = mediaPosts[indexPath.row] as? TextPost {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifier.textPostCell.rawValue, for: indexPath) as? TextPostCell {
-                cell.configure(for: textPost)
-                return cell
-            }
-        } else if let imagePost = mediaPosts[indexPath.row] as? ImagePost {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifier.imagePostCell.rawValue, for: indexPath) as? ImagePostCell {
-                cell.configure(for: imagePost)
-                return cell
-            }
-        }
-        // Fallback value
-        return UITableViewCell()
+        return MediaPostsViewModel.shared.setupTableViewCell(for: mediaPosts[indexPath.row], in: tableView)
     }
 
 }
