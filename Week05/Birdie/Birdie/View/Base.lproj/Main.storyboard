@@ -18,7 +18,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Stk-8k-ziE">
                                 <rect key="frame" x="184" y="60" width="46" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mascot_swift-badge" translatesAutoresizingMaskIntoConstraints="NO" id="JDO-wH-Wc3">
@@ -29,24 +29,24 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N0R-IK-WeJ">
                                 <rect key="frame" x="0.0" y="134.5" width="414" height="761.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="V8v-dg-eUa"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="yUG-Pb-Z7u"/>
                                 </connections>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="127" translatesAutoresizingMaskIntoConstraints="NO" id="YOd-7A-7lt">
-                                <rect key="frame" x="0.0" y="96.5" width="414" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="YOd-7A-7lt">
+                                <rect key="frame" x="8" y="96.5" width="398" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2n-Sd-aOq">
-                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="113" height="30"/>
                                         <state key="normal" title="Create Text Post"/>
                                         <connections>
                                             <action selector="didPressCreateTextPostButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UYq-VW-PZO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDc-14-JUr">
-                                        <rect key="frame" x="270.5" y="0.0" width="143.5" height="30"/>
+                                        <rect key="frame" x="272" y="0.0" width="126" height="30"/>
                                         <state key="normal" title="Create Image Post"/>
                                         <connections>
                                             <action selector="didPressCreateImagePostButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SN4-yB-2UV"/>
@@ -55,16 +55,16 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="j2n-Sd-aOq" firstAttribute="top" secondItem="Stk-8k-ziE" secondAttribute="bottom" constant="16" id="LeX-h2-HT2"/>
                             <constraint firstItem="N0R-IK-WeJ" firstAttribute="top" secondItem="YOd-7A-7lt" secondAttribute="bottom" constant="8" id="QsN-Hz-6O2"/>
                             <constraint firstItem="JDO-wH-Wc3" firstAttribute="centerY" secondItem="Stk-8k-ziE" secondAttribute="centerY" id="SBo-Iy-R2b"/>
-                            <constraint firstItem="YOd-7A-7lt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vaj-m5-G42"/>
+                            <constraint firstItem="YOd-7A-7lt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Vaj-m5-G42"/>
                             <constraint firstItem="Stk-8k-ziE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Zh9-X7-ybh"/>
                             <constraint firstAttribute="bottom" secondItem="N0R-IK-WeJ" secondAttribute="bottom" id="cet-TD-bsg"/>
                             <constraint firstItem="N0R-IK-WeJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ekE-Y2-Ya8"/>
-                            <constraint firstAttribute="trailing" secondItem="YOd-7A-7lt" secondAttribute="trailing" id="hQA-bz-7XV"/>
+                            <constraint firstAttribute="trailing" secondItem="YOd-7A-7lt" secondAttribute="trailing" constant="8" id="hQA-bz-7XV"/>
                             <constraint firstItem="N0R-IK-WeJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hTA-hc-XA2"/>
                             <constraint firstItem="Stk-8k-ziE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o1a-v9-BXQ"/>
                             <constraint firstItem="JDO-wH-Wc3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="oqk-fz-oSz"/>
