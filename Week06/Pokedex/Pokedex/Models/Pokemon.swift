@@ -33,5 +33,10 @@
 import Foundation
 
 struct Pokemon {
+  let id: Int
+  let name: String
+  let baseExperience: Int
+  let weight: Int
+  let height: Int
 }
 
