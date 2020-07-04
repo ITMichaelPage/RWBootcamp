@@ -51,11 +51,9 @@ class PokemonGenerator {
         let height = Int(row["height"] ?? "") ?? 0
         let baseExp = Int(row["base_experience"] ?? "") ?? 0
         
-        /*
-        let pokemon = Pokemon(pokemonID: pokeID, pokemonName: name.capitalized, baseExp: baseExp, height: height, weight: weight)
-        */
+        let pokemon = Pokemon(id: pokeID, name: name.capitalized, baseExperience: baseExp, weight: height, height: weight)
         
-        //pokemons.append(pokemon)
+        pokemons.append(pokemon)
       }
       return pokemons
     } catch let error {
@@ -63,4 +61,5 @@ class PokemonGenerator {
     }
     return pokemons
   }
+  
 }
