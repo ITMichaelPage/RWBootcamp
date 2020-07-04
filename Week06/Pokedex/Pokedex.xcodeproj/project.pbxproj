@@ -89,7 +89,6 @@
 				AE7A6CBB24AF697C00D4BE1E /* Cells */,
 				AE7A6CBE24AF6A3000D4BE1E /* Helpers */,
 				185CB20423C78CE8009F7571 /* Assets.xcassets */,
-				180DC61423C78D9800486B1A /* LaunchScreen.storyboard */,
 				185CB20923C78CE8009F7571 /* Info.plist */,
 				A125200724AAAB64008F7E2E /* Resources */,
 			);
@@ -146,6 +145,8 @@
 		AE7A6CC124B0295700D4BE1E /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				185CB1FB23C78CE6009F7571 /* AppDelegate.swift */,
+				185CB1FD23C78CE6009F7571 /* SceneDelegate.swift */,
 				AE7A6CB324AEB77600D4BE1E /* PokemonCollectionViewDelegate.swift */,
 			);
 			path = Delegates;
@@ -155,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				185CB20123C78CE6009F7571 /* Main.storyboard */,
+				180DC61423C78D9800486B1A /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
