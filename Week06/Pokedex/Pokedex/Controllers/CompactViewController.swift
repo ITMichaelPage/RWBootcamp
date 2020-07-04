@@ -5,7 +5,7 @@ class CompactViewController: UIViewController {
   let dataSource = DataSource()
   let delegate = PokemonCollectionViewDelegate(numberOfItemsPerRow: 3, interItemSpacing: 8, edgesInsetSpacing: 16)
   
-  @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var compactCollectionView: UICollectionView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -13,15 +13,15 @@ class CompactViewController: UIViewController {
   }
   
   func setupCollectionView() {
-    collectionView.dataSource = dataSource
-    collectionView.delegate = delegate
-    registerCollectionViewCells(collectionView: collectionView, cellIdentifiers: [.compactPokemonCell])
+    compactCollectionView.dataSource = dataSource
+    compactCollectionView.delegate = delegate
+    registerCollectionViewCells(collectionView: compactCollectionView, cellIdentifiers: [.compactPokemonCell])
   }
   
   // MARK: Recalculate collection view layout on orientation change
-  override func viewDidLayoutSubviews() {
+  override func viewWillLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    collectionView.collectionViewLayout.invalidateLayout()
+    compactCollectionView.collectionViewLayout.invalidateLayout()
   }
   
 }

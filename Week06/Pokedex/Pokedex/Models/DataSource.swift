@@ -13,14 +13,24 @@ class DataSource: NSObject, UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let compactPokemonCell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCell.reuseIdentifier, for: indexPath) as? CompactPokemonCell else {
-      fatalError("Cell cannot be created")
+    let pokemon = self.pokemons[indexPath.item]
+    
+    switch collectionView.tag {
+    case 0:
+      if let compactPokemonCell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCell.reuseIdentifier, for: indexPath) as? CompactPokemonCell {
+        compactPokemonCell.configure(for: pokemon)
+        return compactPokemonCell
+      }
+    case 1:
+      if let largePokemonCell = collectionView.dequeueReusableCell(withReuseIdentifier: LargePokemonCell.reuseIdentifier, for: indexPath) as? LargePokemonCell {
+        largePokemonCell.configure(for: pokemon)
+        return largePokemonCell
+      }
+    default:
+      print("Invalid collection view tag")
     }
     
-    let pokemon = self.pokemons[indexPath.item]
-    compactPokemonCell.configure(for: pokemon)
-    
-    return compactPokemonCell
+    fatalError("Cell cannot be created")
   }
   
 }
