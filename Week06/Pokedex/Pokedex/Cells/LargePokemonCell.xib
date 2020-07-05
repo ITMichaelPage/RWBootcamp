@@ -43,8 +43,14 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="79V-S3-HUt" secondAttribute="trailing" constant="8" id="DkY-fG-fUI"/>
-                                            <constraint firstItem="79V-S3-HUt" firstAttribute="top" secondItem="auL-yf-cuk" secondAttribute="top" constant="28" id="N7F-zT-pKB"/>
-                                            <constraint firstAttribute="bottom" secondItem="79V-S3-HUt" secondAttribute="bottom" id="SKq-DW-mBI"/>
+                                            <constraint firstItem="79V-S3-HUt" firstAttribute="top" secondItem="auL-yf-cuk" secondAttribute="top" constant="28" id="N7F-zT-pKB">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                                            </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="79V-S3-HUt" secondAttribute="bottom" id="SKq-DW-mBI">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                            </constraint>
                                             <constraint firstItem="79V-S3-HUt" firstAttribute="leading" secondItem="auL-yf-cuk" secondAttribute="leading" constant="8" id="opT-47-XmP"/>
                                         </constraints>
                                     </view>
@@ -110,13 +116,27 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="RD0-Qo-dFx" secondAttribute="bottom" constant="58" id="2UT-FZ-rw1"/>
-                                            <constraint firstItem="RD0-Qo-dFx" firstAttribute="top" secondItem="hLt-vK-xOO" secondAttribute="top" id="PgM-Ho-qcX"/>
-                                            <constraint firstAttribute="trailing" secondItem="RD0-Qo-dFx" secondAttribute="trailing" constant="18" id="TAW-KP-LF2"/>
-                                            <constraint firstItem="RD0-Qo-dFx" firstAttribute="leading" secondItem="hLt-vK-xOO" secondAttribute="leading" constant="18" id="fH3-YE-nfD"/>
+                                            <constraint firstAttribute="bottom" secondItem="RD0-Qo-dFx" secondAttribute="bottom" constant="58" id="2UT-FZ-rw1">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
+                                            </constraint>
+                                            <constraint firstItem="RD0-Qo-dFx" firstAttribute="top" secondItem="hLt-vK-xOO" secondAttribute="top" id="PgM-Ho-qcX">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
+                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="RD0-Qo-dFx" secondAttribute="trailing" constant="18" id="TAW-KP-LF2">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                            </constraint>
+                                            <constraint firstItem="RD0-Qo-dFx" firstAttribute="leading" secondItem="hLt-vK-xOO" secondAttribute="leading" constant="18" id="fH3-YE-nfD">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                                            </constraint>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal"/>
+                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -136,7 +156,7 @@
                 <constraint firstAttribute="trailing" secondItem="e1E-qT-7Et" secondAttribute="trailing" id="qjE-oS-lhP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="165" height="165"/>
+            <size key="customSize" width="401" height="165"/>
             <connections>
                 <outlet property="baseExperienceLabel" destination="2yJ-Ws-hIa" id="Wj6-Xc-Y8B"/>
                 <outlet property="heightLabel" destination="Tvt-Nn-wnQ" id="PVU-Em-AAF"/>
@@ -144,7 +164,7 @@
                 <outlet property="nameLabel" destination="SMr-7b-9eO" id="9Qi-hi-zCD"/>
                 <outlet property="weightLabel" destination="i3u-jK-pSp" id="wRR-wN-kTx"/>
             </connections>
-            <point key="canvasLocation" x="220.28985507246378" y="216.29464285714286"/>
+            <point key="canvasLocation" x="298.66071428571428" y="215.94202898550725"/>
         </collectionViewCell>
     </objects>
     <resources>
