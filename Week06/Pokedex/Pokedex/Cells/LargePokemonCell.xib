@@ -19,6 +19,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1E-qT-7Et">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="zCS-ta-1Tp">
+                                <rect key="frame" x="26" y="226" width="200" height="200"/>
+                                <color key="tintColor" red="0.93281942610000002" green="0.47144663329999997" blue="0.42741394040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="H7U-Gi-oHI"/>
+                                    <constraint firstAttribute="width" secondItem="zCS-ta-1Tp" secondAttribute="height" multiplier="1:1" id="bm7-md-4jW"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="dwg-Ul-Xj6" userLabel="Parent Stack View">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
                                 <subviews>
@@ -114,7 +122,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="RD0-Qo-dFx" secondAttribute="bottom" constant="58" id="2UT-FZ-rw1">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="20"/>
@@ -142,7 +150,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="dwg-Ul-Xj6" secondAttribute="bottom" id="0ix-wN-oXi"/>
+                            <constraint firstAttribute="trailing" secondItem="zCS-ta-1Tp" secondAttribute="trailing" constant="-26" id="0mS-jk-g4H"/>
                             <constraint firstItem="dwg-Ul-Xj6" firstAttribute="top" secondItem="e1E-qT-7Et" secondAttribute="top" id="70Q-2T-u5f"/>
+                            <constraint firstAttribute="bottom" secondItem="zCS-ta-1Tp" secondAttribute="bottom" constant="-26" id="NsY-Oy-moU"/>
                             <constraint firstAttribute="trailing" secondItem="dwg-Ul-Xj6" secondAttribute="trailing" id="e5h-WA-5ip"/>
                             <constraint firstItem="dwg-Ul-Xj6" firstAttribute="leading" secondItem="e1E-qT-7Et" secondAttribute="leading" id="oum-Ug-Fv0"/>
                         </constraints>
@@ -162,6 +172,7 @@
                 <outlet property="heightLabel" destination="Tvt-Nn-wnQ" id="PVU-Em-AAF"/>
                 <outlet property="imageView" destination="vv3-0A-vDH" id="wt5-Vn-EpD"/>
                 <outlet property="nameLabel" destination="SMr-7b-9eO" id="9Qi-hi-zCD"/>
+                <outlet property="pokeballImageView" destination="zCS-ta-1Tp" id="DOU-MO-cf1"/>
                 <outlet property="weightLabel" destination="i3u-jK-pSp" id="wRR-wN-kTx"/>
             </connections>
             <point key="canvasLocation" x="298.66071428571428" y="215.94202898550725"/>
@@ -169,5 +180,6 @@
     </objects>
     <resources>
         <image name="1" width="120" height="120"/>
+        <image name="Pokeball" width="1024" height="1024"/>
     </resources>
 </document>

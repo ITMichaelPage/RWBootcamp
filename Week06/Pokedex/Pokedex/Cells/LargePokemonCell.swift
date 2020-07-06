@@ -9,6 +9,7 @@ class LargePokemonCell: UICollectionViewCell {
   @IBOutlet weak var baseExperienceLabel: UILabel!
   @IBOutlet weak var heightLabel: UILabel!
   @IBOutlet weak var weightLabel: UILabel!
+  @IBOutlet weak var pokeballImageView: UIImageView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -22,6 +23,8 @@ class LargePokemonCell: UICollectionViewCell {
     baseExperienceLabel.text = String(pokemon.baseExperience)
     heightLabel.text = String(pokemon.height)
     weightLabel.text = String(pokemon.weight)
+    pokeballImageView.tintColor = pokemon.auraColor?.asUIColor()?.withAlphaComponent(0.2)
+    pokeballImageView.startRotating(duration: 9.0)
   }
   
 }

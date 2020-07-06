@@ -70,6 +70,9 @@ enum AuraColor: String, Codable {
   case red = "red"
   case white = "white"
   case yellow = "yellow"
+  func asUIColor() -> UIColor? {
+    UIColor(named: "aura-\(self.rawValue)")
+  }
 }
 
 enum TypeSlotIdentifier: String, Codable {
