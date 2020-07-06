@@ -30,13 +30,65 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
 struct Pokemon {
   let id: Int
   let name: String
-  let baseExperience: Int
-  let weight: Int
-  let height: Int
+  let height, weight, baseExperience: Int
+  let typeSlot1Identifier, typeSlot2Identifier: TypeSlotIdentifier?
+  let statsHP, statsAttack, statsDefense, statsSpecialAttack: Int
+  let statsSpecialDefense, statsSpeed, generation: Int
+  let evolvesFromPokemonID: Int?
+  let evolvesToPokemonIDs: [Int]?
+  let pokemonDescription: String
+  let auraColor: AuraColor?
+  var typeSlot1IdentifierColor: UIColor? {
+    guard let typeSlot1Identifier = typeSlot1Identifier,
+      let color = UIColor(named: "type-\(typeSlot1Identifier)") else {
+      return nil
+    }
+    return color
+  }
+  var typeSlot2IdentifierColor: UIColor? {
+    guard let typeSlot2Identifier = typeSlot2Identifier,
+      let color = UIColor(named: "type-\(typeSlot2Identifier)") else {
+      return nil
+    }
+    return color
+  }
 }
 
+enum AuraColor: String, Codable {
+  case black = "black"
+  case blue = "blue"
+  case brown = "brown"
+  case gray = "gray"
+  case green = "green"
+  case pink = "pink"
+  case purple = "purple"
+  case red = "red"
+  case white = "white"
+  case yellow = "yellow"
+}
+
+enum TypeSlotIdentifier: String, Codable {
+  case bug = "bug"
+  case dark = "dark"
+  case dragon = "dragon"
+  case electric = "electric"
+  case fairy = "fairy"
+  case fighting = "fighting"
+  case fire = "fire"
+  case flying = "flying"
+  case ghost = "ghost"
+  case grass = "grass"
+  case ground = "ground"
+  case ice = "ice"
+  case normal = "normal"
+  case poison = "poison"
+  case psychic = "psychic"
+  case rock = "rock"
+  case steel = "steel"
+  case water = "water"
+}

@@ -45,13 +45,44 @@ class PokemonGenerator {
       let csv = try CSV(contentsOfURL: path ?? "")
       let rows = csv.rows
       for row in rows {
-        let pokeID = Int(row["id"] ?? "") ?? 0
+        let pokemonID = Int(row["id"] ?? "") ?? 0
         let name = row["identifier"] ?? ""
-        let weight = Int(row["weight"] ?? "") ?? 0
         let height = Int(row["height"] ?? "") ?? 0
-        let baseExp = Int(row["base_experience"] ?? "") ?? 0
+        let weight = Int(row["weight"] ?? "") ?? 0
+        let baseExperience = Int(row["base_experience"] ?? "") ?? 0
+        let typeSlot1Identifier = TypeSlotIdentifier(rawValue: row["type_slot_1_identifier"] ?? "")
+        let typeSlot2Identifier = TypeSlotIdentifier(rawValue: row["type_slot_2_identifier"] ?? "")
+        let statsHP = Int(row["stats_hp"] ?? "") ?? 0
+        let statsAttack = Int(row["stats_attack"] ?? "") ?? 0
+        let statsDefense = Int(row["stats_defense"] ?? "") ?? 0
+        let statsSpecialAttack = Int(row["stats_special-attack"] ?? "") ?? 0
+        let statsSpecialDefense = Int(row["stats_special-defense"] ?? "") ?? 0
+        let statsSpeed = Int(row["stats_speed"] ?? "") ?? 0
+        let generation = Int(row["generation"] ?? "") ?? 0
+        let evolvesFromPokemonID = Int(row["evolves_from_pokemon_id"] ?? "")
+        let evolvesToPokemonIDs = row["evolves_to_pokemon_id"]?.split(separator: ",").map({Int($0)!}) ?? []
+        let pokemonDescription = row["description"] ?? ""
+        let auraColor = AuraColor(rawValue: row["aura_color"] ?? "")
         
-        let pokemon = Pokemon(id: pokeID, name: name.capitalized, baseExperience: baseExp, weight: height, height: weight)
+        let pokemon = Pokemon(id: pokemonID,
+                              name: name.capitalized,
+                              height: height,
+                              weight: weight,
+                              baseExperience: baseExperience,
+                              typeSlot1Identifier: typeSlot1Identifier,
+                              typeSlot2Identifier: typeSlot2Identifier,
+                              statsHP: statsHP,
+                              statsAttack: statsAttack,
+                              statsDefense: statsDefense,
+                              statsSpecialAttack: statsSpecialAttack,
+                              statsSpecialDefense: statsSpecialDefense,
+                              statsSpeed: statsSpeed,
+                              generation: generation,
+                              evolvesFromPokemonID: evolvesFromPokemonID,
+                              evolvesToPokemonIDs: evolvesToPokemonIDs,
+                              pokemonDescription: pokemonDescription,
+                              auraColor: auraColor
+        )
         
         pokemons.append(pokemon)
       }
