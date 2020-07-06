@@ -94,4 +94,7 @@ enum TypeSlotIdentifier: String, Codable {
   case rock = "rock"
   case steel = "steel"
   case water = "water"
+  func asCapitalizedString() -> String {
+    self.rawValue.capitalized
+  }
 }
