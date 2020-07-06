@@ -13,6 +13,13 @@ class LargePokemonCell: UICollectionViewCell {
   @IBOutlet weak var baseExperienceLabel: UILabel!
   @IBOutlet weak var heightLabel: UILabel!
   @IBOutlet weak var weightLabel: UILabel!
+  @IBOutlet weak var statsHP: UILabel!
+  @IBOutlet weak var statsAttack: UILabel!
+  @IBOutlet weak var statsDefense: UILabel!
+  @IBOutlet weak var statsSpecialAttack: UILabel!
+  @IBOutlet weak var statsSpecialDefense: UILabel!
+  @IBOutlet weak var statsSpeed: UILabel!
+  @IBOutlet weak var statsTotal: UILabel!
   @IBOutlet weak var pokeballImageView: UIImageView!
   
   override func awakeFromNib() {
@@ -27,6 +34,7 @@ class LargePokemonCell: UICollectionViewCell {
     imageView.image = UIImage(named: String(pokemon.id))
     pokemonDescription.text = pokemon.pokemonDescription
     configureTypeSlots(for: pokemon)
+    configureStats(for: pokemon)
     baseExperienceLabel.text = String(pokemon.baseExperience)
     heightLabel.text = String(pokemon.height)
     weightLabel.text = String(pokemon.weight)
@@ -56,6 +64,16 @@ class LargePokemonCell: UICollectionViewCell {
     } else {
       typeSlot2Identifier.text = ""
     }
+  }
+  
+  private func configureStats(for pokemon: Pokemon) {
+    statsHP.text = String(pokemon.statsHP)
+    statsAttack.text = String(pokemon.statsAttack)
+    statsDefense.text = String(pokemon.statsDefense)
+    statsSpecialAttack.text = String(pokemon.statsSpecialAttack)
+    statsSpecialDefense.text = String(pokemon.statsSpecialDefense)
+    statsSpeed.text = String(pokemon.statsSpeed)
+    statsTotal.text = String(pokemon.statsTotal)
   }
   
 }
