@@ -4,6 +4,7 @@ class LargePokemonCell: UICollectionViewCell {
   
   static let reuseIdentifier = String(describing: LargePokemonCell.self)
   
+  @IBOutlet weak var pokemonID: UILabel!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var pokemonDescription: UILabel!
@@ -21,6 +22,7 @@ class LargePokemonCell: UICollectionViewCell {
   }
   
   func configure(for pokemon: Pokemon) {
+    pokemonID.text = "No. \(String(format: "%03d", pokemon.id))"
     nameLabel.text = pokemon.name
     imageView.image = UIImage(named: String(pokemon.id))
     pokemonDescription.text = pokemon.pokemonDescription

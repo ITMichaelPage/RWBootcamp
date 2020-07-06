@@ -20,6 +20,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1E-qT-7Et">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No. 001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0s-4d-qkX">
+                                <rect key="frame" x="146" y="10" width="44" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="95H-VQ-YeL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="zCS-ta-1Tp">
                                 <rect key="frame" x="26" y="226" width="200" height="200"/>
                                 <color key="tintColor" red="0.93281942610000002" green="0.47144663329999997" blue="0.42741394040000003" alpha="0.30329623287671231" colorSpace="custom" customColorSpace="displayP3"/>
@@ -200,8 +209,10 @@
                             <constraint firstAttribute="trailing" secondItem="zCS-ta-1Tp" secondAttribute="trailing" constant="-26" id="0mS-jk-g4H"/>
                             <constraint firstItem="dwg-Ul-Xj6" firstAttribute="top" secondItem="e1E-qT-7Et" secondAttribute="top" id="70Q-2T-u5f"/>
                             <constraint firstAttribute="bottom" secondItem="zCS-ta-1Tp" secondAttribute="bottom" constant="-26" id="NsY-Oy-moU"/>
+                            <constraint firstAttribute="trailing" secondItem="N0s-4d-qkX" secondAttribute="trailing" constant="10" id="RrP-Qj-elh"/>
                             <constraint firstAttribute="trailing" secondItem="dwg-Ul-Xj6" secondAttribute="trailing" id="e5h-WA-5ip"/>
                             <constraint firstItem="dwg-Ul-Xj6" firstAttribute="leading" secondItem="e1E-qT-7Et" secondAttribute="leading" id="oum-Ug-Fv0"/>
+                            <constraint firstItem="N0s-4d-qkX" firstAttribute="top" secondItem="e1E-qT-7Et" secondAttribute="top" constant="10" id="qDo-hY-gZO"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -221,6 +232,7 @@
                 <outlet property="nameLabel" destination="SMr-7b-9eO" id="9Qi-hi-zCD"/>
                 <outlet property="pokeballImageView" destination="zCS-ta-1Tp" id="DOU-MO-cf1"/>
                 <outlet property="pokemonDescription" destination="zfG-Ji-Rhe" id="zKI-Bp-CoN"/>
+                <outlet property="pokemonID" destination="N0s-4d-qkX" id="dnx-RW-h2m"/>
                 <outlet property="typeSlot1Identifier" destination="EaF-Ck-aMk" id="LBk-4b-a7x"/>
                 <outlet property="typeSlot2Identifier" destination="Mk3-4r-mHt" id="CyN-qj-VGK"/>
                 <outlet property="weightLabel" destination="i3u-jK-pSp" id="wRR-wN-kTx"/>
