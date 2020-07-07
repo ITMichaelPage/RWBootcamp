@@ -17,7 +17,7 @@ class CompactPokemonCell: UICollectionViewCell {
   func configure(for pokemon: Pokemon) {
     nameLabel.text = pokemon.name
     imageView.image = UIImage(named: String(pokemon.id))
-    nameBackgroundView.layer.backgroundColor = pokemon.typeSlot1IdentifierColor?.cgColor ?? #colorLiteral(red: 1, green: 0.4374197721, blue: 0.4048473537, alpha: 1).cgColor
+    nameBackgroundView.layer.backgroundColor = pokemon.typeSlot1IdentifierColor?.withAlphaComponent(0.8).cgColor ?? #colorLiteral(red: 1, green: 0.4374197721, blue: 0.4048473537, alpha: 1).cgColor
   }
   
 }
