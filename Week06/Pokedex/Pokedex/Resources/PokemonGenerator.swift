@@ -60,8 +60,10 @@ class PokemonGenerator {
         let statsSpeed = Int(row["stats_speed"] ?? "") ?? 0
         let generation = Int(row["generation"] ?? "") ?? 0
         let evolvesFromPokemonID = Int(row["evolves_from_pokemon_id"] ?? "")
-        let evolvesToPokemonIDs = row["evolves_to_pokemon_id"]?.split(separator: ",").map({Int($0)!}) ?? []
-        let pokemonDescription = row["description"] ?? ""
+        let evolvesIntoPokemonIDsStrings = row["evolves_into_pokemon_ids"]?.split(separator: "/") ?? []
+        let evolvesIntoPokemonIDs = evolvesIntoPokemonIDsStrings.map({Int($0)!})
+        let pokemonDescriptionWithFakeCommas = row["description"] ?? ""
+        let pokemonDescription = pokemonDescriptionWithFakeCommas.replacingOccurrences(of: "，", with: ",")
         let auraColor = AuraColor(rawValue: row["aura_color"] ?? "")
         
         let pokemon = Pokemon(id: pokemonID,
@@ -79,7 +81,7 @@ class PokemonGenerator {
                               statsSpeed: statsSpeed,
                               generation: generation,
                               evolvesFromPokemonID: evolvesFromPokemonID,
-                              evolvesToPokemonIDs: evolvesToPokemonIDs,
+                              evolvesIntoPokemonIDs: evolvesIntoPokemonIDs,
                               pokemonDescription: pokemonDescription,
                               auraColor: auraColor
         )

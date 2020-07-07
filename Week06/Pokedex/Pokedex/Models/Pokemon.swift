@@ -40,7 +40,7 @@ struct Pokemon {
   let statsHP, statsAttack, statsDefense, statsSpecialAttack: Int
   let statsSpecialDefense, statsSpeed, generation: Int
   let evolvesFromPokemonID: Int?
-  let evolvesToPokemonIDs: [Int]?
+  let evolvesIntoPokemonIDs: [Int]?
   let pokemonDescription: String
   let auraColor: AuraColor?
   var typeSlot1IdentifierColor: UIColor? {
@@ -56,6 +56,9 @@ struct Pokemon {
       return nil
     }
     return color
+  }
+  var statsTotal: Int {
+    statsHP + statsAttack + statsDefense + statsSpecialAttack + statsSpecialDefense + statsSpeed
   }
 }
 
