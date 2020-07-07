@@ -16,12 +16,15 @@
         <!--Large View-->
         <scene sceneID="FtT-Ec-vGh">
             <objects>
-                <viewController id="fFy-LO-UBa" sceneMemberID="viewController">
+                <viewController id="fFy-LO-UBa" customClass="LargeViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hu4-Pu-s6W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVx-bH-q6Q">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="R2U-eA-Prs" userLabel="Background Image">
+                                <rect key="frame" x="0.0" y="56" width="375" height="562"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVx-bH-q6Q" userLabel="Top Bar View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQE-QV-E86">
@@ -38,23 +41,47 @@
                                     <constraint firstItem="DQE-QV-E86" firstAttribute="centerY" secondItem="nVx-bH-q6Q" secondAttribute="centerY" id="uQH-QC-dKR"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="R2U-eA-Prs">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="03q-FD-2oh">
                                 <rect key="frame" x="0.0" y="56" width="375" height="562"/>
-                            </imageView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="xjh-3C-si1">
+                                    <size key="itemSize" width="200" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LargePokemonCell" id="coA-iE-32U" customClass="LargePokemonCell" customModule="Pokedex" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dAN-Et-1iK">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="R2U-eA-Prs" firstAttribute="leading" secondItem="xmN-FV-oZb" secondAttribute="leading" id="0Vs-VC-Kmr"/>
+                            <constraint firstItem="R2U-eA-Prs" firstAttribute="leading" secondItem="Hu4-Pu-s6W" secondAttribute="leading" id="0Vs-VC-Kmr"/>
                             <constraint firstItem="xmN-FV-oZb" firstAttribute="bottom" secondItem="R2U-eA-Prs" secondAttribute="bottom" id="3Fb-Qh-ZSo"/>
-                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="trailing" secondItem="xmN-FV-oZb" secondAttribute="trailing" id="4wY-1N-h20"/>
+                            <constraint firstItem="xmN-FV-oZb" firstAttribute="bottom" secondItem="03q-FD-2oh" secondAttribute="bottom" id="3JH-Rs-W6o"/>
+                            <constraint firstItem="03q-FD-2oh" firstAttribute="top" secondItem="nVx-bH-q6Q" secondAttribute="bottom" id="4uP-m0-5RR"/>
+                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="trailing" secondItem="Hu4-Pu-s6W" secondAttribute="trailing" id="4wY-1N-h20"/>
+                            <constraint firstAttribute="trailing" secondItem="03q-FD-2oh" secondAttribute="trailing" id="BSZ-L6-uot"/>
                             <constraint firstItem="R2U-eA-Prs" firstAttribute="top" secondItem="nVx-bH-q6Q" secondAttribute="bottom" id="IEk-Kd-OuJ"/>
                             <constraint firstItem="nVx-bH-q6Q" firstAttribute="top" secondItem="xmN-FV-oZb" secondAttribute="top" id="eih-Xy-7Oc"/>
-                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="leading" secondItem="xmN-FV-oZb" secondAttribute="leading" id="j2a-3d-n7W"/>
-                            <constraint firstItem="xmN-FV-oZb" firstAttribute="trailing" secondItem="R2U-eA-Prs" secondAttribute="trailing" id="yHR-8A-92c"/>
+                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="leading" secondItem="Hu4-Pu-s6W" secondAttribute="leading" id="j2a-3d-n7W"/>
+                            <constraint firstItem="03q-FD-2oh" firstAttribute="leading" secondItem="Hu4-Pu-s6W" secondAttribute="leading" id="rJj-R9-VjO"/>
+                            <constraint firstAttribute="trailing" secondItem="R2U-eA-Prs" secondAttribute="trailing" id="yHR-8A-92c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xmN-FV-oZb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Large View" image="unselected_up" selectedImage="selected_up" id="vB4-BO-Kkb"/>
+                    <connections>
+                        <outlet property="largeCollectionView" destination="03q-FD-2oh" id="0xO-m6-ecd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWO-Ic-qxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -68,10 +95,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ezc-7R-jLs">
-                                <rect key="frame" x="0.0" y="52" width="375" height="562"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ezc-7R-jLs" userLabel="Background Image">
+                                <rect key="frame" x="0.0" y="56" width="375" height="562"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRK-MR-EZD">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRK-MR-EZD" userLabel="Top Bar View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmX-yB-Csc">
@@ -88,52 +115,40 @@
                                     <constraint firstItem="mmX-yB-Csc" firstAttribute="centerX" secondItem="uRK-MR-EZD" secondAttribute="centerX" id="BiU-IX-1PQ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZB-cM-QkE">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vwi-IJ-2ni">
                                 <rect key="frame" x="0.0" y="56" width="375" height="562"/>
-                                <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vwi-IJ-2ni">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="562"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="UOt-Rm-wyY">
-                                            <size key="itemSize" width="200" height="200"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CompactPokemonCell" id="WYf-wn-BsS" customClass="CompactPokemonCell" customModule="Pokedex" customModuleProvider="target">
-                                                <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="h8B-KR-VME">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </collectionViewCellContentView>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Vwi-IJ-2ni" secondAttribute="trailing" id="HlG-Ad-Svy"/>
-                                    <constraint firstItem="Vwi-IJ-2ni" firstAttribute="leading" secondItem="ZZB-cM-QkE" secondAttribute="leading" id="Xy5-Qc-nUJ"/>
-                                    <constraint firstItem="Vwi-IJ-2ni" firstAttribute="top" secondItem="ZZB-cM-QkE" secondAttribute="top" id="dRa-aV-U5i"/>
-                                    <constraint firstAttribute="bottom" secondItem="Vwi-IJ-2ni" secondAttribute="bottom" id="won-mn-Eoy"/>
-                                </constraints>
-                            </view>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="UOt-Rm-wyY">
+                                    <size key="itemSize" width="200" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CompactPokemonCell" id="WYf-wn-BsS" customClass="CompactPokemonCell" customModule="Pokedex" customModuleProvider="target">
+                                        <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="h8B-KR-VME">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ZZB-cM-QkE" firstAttribute="trailing" secondItem="juZ-AC-nhh" secondAttribute="trailing" id="6g2-1w-wWf"/>
                             <constraint firstAttribute="trailing" secondItem="uRK-MR-EZD" secondAttribute="trailing" id="6p2-hk-mrB"/>
-                            <constraint firstItem="ezc-7R-jLs" firstAttribute="top" secondItem="Zbv-Ge-Jnv" secondAttribute="top" constant="52" id="7tk-bI-cgq"/>
-                            <constraint firstAttribute="bottom" secondItem="ezc-7R-jLs" secondAttribute="bottom" constant="53" id="95w-i6-Bfy"/>
+                            <constraint firstItem="ezc-7R-jLs" firstAttribute="top" secondItem="uRK-MR-EZD" secondAttribute="bottom" id="7tk-bI-cgq"/>
+                            <constraint firstItem="juZ-AC-nhh" firstAttribute="bottom" secondItem="ezc-7R-jLs" secondAttribute="bottom" id="95w-i6-Bfy"/>
                             <constraint firstItem="uRK-MR-EZD" firstAttribute="leading" secondItem="Zbv-Ge-Jnv" secondAttribute="leading" id="ETr-KJ-RPR"/>
-                            <constraint firstItem="ZZB-cM-QkE" firstAttribute="bottom" secondItem="juZ-AC-nhh" secondAttribute="bottom" id="LeU-Zz-NCf"/>
+                            <constraint firstItem="Vwi-IJ-2ni" firstAttribute="top" secondItem="uRK-MR-EZD" secondAttribute="bottom" id="Id2-q6-S46"/>
                             <constraint firstAttribute="trailing" secondItem="ezc-7R-jLs" secondAttribute="trailing" id="bNZ-Oh-Ph0"/>
                             <constraint firstItem="uRK-MR-EZD" firstAttribute="top" secondItem="juZ-AC-nhh" secondAttribute="top" id="brE-6N-XyE"/>
                             <constraint firstItem="ezc-7R-jLs" firstAttribute="leading" secondItem="Zbv-Ge-Jnv" secondAttribute="leading" id="eO1-st-orm"/>
-                            <constraint firstItem="ZZB-cM-QkE" firstAttribute="leading" secondItem="juZ-AC-nhh" secondAttribute="leading" id="sSP-SA-OYw"/>
-                            <constraint firstItem="ZZB-cM-QkE" firstAttribute="top" secondItem="uRK-MR-EZD" secondAttribute="bottom" id="xZJ-Tl-EOz"/>
+                            <constraint firstItem="Vwi-IJ-2ni" firstAttribute="trailing" secondItem="juZ-AC-nhh" secondAttribute="trailing" id="qmR-d4-ciJ"/>
+                            <constraint firstItem="Vwi-IJ-2ni" firstAttribute="leading" secondItem="juZ-AC-nhh" secondAttribute="leading" id="sfy-as-1hI"/>
+                            <constraint firstItem="juZ-AC-nhh" firstAttribute="bottom" secondItem="Vwi-IJ-2ni" secondAttribute="bottom" id="tzk-Gp-DdU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="juZ-AC-nhh"/>
                     </view>
@@ -141,7 +156,7 @@
                         <color key="badgeColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="collectionView" destination="Vwi-IJ-2ni" id="3EZ-KA-LBK"/>
+                        <outlet property="compactCollectionView" destination="Vwi-IJ-2ni" id="3EZ-KA-LBK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbO-wi-aa4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
