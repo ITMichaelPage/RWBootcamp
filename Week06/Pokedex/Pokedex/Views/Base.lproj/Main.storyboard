@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Large View-->
+        <!--Large View Controller-->
         <scene sceneID="FtT-Ec-vGh">
             <objects>
                 <viewController id="fFy-LO-UBa" customClass="LargeViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,7 +78,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xmN-FV-oZb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Large View" image="unselected_up" selectedImage="selected_up" id="vB4-BO-Kkb"/>
+                    <tabBarItem key="tabBarItem" title="" image="LargeViewDeselected" selectedImage="LargeViewSelected" id="vB4-BO-Kkb"/>
                     <connections>
                         <outlet property="largeCollectionView" destination="03q-FD-2oh" id="0xO-m6-ecd"/>
                     </connections>
@@ -87,7 +87,7 @@
             </objects>
             <point key="canvasLocation" x="820" y="194.75262368815595"/>
         </scene>
-        <!--Compact View-->
+        <!--Compact View Controller-->
         <scene sceneID="jfm-d7-A99">
             <objects>
                 <viewController id="aiT-yU-3Sz" customClass="CompactViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
@@ -152,7 +152,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="juZ-AC-nhh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Compact View" image="unselected_down" selectedImage="selected_down" id="Uyi-xz-Er8">
+                    <tabBarItem key="tabBarItem" title="" image="CompactViewDeselected" selectedImage="CompactViewSelected" id="Uyi-xz-Er8">
                         <color key="badgeColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <connections>
@@ -185,10 +185,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CompactViewDeselected" width="34.5" height="34.5"/>
+        <image name="CompactViewSelected" width="34.5" height="34.5"/>
+        <image name="LargeViewDeselected" width="34.5" height="34.5"/>
+        <image name="LargeViewSelected" width="34.5" height="34.5"/>
         <image name="bg" width="1920" height="1200"/>
-        <image name="selected_down" width="23" height="23"/>
-        <image name="selected_up" width="23" height="23"/>
-        <image name="unselected_down" width="23" height="23"/>
-        <image name="unselected_up" width="23" height="23"/>
     </resources>
 </document>

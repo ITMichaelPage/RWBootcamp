@@ -67,6 +67,7 @@
             <size key="customSize" width="165" height="165"/>
             <connections>
                 <outlet property="imageView" destination="vv3-0A-vDH" id="wt5-Vn-EpD"/>
+                <outlet property="nameBackgroundView" destination="MUt-mK-qBA" id="Zbl-zb-aqc"/>
                 <outlet property="nameLabel" destination="SMr-7b-9eO" id="9Qi-hi-zCD"/>
             </connections>
             <point key="canvasLocation" x="220.28985507246378" y="216.29464285714286"/>

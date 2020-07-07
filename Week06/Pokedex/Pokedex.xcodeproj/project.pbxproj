@@ -21,6 +21,7 @@
 		AE26786724B05F9C00DF3093 /* LargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE26786624B05F9C00DF3093 /* LargeViewController.swift */; };
 		AE26786924B063DF00DF3093 /* LargePokemonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE26786824B063DF00DF3093 /* LargePokemonCell.xib */; };
 		AE26786B24B063F800DF3093 /* LargePokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE26786A24B063F800DF3093 /* LargePokemonCell.swift */; };
+		AE75B9D224B32549009D25BE /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE75B9D124B32549009D25BE /* UIView.swift */; };
 		AE7A6CAF24ADBC4F00D4BE1E /* CompactPokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A6CAD24ADBC4F00D4BE1E /* CompactPokemonCell.swift */; };
 		AE7A6CB024ADBC4F00D4BE1E /* CompactPokemonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7A6CAE24ADBC4F00D4BE1E /* CompactPokemonCell.xib */; };
 		AE7A6CB224AEB69E00D4BE1E /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A6CB124AEB69E00D4BE1E /* CompactViewController.swift */; };
@@ -47,6 +48,7 @@
 		AE26786624B05F9C00DF3093 /* LargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeViewController.swift; sourceTree = "<group>"; };
 		AE26786824B063DF00DF3093 /* LargePokemonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargePokemonCell.xib; sourceTree = "<group>"; };
 		AE26786A24B063F800DF3093 /* LargePokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargePokemonCell.swift; sourceTree = "<group>"; };
+		AE75B9D124B32549009D25BE /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		AE7A6CAD24ADBC4F00D4BE1E /* CompactPokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactPokemonCell.swift; sourceTree = "<group>"; };
 		AE7A6CAE24ADBC4F00D4BE1E /* CompactPokemonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompactPokemonCell.xib; sourceTree = "<group>"; };
 		AE7A6CB124AEB69E00D4BE1E /* CompactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				AE7A6CC224B02A9800D4BE1E /* Views */,
 				AE7A6CBB24AF697C00D4BE1E /* Cells */,
 				AE7A6CBE24AF6A3000D4BE1E /* Helpers */,
+				AE75B9CE24B2EBB8009D25BE /* Extensions */,
 				185CB20423C78CE8009F7571 /* Assets.xcassets */,
 				185CB20923C78CE8009F7571 /* Info.plist */,
 				A125200724AAAB64008F7E2E /* Resources */,
@@ -111,6 +114,14 @@
 				A125200C24AAABA0008F7E2E /* PokemonGenerator.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AE75B9CE24B2EBB8009D25BE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AE75B9D124B32549009D25BE /* UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AE7A6CBB24AF697C00D4BE1E /* Cells */ = {
@@ -276,6 +287,7 @@
 				A125200D24AAABA0008F7E2E /* PokemonGenerator.swift in Sources */,
 				185CB1FC23C78CE6009F7571 /* AppDelegate.swift in Sources */,
 				185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */,
+				AE75B9D224B32549009D25BE /* UIView.swift in Sources */,
 				AE7A6CBA24AF1A0B00D4BE1E /* CollectionViewCellIdentifier.swift in Sources */,
 				AE26786B24B063F800DF3093 /* LargePokemonCell.swift in Sources */,
 				AE26786724B05F9C00DF3093 /* LargeViewController.swift in Sources */,
