@@ -361,6 +361,11 @@
                             <constraint firstAttribute="trailing" secondItem="Hfa-IZ-5TQ" secondAttribute="trailing" constant="10" id="lAM-cI-4k9"/>
                             <constraint firstItem="dwg-Ul-Xj6" firstAttribute="leading" secondItem="e1E-qT-7Et" secondAttribute="leading" id="oum-Ug-Fv0"/>
                         </constraints>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="Hfa-IZ-5TQ"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
             </view>
