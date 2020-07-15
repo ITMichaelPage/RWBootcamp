@@ -18,6 +18,7 @@
 		12A0791124AFDC5C0097F149 /* AddSandwichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791024AFDC5C0097F149 /* AddSandwichViewController.swift */; };
 		12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791324AFDD8E0097F149 /* SandwichData.swift */; };
 		12A0791824B2CC9A0097F149 /* sandwiches.json in Resources */ = {isa = PBXBuildFile; fileRef = 12A0791724B2CC9A0097F149 /* sandwiches.json */; };
+		AEDE1A4124BF188B00B0B8DA /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDE1A4024BF188B00B0B8DA /* FileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		12A0791024AFDC5C0097F149 /* AddSandwichViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSandwichViewController.swift; sourceTree = "<group>"; };
 		12A0791324AFDD8E0097F149 /* SandwichData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichData.swift; sourceTree = "<group>"; };
 		12A0791724B2CC9A0097F149 /* sandwiches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sandwiches.json; sourceTree = "<group>"; };
+		AEDE1A4024BF188B00B0B8DA /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				12A0791224AFDD810097F149 /* Model */,
 				1255799424AFCBDE004C616F /* View */,
 				12A0790F24AFDC2F0097F149 /* ViewControllers */,
+				AEDE1A3F24BF186800B0B8DA /* Extensions */,
 				1255798524AFB8FC004C616F /* Assets.xcassets */,
 				1255799024AFC717004C616F /* SandwichArt.xcassets */,
 				1255798724AFB8FC004C616F /* LaunchScreen.storyboard */,
@@ -104,6 +107,14 @@
 				12A0791324AFDD8E0097F149 /* SandwichData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AEDE1A3F24BF186800B0B8DA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AEDE1A4024BF188B00B0B8DA /* FileManager.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +193,7 @@
 				1255799324AFCBD7004C616F /* SandwichCell.swift in Sources */,
 				12A0791124AFDC5C0097F149 /* AddSandwichViewController.swift in Sources */,
 				1255797B24AFB8FA004C616F /* AppDelegate.swift in Sources */,
+				AEDE1A4124BF188B00B0B8DA /* FileManager.swift in Sources */,
 				1255797D24AFB8FA004C616F /* SceneDelegate.swift in Sources */,
 				1255797F24AFB8FA004C616F /* SandwichViewController.swift in Sources */,
 				12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */,
