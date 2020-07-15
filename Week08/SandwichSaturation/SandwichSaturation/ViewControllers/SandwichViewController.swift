@@ -74,13 +74,13 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   
   func filterContentForSearchText(_ searchText: String,
                                   sauceAmount: SauceAmount? = nil) {
-    filteredSandwiches = sandwiches.filter { (sandwhich: SandwichData) -> Bool in
-      let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount == sauceAmount
+    filteredSandwiches = sandwiches.filter { (sandwich: SandwichData) -> Bool in
+      let doesSauceAmountMatch = sauceAmount == .any || sandwich.sauceAmount == sauceAmount
 
       if isSearchBarEmpty {
         return doesSauceAmountMatch
       } else {
-        return doesSauceAmountMatch && sandwhich.name.lowercased()
+        return doesSauceAmountMatch && sandwich.name.lowercased()
           .contains(searchText.lowercased())
       }
     }
