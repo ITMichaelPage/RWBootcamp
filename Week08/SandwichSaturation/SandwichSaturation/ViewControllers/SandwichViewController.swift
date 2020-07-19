@@ -89,7 +89,6 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
     appDelegate.saveContext()
     refresh()
-    tableView.reloadData()
   }
 
   @objc
