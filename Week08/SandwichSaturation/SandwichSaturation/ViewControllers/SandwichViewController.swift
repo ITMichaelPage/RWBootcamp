@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol SandwichDataSource {
   func saveSandwich(_: SandwichData)
@@ -17,6 +18,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
   let defaults = UserDefaults.standard
   let searchController = UISearchController(searchResultsController: nil)
+  private var fetchedRC: NSFetchedResultsController<Sandwich>!
   var sandwiches = [SandwichData]()
   var filteredSandwiches = [SandwichData]()
 
@@ -50,6 +52,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    refresh()
   }
   
   func loadSandwichesFromJSON() {
@@ -121,26 +124,40 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
       (!isSearchBarEmpty || searchBarScopeIsFiltering)
   }
   
+  private func refresh() {
+    let request = Sandwich.fetchRequest() as NSFetchRequest<Sandwich>
+    let nameSort = NSSortDescriptor(key: #keyPath(Sandwich.name), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
+    request.sortDescriptors = [nameSort]
+    do {
+      fetchedRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+      try fetchedRC.performFetch()
+    } catch let error as NSError {
+      print("Could not fetch. \(error), \(error.userInfo)")
+    }
+  }
+  
   // MARK: - Table View
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return isFiltering ? filteredSandwiches.count : sandwiches.count
+    guard let sections = fetchedRC.sections, let objects = sections[section].objects else {
+      return 0
+    }
+    return objects.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "sandwichCell", for: indexPath) as? SandwichCell
-      else { return UITableViewCell() }
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "sandwichCell", for: indexPath) as? SandwichCell else {
+      return UITableViewCell()
+    }
     
-    let sandwich = isFiltering ?
-      filteredSandwiches[indexPath.row] :
-      sandwiches[indexPath.row]
+    let sandwich = fetchedRC.object(at: indexPath)
 
     cell.thumbnail.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
     cell.nameLabel.text = sandwich.name
-    cell.sauceLabel.text = sandwich.sauceAmount.description
+    cell.sauceLabel.text = sandwich.sauceAmount.sauceAmount.description
 
     return cell
   }
