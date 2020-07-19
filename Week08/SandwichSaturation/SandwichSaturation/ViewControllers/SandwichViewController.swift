@@ -19,16 +19,15 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   let defaults = UserDefaults.standard
   let searchController = UISearchController(searchResultsController: nil)
   private var fetchedRC: NSFetchedResultsController<Sandwich>!
-  var sandwiches = [SandwichData]()
-  var filteredSandwiches = [SandwichData]()
+  var sandwiches = [Sandwich]()
+  var filteredSandwiches = [Sandwich]()
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     
     let coreDataJSONImportComplete = defaults.bool(forKey: "CoreDataJSONImportComplete")
     if !coreDataJSONImportComplete {
-      loadSandwichesFromJSON()
-      saveSandwichesToCoreData()
+      saveSeedDataToCoreData()
       defaults.set(true, forKey: "CoreDataJSONImportComplete")
     }
   }
@@ -55,25 +54,27 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     refresh()
   }
   
-  func loadSandwichesFromJSON() {
+  func loadSeedDataFromJSON() -> [SandwichData] {
     let sandwichesJSONURL = URL(fileURLWithPath: "sandwiches", relativeTo: Bundle.main.bundleURL).appendingPathExtension("json")
 
     guard FileManager.default.fileExists(atPath: sandwichesJSONURL.path) else {
-      return
+      fatalError("Unable to read \(sandwichesJSONURL.path)")
     }
     
     let decoder = JSONDecoder()
     
     do {
       let sandwichesData = try Data(contentsOf: sandwichesJSONURL)
-      sandwiches = try decoder.decode([SandwichData].self, from: sandwichesData)
+      let seedData = try decoder.decode([SandwichData].self, from: sandwichesData)
+      return seedData
     } catch let error {
-      print(error)
+      fatalError(error.localizedDescription)
     }
   }
 
-  func saveSandwichesToCoreData() {
-    sandwiches.forEach { (sandwichData) in
+  func saveSeedDataToCoreData() {
+    let seedData = loadSeedDataFromJSON()
+    seedData.forEach { (sandwichData) in
       saveSandwich(sandwichData)
     }
   }
@@ -103,8 +104,8 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   
   func filterContentForSearchText(_ searchText: String,
                                   sauceAmount: SauceAmount? = nil) {
-    filteredSandwiches = sandwiches.filter { (sandwich: SandwichData) -> Bool in
-      let doesSauceAmountMatch = sauceAmount == .any || sandwich.sauceAmount == sauceAmount
+    filteredSandwiches = sandwiches.filter { (sandwich: Sandwich) -> Bool in
+      let doesSauceAmountMatch = sauceAmount == .any || sandwich.sauceAmount.sauceAmount == sauceAmount
 
       if isSearchBarEmpty {
         return doesSauceAmountMatch
