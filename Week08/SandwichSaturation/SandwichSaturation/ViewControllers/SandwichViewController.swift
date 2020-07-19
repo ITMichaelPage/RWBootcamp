@@ -85,7 +85,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
     let sandwich = Sandwich(entity: Sandwich.entity(), insertInto: context)
     sandwich.name = sandwichData.name
-    sandwich.sauceAmount = sauceAmountModel
+    sandwich.sauceAmountModel = sauceAmountModel
     sandwich.imageName = sandwichData.imageName
 
     appDelegate.saveContext()
@@ -105,7 +105,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   func filterContentForSearchText(_ searchText: String,
                                   sauceAmount: SauceAmount? = nil) {
     filteredSandwiches = sandwiches.filter { (sandwich: Sandwich) -> Bool in
-      let doesSauceAmountMatch = sauceAmount == .any || sandwich.sauceAmount.sauceAmount == sauceAmount
+      let doesSauceAmountMatch = sauceAmount == .any || sandwich.sauceAmountModel.sauceAmount == sauceAmount
 
       if isSearchBarEmpty {
         return doesSauceAmountMatch
@@ -158,7 +158,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
     cell.thumbnail.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
     cell.nameLabel.text = sandwich.name
-    cell.sauceLabel.text = sandwich.sauceAmount.sauceAmount.description
+    cell.sauceLabel.text = sandwich.sauceAmountModel.sauceAmount.description
 
     return cell
   }
