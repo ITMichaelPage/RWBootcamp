@@ -74,20 +74,21 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
   func saveSandwichesToCoreData() {
     sandwiches.forEach { (sandwichData) in
-      let sauceAmountModel = SauceAmountModel(entity: SauceAmountModel.entity(), insertInto: context)
-      sauceAmountModel.sauceAmount = sandwichData.sauceAmount
-
-      let sandwich = Sandwich(entity: Sandwich.entity(), insertInto: context)
-      sandwich.name = sandwichData.name
-      sandwich.sauceAmount = sauceAmountModel
-      sandwich.imageName = sandwichData.imageName
-      
-      appDelegate.saveContext()
+      saveSandwich(sandwichData)
     }
   }
 
-  func saveSandwich(_ sandwich: SandwichData) {
-    sandwiches.append(sandwich)
+  func saveSandwich(_ sandwichData: SandwichData) {
+    let sauceAmountModel = SauceAmountModel(entity: SauceAmountModel.entity(), insertInto: context)
+    sauceAmountModel.sauceAmount = sandwichData.sauceAmount
+
+    let sandwich = Sandwich(entity: Sandwich.entity(), insertInto: context)
+    sandwich.name = sandwichData.name
+    sandwich.sauceAmount = sauceAmountModel
+    sandwich.imageName = sandwichData.imageName
+
+    appDelegate.saveContext()
+    refresh()
     tableView.reloadData()
   }
 
