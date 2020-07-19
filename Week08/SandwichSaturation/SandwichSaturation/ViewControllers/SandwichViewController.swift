@@ -13,6 +13,8 @@ protocol SandwichDataSource {
 }
 
 class SandwichViewController: UITableViewController, SandwichDataSource {
+  private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
   let defaults = UserDefaults.standard
   let searchController = UISearchController(searchResultsController: nil)
   var sandwiches = [SandwichData]()
@@ -21,7 +23,12 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     
-    loadSandwiches()
+    let coreDataJSONImportComplete = defaults.bool(forKey: "CoreDataJSONImportComplete")
+    if !coreDataJSONImportComplete {
+      loadSandwichesFromJSON()
+      saveSandwichesToCoreData()
+      defaults.set(true, forKey: "CoreDataJSONImportComplete")
+    }
   }
   
   override func viewDidLoad() {
@@ -45,7 +52,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     super.viewWillAppear(animated)
   }
   
-  func loadSandwiches() {
+  func loadSandwichesFromJSON() {
     let sandwichesJSONURL = URL(fileURLWithPath: "sandwiches", relativeTo: Bundle.main.bundleURL).appendingPathExtension("json")
 
     guard FileManager.default.fileExists(atPath: sandwichesJSONURL.path) else {
@@ -59,6 +66,20 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
       sandwiches = try decoder.decode([SandwichData].self, from: sandwichesData)
     } catch let error {
       print(error)
+    }
+  }
+
+  func saveSandwichesToCoreData() {
+    sandwiches.forEach { (sandwichData) in
+      let sauceAmountModel = SauceAmountModel(entity: SauceAmountModel.entity(), insertInto: context)
+      sauceAmountModel.sauceAmount = sandwichData.sauceAmount
+
+      let sandwich = Sandwich(entity: Sandwich.entity(), insertInto: context)
+      sandwich.name = sandwichData.name
+      sandwich.sauceAmount = sauceAmountModel
+      sandwich.imageName = sandwichData.imageName
+      
+      appDelegate.saveContext()
     }
   }
 
