@@ -24,12 +24,6 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
-    
-    let coreDataJSONImportComplete = defaults.bool(forKey: "CoreDataJSONImportComplete")
-    if !coreDataJSONImportComplete {
-      saveSeedDataToCoreData()
-      defaults.set(true, forKey: "CoreDataJSONImportComplete")
-    }
   }
   
   override func viewDidLoad() {
@@ -47,11 +41,22 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     searchController.searchBar.scopeButtonTitles = SauceAmount.allCases.map { $0.rawValue }
     searchController.searchBar.delegate = self
     searchController.searchBar.selectedScopeButtonIndex = defaults.integer(forKey: "SearchBarSelectedScopeButtonIndex")
+    
+    coreDataJSONImport()
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    refresh()
+    displayAllSandwiches()
+  }
+  
+  func coreDataJSONImport() {
+    let userDefaultsKey = "CoreDataJSONImportComplete"
+    let coreDataJSONImportComplete = defaults.bool(forKey: userDefaultsKey)
+    if !coreDataJSONImportComplete {
+      saveSeedDataToCoreData()
+      defaults.set(true, forKey: userDefaultsKey)
+    }
   }
   
   func loadSeedDataFromJSON() -> [SandwichData] {
@@ -89,7 +94,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     sandwich.imageName = sandwichData.imageName
 
     appDelegate.saveContext()
-    refresh()
+    displayAllSandwiches()
   }
 
   @objc
@@ -132,7 +137,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     tableView.reloadData()
   }
   
-  private func refresh() {
+  private func displayAllSandwiches() {
     // This call with no arguments displays all sandwiches
     filterSandwiches()
   }
