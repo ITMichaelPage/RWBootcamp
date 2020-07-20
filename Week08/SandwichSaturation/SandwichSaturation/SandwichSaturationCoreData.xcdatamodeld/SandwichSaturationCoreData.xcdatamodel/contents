@@ -7,7 +7,7 @@
     </entity>
     <entity name="SauceAmountModel" representedClassName=".SauceAmountModel" syncable="YES">
         <attribute name="sauceAmountString" attributeType="String"/>
-        <relationship name="sandwich" maxCount="1" deletionRule="Nullify" destinationEntity="Sandwich" inverseName="sauceAmountModel" inverseEntity="Sandwich"/>
+        <relationship name="sandwich" toMany="YES" deletionRule="Nullify" destinationEntity="Sandwich" inverseName="sauceAmountModel" inverseEntity="Sandwich"/>
     </entity>
     <elements>
         <element name="Sandwich" positionX="-36" positionY="9" width="128" height="88"/>
