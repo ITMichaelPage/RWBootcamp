@@ -21,7 +21,9 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   private var fetchedRC: NSFetchedResultsController<Sandwich>!
   var sandwiches = [Sandwich]()
   var filteredSandwiches = [Sandwich]()
-
+  var isFiltering: Bool {
+    !filteredSandwiches.isEmpty
+  }
   required init?(coder: NSCoder) {
     super.init(coder: coder)
   }
@@ -96,6 +98,21 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     appDelegate.saveContext()
     displayAllSandwiches()
   }
+  
+  func deleteSandwich(_ sandwich: Sandwich) {
+    context.delete(sandwich)
+    appDelegate.saveContext()
+    
+    if isFiltering {
+      if let index = filteredSandwiches.firstIndex(of: sandwich) {
+        filteredSandwiches.remove(at: index)
+      }
+    } else {
+      if let index = sandwiches.firstIndex(of: sandwich) {
+        sandwiches.remove(at: index)
+      }
+    }
+  }
 
   @objc
   func presentAddView(_ sender: Any) {
@@ -130,6 +147,16 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     do {
       fetchedRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
       try fetchedRC.performFetch()
+      
+      if let fetchedRCResults = fetchedRC.sections?.first?.objects as? [Sandwich] {
+        if predicates.isEmpty {
+          sandwiches = fetchedRCResults
+          filteredSandwiches.removeAll()
+        } else {
+          filteredSandwiches = fetchedRCResults
+          sandwiches.removeAll()
+        }
+      }
     } catch let error as NSError {
       print("Could not fetch. \(error), \(error.userInfo)")
     }
@@ -148,10 +175,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let sections = fetchedRC.sections, let objects = sections[section].objects else {
-      return 0
-    }
-    return objects.count
+    return isFiltering ? filteredSandwiches.count : sandwiches.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -159,13 +183,21 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
       return UITableViewCell()
     }
     
-    let sandwich = fetchedRC.object(at: indexPath)
+    let sandwich = isFiltering ? filteredSandwiches[indexPath.row] : sandwiches[indexPath.row]
 
     cell.thumbnail.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
     cell.nameLabel.text = sandwich.name
     cell.sauceLabel.text = sandwich.sauceAmountModel.sauceAmount.description
 
     return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      let sandwich = isFiltering ? filteredSandwiches[indexPath.row] : sandwiches[indexPath.row]
+      deleteSandwich(sandwich)
+      tableView.deleteRows(at: [indexPath], with: .fade)
+    }
   }
 }
 
