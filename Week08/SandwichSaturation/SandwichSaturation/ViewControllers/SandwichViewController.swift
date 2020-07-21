@@ -199,6 +199,20 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
       tableView.deleteRows(at: [indexPath], with: .fade)
     }
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ShowSandwichDetail" {
+      let sandwichDetailViewController = segue.destination as! SandwichDetailViewController
+      let indexPath = sender as! IndexPath
+      let sandwich = isFiltering ? filteredSandwiches[indexPath.row] : sandwiches[indexPath.row]
+      sandwichDetailViewController.sandwich = sandwich
+    }
+  }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    performSegue(withIdentifier: "ShowSandwichDetail", sender: indexPath)
+  }
 }
 
 // MARK: - UISearchResultsUpdating

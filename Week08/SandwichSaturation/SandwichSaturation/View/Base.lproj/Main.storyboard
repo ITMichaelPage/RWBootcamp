@@ -27,7 +27,7 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController title="Sandwiches View Controller" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="SandwichViewController" customModule="SandwichSaturation" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -91,11 +91,64 @@
                     <navigationItem key="navigationItem" title="Sandwiches" id="Zdf-7t-Un8"/>
                     <connections>
                         <segue destination="Gwi-TV-UMp" kind="presentation" identifier="AddSandwichSegue" id="jN9-hL-25V"/>
+                        <segue destination="AY8-fX-atd" kind="show" identifier="ShowSandwichDetail" id="OXT-LK-O6Z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-813" y="133"/>
+        </scene>
+        <!--Sandwich Detail View Controller-->
+        <scene sceneID="DBu-C0-vbc">
+            <objects>
+                <viewController id="AY8-fX-atd" customClass="SandwichDetailViewController" customModule="SandwichSaturation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U84-bt-k6f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Sy1-Qi-wPM">
+                                <rect key="frame" x="8" y="104" width="398" height="77.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sandwich Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZm-xC-W3M">
+                                        <rect key="frame" x="0.0" y="0.0" width="238" height="41"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturation Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5D-Fx-zAe">
+                                        <rect key="frame" x="0.0" y="51" width="212" height="26.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sandwich1" translatesAutoresizingMaskIntoConstraints="NO" id="Fpx-6i-UkG">
+                                <rect key="frame" x="8" y="201.5" width="398" height="355"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="h43-kQ-xh1" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fpx-6i-UkG" secondAttribute="bottom" constant="8" id="1nX-v4-Hzx"/>
+                            <constraint firstItem="h43-kQ-xh1" firstAttribute="trailing" secondItem="Sy1-Qi-wPM" secondAttribute="trailing" constant="8" id="9dg-SQ-W4b"/>
+                            <constraint firstItem="Sy1-Qi-wPM" firstAttribute="leading" secondItem="h43-kQ-xh1" secondAttribute="leading" constant="8" id="IOk-gR-8EY"/>
+                            <constraint firstItem="Fpx-6i-UkG" firstAttribute="top" secondItem="Sy1-Qi-wPM" secondAttribute="bottom" constant="20" id="Wfw-Jb-8Mq"/>
+                            <constraint firstItem="Sy1-Qi-wPM" firstAttribute="top" secondItem="h43-kQ-xh1" secondAttribute="top" constant="16" id="ecu-3X-p1y"/>
+                            <constraint firstItem="h43-kQ-xh1" firstAttribute="trailing" secondItem="Fpx-6i-UkG" secondAttribute="trailing" constant="8" id="lsn-BF-CZC"/>
+                            <constraint firstItem="Fpx-6i-UkG" firstAttribute="leading" secondItem="h43-kQ-xh1" secondAttribute="leading" constant="8" id="yKs-9U-WMR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h43-kQ-xh1"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kfO-Fc-lZ6"/>
+                    <connections>
+                        <outlet property="imageView" destination="Fpx-6i-UkG" id="Qzv-K7-qmY"/>
+                        <outlet property="nameLabel" destination="hZm-xC-W3M" id="lvV-tF-Nek"/>
+                        <outlet property="saturationDescriptionLabel" destination="c5D-Fx-zAe" id="M1q-5S-n75"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zqt-GO-2nF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-33.333333333333336" y="132.58928571428572"/>
         </scene>
         <!--Add Sandwich View Controller-->
         <scene sceneID="cDh-LU-QZa">
@@ -131,7 +184,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sandwich Name" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="kIl-fS-O8c">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="Gwi-TV-UMp" id="Otj-xS-Aku"/>
                                         </connections>
@@ -185,4 +238,7 @@
             <point key="canvasLocation" x="-813.04347826086962" y="866.51785714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sandwich1" width="381.66665649414062" height="355"/>
+    </resources>
 </document>
