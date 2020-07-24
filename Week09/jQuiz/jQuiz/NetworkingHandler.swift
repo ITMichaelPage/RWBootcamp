@@ -38,4 +38,33 @@ class Networking {
         task.resume()
     }
     
+    func getAllCluesForCategoryID(_ categoryID: Int, completion: @escaping ([Clue]) -> Void) {
+        var urlComponents = URLComponents(url: apiBaseURL, resolvingAgainstBaseURL: false)!
+        urlComponents.path = "/api/clues"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "category", value: String(categoryID))
+        ]
+        
+        guard let cluesURL = urlComponents.url else {
+            print("Error", "Failed to build valid URL!")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: cluesURL) { (data, response, error) in
+            guard let dataResponse = data, error == nil else {
+                print(error?.localizedDescription ?? "Response Error")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let clues = try decoder.decode([Clue].self, from: dataResponse)
+                completion(clues)
+            } catch let parsingError {
+                print("Error", parsingError)
+            }
+        }
+        task.resume()
+    }
+    
 }
