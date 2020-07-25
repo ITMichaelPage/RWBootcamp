@@ -34,7 +34,8 @@ class ViewController: UIViewController {
         }
         
         SoundManager.shared.playSound()
-        
+
+        getLogoImage()
         getClues()
     }
     
@@ -44,6 +45,14 @@ class ViewController: UIViewController {
             soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
         } else {
             soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
+        }
+    }
+    
+    func getLogoImage() {
+        Networking.sharedInstance.getLogoImage { (logoImage) in
+            DispatchQueue.main.async {
+                self.logoImageView.image = logoImage
+            }
         }
     }
     
