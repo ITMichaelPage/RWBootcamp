@@ -76,7 +76,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let selectedClue = clues[indexPath.row]
+        evaluatePlayerSelection(selectedClue: selectedClue)
+        getClues()
     }
     
 }
@@ -87,6 +89,7 @@ extension ViewController {
         selectRandomClues(numberOfClues: 4)
         categoryLabel.text = correctAnswerClue?.category.title
         clueLabel.text = correctAnswerClue?.question
+        scoreLabel.text = String(points)
         tableView.reloadData()
     }
     
@@ -120,6 +123,16 @@ extension ViewController {
         }
         let shuffledSubsetOfClues = Array(cluesWithUniqueAnswers.shuffled()[0..<numberOfClues])
         return shuffledSubsetOfClues
+    }
+    
+    func evaluatePlayerSelection(selectedClue: Clue) {
+        guard selectedClue == correctAnswerClue else {
+            return
+        }
+        
+        if let correctAnswerCluePoints = correctAnswerClue?.points {
+            points += correctAnswerCluePoints
+        }
     }
     
 }
