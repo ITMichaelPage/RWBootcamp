@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scoreLabel: UILabel!
     
+    let game = JQuizGame()
     var clues: [Clue] = []
     var correctAnswerClue: Clue?
     var points: Int = 0
@@ -24,8 +25,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        
-        self.scoreLabel.text = "\(self.points)"
+        getLogoImage()
+        updateQuestion()
         
         if SoundManager.shared.isSoundEnabled == false {
             soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
@@ -34,9 +35,6 @@ class ViewController: UIViewController {
         }
         
         SoundManager.shared.playSound()
-
-        getLogoImage()
-        getClues()
     }
     
     @IBAction func didPressVolumeButton(_ sender: Any) {
@@ -86,61 +84,30 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedClue = clues[indexPath.row]
-        evaluatePlayerSelection(selectedClue: selectedClue)
-        getClues()
+        points += game.scorePlayerSelection(selectedClue: selectedClue, correctAnswerClue: correctAnswerClue)
+        updateQuestion()
     }
     
 }
 
 extension ViewController {
     
-    func updateView() {
-        selectRandomClues(numberOfClues: 4)
-        categoryLabel.text = correctAnswerClue?.category.title
-        clueLabel.text = correctAnswerClue?.question
-        scoreLabel.text = String(points)
-        tableView.reloadData()
-    }
-    
-    func getClues() {
-        Networking.sharedInstance.getRandomCategoryID { (categoryID) in
-            Networking.sharedInstance.getAllCluesForCategoryID(categoryID) { (clues) in
-                self.clues = clues
+    func updateQuestion() {
+        game.startNewRound() { (result) in
+            switch result {
+            case .success(let clues):
                 DispatchQueue.main.async {
-                    self.updateView()
+                    self.clues = clues
+                    self.correctAnswerClue = clues.randomElement()
+                    print("Answer: \(self.correctAnswerClue?.answer ?? "") | Points: \(self.correctAnswerClue?.points ?? 100)")
+                    self.categoryLabel.text = self.correctAnswerClue?.category.title
+                    self.clueLabel.text = self.correctAnswerClue?.question
+                    self.scoreLabel.text = String(self.points)
+                    self.tableView.reloadData()
                 }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-        }
-    }
-    
-    func selectRandomClues(numberOfClues: Int) {
-        guard let randomClues = filterCluesWithUniqueAnswers(numberOfClues: numberOfClues) else {
-            // Category failed to provide the required number of clues with unique answers
-            getClues()
-            return
-        }
-        clues = randomClues
-        correctAnswerClue = clues.randomElement()
-        print(correctAnswerClue?.answer)
-    }
-    
-    func filterCluesWithUniqueAnswers(numberOfClues: Int) -> [Clue]? {
-        // Remove clues with matching answer values
-        let cluesWithUniqueAnswers = Array(Set(clues))
-        guard cluesWithUniqueAnswers.count >= numberOfClues else {
-            return nil
-        }
-        let shuffledSubsetOfClues = Array(cluesWithUniqueAnswers.shuffled()[0..<numberOfClues])
-        return shuffledSubsetOfClues
-    }
-    
-    func evaluatePlayerSelection(selectedClue: Clue) {
-        guard selectedClue == correctAnswerClue else {
-            return
-        }
-        
-        if let correctAnswerCluePoints = correctAnswerClue?.points {
-            points += correctAnswerCluePoints
         }
     }
     
