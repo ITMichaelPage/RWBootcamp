@@ -11,7 +11,7 @@ import Foundation
 struct Clue: Codable, Equatable, Hashable {
     let id: Int
     let answer, question: String
-    let points: Int? = 100
+    var points: Int?
     let categoryID: Int
     let category: Category
     
