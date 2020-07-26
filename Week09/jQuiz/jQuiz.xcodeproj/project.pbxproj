@@ -11,6 +11,7 @@
 		AEABEFD624CAE0850060849C /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFD524CAE0850060849C /* AnswerCell.swift */; };
 		AEABEFD924CAE1F10060849C /* RegisterTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFD824CAE1F10060849C /* RegisterTableViewCells.swift */; };
 		AEABEFDB24CAE2240060849C /* TableViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFDA24CAE2240060849C /* TableViewCellIdentifier.swift */; };
+		AEABEFDD24CBD5850060849C /* JQuizGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFDC24CBD5850060849C /* JQuizGame.swift */; };
 		C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */; };
 		C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */; };
 		C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7A24C2549400F6D3EC /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 		AEABEFD524CAE0850060849C /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		AEABEFD824CAE1F10060849C /* RegisterTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewCells.swift; sourceTree = "<group>"; };
 		AEABEFDA24CAE2240060849C /* TableViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellIdentifier.swift; sourceTree = "<group>"; };
+		AEABEFDC24CBD5850060849C /* JQuizGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JQuizGame.swift; sourceTree = "<group>"; };
 		C3DF5B7324C2549400F6D3EC /* jQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				AEABEFD724CAE1C90060849C /* Helpers */,
 				C3DF5BAC24C256D600F6D3EC /* Assets */,
 				C3DF5B8724C2549A00F6D3EC /* Info.plist */,
+				AEABEFDC24CBD5850060849C /* JQuizGame.swift */,
 			);
 			path = jQuiz;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3DF5BAE24C25E1A00F6D3EC /* NetworkingHandler.swift in Sources */,
+				AEABEFDD24CBD5850060849C /* JQuizGame.swift in Sources */,
 				C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */,
 				AEABEFDB24CAE2240060849C /* TableViewCellIdentifier.swift in Sources */,
 				AEABEFD624CAE0850060849C /* AnswerCell.swift in Sources */,
