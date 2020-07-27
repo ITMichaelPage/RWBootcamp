@@ -13,6 +13,7 @@
 		AEABEFDB24CAE2240060849C /* TableViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFDA24CAE2240060849C /* TableViewCellIdentifier.swift */; };
 		AEABEFDD24CBD5850060849C /* JQuizGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFDC24CBD5850060849C /* JQuizGame.swift */; };
 		AEABEFE024CEA7D20060849C /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFDF24CEA7D20060849C /* UIImageView.swift */; };
+		AEABEFE224CED6380060849C /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFE124CED6380060849C /* Int.swift */; };
 		C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */; };
 		C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */; };
 		C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7A24C2549400F6D3EC /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		AEABEFDA24CAE2240060849C /* TableViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellIdentifier.swift; sourceTree = "<group>"; };
 		AEABEFDC24CBD5850060849C /* JQuizGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JQuizGame.swift; sourceTree = "<group>"; };
 		AEABEFDF24CEA7D20060849C /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		AEABEFE124CED6380060849C /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		C3DF5B7324C2549400F6D3EC /* jQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				AEABEFDF24CEA7D20060849C /* UIImageView.swift */,
+				AEABEFE124CED6380060849C /* Int.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				C3DF5BAE24C25E1A00F6D3EC /* NetworkingHandler.swift in Sources */,
 				AEABEFDD24CBD5850060849C /* JQuizGame.swift in Sources */,
 				C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */,
+				AEABEFE224CED6380060849C /* Int.swift in Sources */,
 				AEABEFDB24CAE2240060849C /* TableViewCellIdentifier.swift in Sources */,
 				AEABEFE024CEA7D20060849C /* UIImageView.swift in Sources */,
 				AEABEFD624CAE0850060849C /* AnswerCell.swift in Sources */,

@@ -107,7 +107,7 @@ extension ViewController {
                     print("Answer: \(self.correctAnswerClue?.answer ?? "") | Points: \(self.correctAnswerClue?.points ?? 100)")
                     self.categoryLabel.text = self.correctAnswerClue?.category.title
                     self.clueLabel.text = self.correctAnswerClue?.question
-                    self.scoreLabel.text = String(self.points)
+                    self.scoreLabel.text = self.points.withCommas()
                     self.tableView.reloadData()
                 }
             case .failure(let error):
