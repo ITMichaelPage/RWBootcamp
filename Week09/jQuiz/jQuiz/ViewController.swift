@@ -32,9 +32,8 @@ class ViewController: UIViewController {
             soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
         } else {
             soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
+            SoundManager.shared.playSound()
         }
-        
-        SoundManager.shared.playSound()
     }
     
     @IBAction func didPressVolumeButton(_ sender: Any) {
