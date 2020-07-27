@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mqb-FP-czh">
-                        <rect key="frame" x="20" y="19.5" width="374" height="21.5"/>
+                        <rect key="frame" x="20" y="14" width="374" height="32"/>
                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="19"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -24,7 +24,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="mqb-FP-czh" secondAttribute="trailing" id="K3d-i0-7st"/>
-                    <constraint firstItem="mqb-FP-czh" firstAttribute="centerY" secondItem="rKj-c3-kT0" secondAttribute="centerY" id="icc-aj-8bQ"/>
+                    <constraint firstAttribute="bottom" secondItem="mqb-FP-czh" secondAttribute="bottom" constant="14" id="exa-YP-dUS"/>
+                    <constraint firstItem="mqb-FP-czh" firstAttribute="top" secondItem="rKj-c3-kT0" secondAttribute="top" constant="14" id="nZE-aU-Goz"/>
                     <constraint firstItem="mqb-FP-czh" firstAttribute="leading" secondItem="rKj-c3-kT0" secondAttribute="leadingMargin" id="vvq-fE-kjZ"/>
                 </constraints>
             </tableViewCellContentView>
