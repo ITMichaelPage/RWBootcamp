@@ -15,6 +15,8 @@
 		AEABEFE024CEA7D20060849C /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFDF24CEA7D20060849C /* UIImageView.swift */; };
 		AEABEFE224CED6380060849C /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFE124CED6380060849C /* Int.swift */; };
 		AEABEFE424CED83A0060849C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFE324CED83A0060849C /* String.swift */; };
+		AEABEFE824CEE18D0060849C /* GyparodyHv.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABEFE624CEE18C0060849C /* GyparodyHv.ttf */; };
+		AEABEFE924CEE18D0060849C /* GyparodyRg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABEFE724CEE18D0060849C /* GyparodyRg.ttf */; };
 		C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */; };
 		C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */; };
 		C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7A24C2549400F6D3EC /* ViewController.swift */; };
@@ -53,6 +55,8 @@
 		AEABEFDF24CEA7D20060849C /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		AEABEFE124CED6380060849C /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		AEABEFE324CED83A0060849C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		AEABEFE624CEE18C0060849C /* GyparodyHv.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GyparodyHv.ttf; sourceTree = "<group>"; };
+		AEABEFE724CEE18D0060849C /* GyparodyRg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GyparodyRg.ttf; sourceTree = "<group>"; };
 		C3DF5B7324C2549400F6D3EC /* jQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +126,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		AEABEFE524CEE1710060849C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AEABEFE624CEE18C0060849C /* GyparodyHv.ttf */,
+				AEABEFE724CEE18D0060849C /* GyparodyRg.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C3DF5B6A24C2549400F6D3EC = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +168,7 @@
 				C3DF5BAC24C256D600F6D3EC /* Assets */,
 				C3DF5B8724C2549A00F6D3EC /* Info.plist */,
 				AEABEFDC24CBD5850060849C /* JQuizGame.swift */,
+				AEABEFE524CEE1710060849C /* Resources */,
 				AEABEFDE24CEA7A90060849C /* Extensions */,
 			);
 			path = jQuiz;
@@ -283,8 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3DF5B8624C2549A00F6D3EC /* LaunchScreen.storyboard in Resources */,
+				AEABEFE824CEE18D0060849C /* GyparodyHv.ttf in Resources */,
 				AEABEFD424CADFF50060849C /* AnswerCell.xib in Resources */,
 				C3DF5B8324C2549A00F6D3EC /* Assets.xcassets in Resources */,
+				AEABEFE924CEE18D0060849C /* GyparodyRg.ttf in Resources */,
 				C3DF5B7E24C2549400F6D3EC /* Main.storyboard in Resources */,
 				C3DF5BAB24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 in Resources */,
 			);
