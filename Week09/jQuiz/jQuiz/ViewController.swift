@@ -104,11 +104,14 @@ extension ViewController {
                 DispatchQueue.main.async {
                     self.clues = clues
                     self.correctAnswerClue = clues.randomElement()
-                    print("Answer: \(self.correctAnswerClue?.answer ?? "") | Points: \(self.correctAnswerClue?.points ?? 100)")
                     self.categoryLabel.text = self.correctAnswerClue?.category.title
                     self.clueLabel.text = self.correctAnswerClue?.question
                     self.scoreLabel.text = self.points.withCommas()
                     self.tableView.reloadData()
+                    
+                    if let correctAnswerClue = self.correctAnswerClue {
+                        print("Answer: \(correctAnswerClue.answer) | Points: \(correctAnswerClue.points)")
+                    }
                 }
             case .failure(let error):
                 print(error.localizedDescription)

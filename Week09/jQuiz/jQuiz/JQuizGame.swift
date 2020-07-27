@@ -65,7 +65,7 @@ class JQuizGame {
         guard selectedClue == correctAnswerClue else {
             return 0
         }
-        return correctAnswerClue!.points ?? 100
+        return correctAnswerClue!.points
     }
     
 }
