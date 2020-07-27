@@ -46,9 +46,15 @@ class ViewController: UIViewController {
     }
     
     func getLogoImage() {
-        Networking.sharedInstance.getLogoImage { (logoImage) in
+        let logoImageURLString = "https://cdn1.edgedatg.com/aws/v2/abc/ABCUpdates/blog/2900129/8484c3386d4378d7c826e3f3690b481b/1600x900-Q90_8484c3386d4378d7c826e3f3690b481b.jpg"
+        
+        guard let logoImageURL = URL(string: logoImageURLString) else {
+            return
+        }
+        
+        UIImageView.image(url: logoImageURL) { (image) in
             DispatchQueue.main.async {
-                self.logoImageView.image = logoImage
+                self.logoImageView.image = image
             }
         }
     }
