@@ -12,4 +12,7 @@ extension String {
     func withoutHTMLTags() -> String {
         return self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
     }
+    func withoutEscapingSingleQuoteBackslashes() -> String {
+        return self.replacingOccurrences(of: "\\'", with: "'")
+    }
 }

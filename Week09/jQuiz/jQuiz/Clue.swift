@@ -25,7 +25,7 @@ struct Clue: Codable, Equatable, Hashable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)
-        self.answer = try container.decode(String.self, forKey: .answer).withoutHTMLTags()
+        self.answer = try container.decode(String.self, forKey: .answer).withoutHTMLTags().withoutEscapingSingleQuoteBackslashes()
         self.question = try container.decode(String.self, forKey: .question).withoutHTMLTags()
         self.points = try container.decode(Int?.self, forKey: .points) ?? 100
         self.categoryID = try container.decode(Int.self, forKey: .categoryID)
