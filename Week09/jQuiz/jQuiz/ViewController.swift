@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var clueLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var potentialPointsLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
     let game = JQuizGame()
@@ -105,6 +106,7 @@ extension ViewController {
                     self.clues = clues
                     self.correctAnswerClue = clues.randomElement()
                     self.categoryLabel.text = self.correctAnswerClue?.category.title
+                    self.potentialPointsLabel.text = "FOR \(self.correctAnswerClue?.points ?? 0) POINTS"
                     self.clueLabel.text = self.correctAnswerClue?.question
                     self.scoreLabel.text = self.points.withCommas()
                     self.tableView.reloadData()
