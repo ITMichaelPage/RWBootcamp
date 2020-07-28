@@ -115,6 +115,11 @@ extension ViewController {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async{
+                    let failureAlert = UIAlertController(title: "Connection Error", message: "Please check your Internet connection and try again.", preferredStyle: .alert)
+                    failureAlert.addAction(UIAlertAction(title:"OK", style: .cancel, handler: nil))
+                    self.present(failureAlert, animated: true, completion: nil)
+                }
             }
         }
     }
