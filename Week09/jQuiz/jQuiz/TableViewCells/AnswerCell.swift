@@ -13,7 +13,7 @@ class AnswerCell: UITableViewCell {
     @IBOutlet weak var answerLabel: UILabel!
     
     func configure(for clue: Clue) {
-        answerLabel.text = clue.answer
+        answerLabel.text = clue.answer.uppercased()
     }
     
 }

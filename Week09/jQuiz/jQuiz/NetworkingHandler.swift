@@ -77,13 +77,8 @@ class Networking {
         task.resume()
     }
     
-    func getLogoImage(completion: @escaping (UIImage) -> Void) {
-        let logoImageURLString = "https://cdn1.edgedatg.com/aws/v2/abc/ABCUpdates/blog/2900129/8484c3386d4378d7c826e3f3690b481b/1600x900-Q90_8484c3386d4378d7c826e3f3690b481b.jpg"
-        guard let logoImageURL = URL(string: logoImageURLString) else {
-            return
-        }
-        
-        let task = URLSession.shared.downloadTask(with: logoImageURL) { (location, response, error) in
+    func getImage(url: URL, completion: @escaping (UIImage) -> Void) {
+        let task = URLSession.shared.downloadTask(with: url) { (location, response, error) in
             guard let location = location, error == nil else {
                 print(error?.localizedDescription ?? "Response Error")
                 return

@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var clueLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var potentialPointsLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
     let game = JQuizGame()
@@ -32,9 +33,8 @@ class ViewController: UIViewController {
             soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
         } else {
             soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
+            SoundManager.shared.playSound()
         }
-        
-        SoundManager.shared.playSound()
     }
     
     @IBAction func didPressVolumeButton(_ sender: Any) {
@@ -47,9 +47,15 @@ class ViewController: UIViewController {
     }
     
     func getLogoImage() {
-        Networking.sharedInstance.getLogoImage { (logoImage) in
+        let logoImageURLString = "https://cdn1.edgedatg.com/aws/v2/abc/ABCUpdates/blog/2900129/8484c3386d4378d7c826e3f3690b481b/1600x900-Q90_8484c3386d4378d7c826e3f3690b481b.jpg"
+        
+        guard let logoImageURL = URL(string: logoImageURLString) else {
+            return
+        }
+        
+        UIImageView.image(url: logoImageURL) { (image) in
             DispatchQueue.main.async {
-                self.logoImageView.image = logoImage
+                self.logoImageView.image = image
             }
         }
     }
@@ -99,14 +105,23 @@ extension ViewController {
                 DispatchQueue.main.async {
                     self.clues = clues
                     self.correctAnswerClue = clues.randomElement()
-                    print("Answer: \(self.correctAnswerClue?.answer ?? "") | Points: \(self.correctAnswerClue?.points ?? 100)")
                     self.categoryLabel.text = self.correctAnswerClue?.category.title
+                    self.potentialPointsLabel.text = "FOR \(self.correctAnswerClue?.points ?? 0) POINTS"
                     self.clueLabel.text = self.correctAnswerClue?.question
-                    self.scoreLabel.text = String(self.points)
+                    self.scoreLabel.text = self.points.withCommas()
                     self.tableView.reloadData()
+                    
+                    if let correctAnswerClue = self.correctAnswerClue {
+                        print("Answer: \(correctAnswerClue.answer) | Points: \(correctAnswerClue.points)")
+                    }
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async{
+                    let failureAlert = UIAlertController(title: "Connection Error", message: "Please check your Internet connection and try again.", preferredStyle: .alert)
+                    failureAlert.addAction(UIAlertAction(title:"OK", style: .cancel, handler: nil))
+                    self.present(failureAlert, animated: true, completion: nil)
+                }
             }
         }
     }

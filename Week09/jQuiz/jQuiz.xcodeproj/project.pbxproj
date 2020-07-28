@@ -12,6 +12,11 @@
 		AEABEFD924CAE1F10060849C /* RegisterTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFD824CAE1F10060849C /* RegisterTableViewCells.swift */; };
 		AEABEFDB24CAE2240060849C /* TableViewCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFDA24CAE2240060849C /* TableViewCellIdentifier.swift */; };
 		AEABEFDD24CBD5850060849C /* JQuizGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFDC24CBD5850060849C /* JQuizGame.swift */; };
+		AEABEFE024CEA7D20060849C /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFDF24CEA7D20060849C /* UIImageView.swift */; };
+		AEABEFE224CED6380060849C /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFE124CED6380060849C /* Int.swift */; };
+		AEABEFE424CED83A0060849C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABEFE324CED83A0060849C /* String.swift */; };
+		AEABEFE824CEE18D0060849C /* GyparodyHv.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABEFE624CEE18C0060849C /* GyparodyHv.ttf */; };
+		AEABEFE924CEE18D0060849C /* GyparodyRg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEABEFE724CEE18D0060849C /* GyparodyRg.ttf */; };
 		C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */; };
 		C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */; };
 		C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7A24C2549400F6D3EC /* ViewController.swift */; };
@@ -22,7 +27,6 @@
 		C3DF5BAE24C25E1A00F6D3EC /* NetworkingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */; };
 		C3DF5BB024C260A600F6D3EC /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5BAF24C260A600F6D3EC /* Clue.swift */; };
 		C3FBE53624C2877C00D11A30 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FBE53524C2877C00D11A30 /* SoundManager.swift */; };
-		C3FBE53824C4DEA300D11A30 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FBE53724C4DEA300D11A30 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,11 @@
 		AEABEFD824CAE1F10060849C /* RegisterTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewCells.swift; sourceTree = "<group>"; };
 		AEABEFDA24CAE2240060849C /* TableViewCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellIdentifier.swift; sourceTree = "<group>"; };
 		AEABEFDC24CBD5850060849C /* JQuizGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JQuizGame.swift; sourceTree = "<group>"; };
+		AEABEFDF24CEA7D20060849C /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		AEABEFE124CED6380060849C /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		AEABEFE324CED83A0060849C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		AEABEFE624CEE18C0060849C /* GyparodyHv.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GyparodyHv.ttf; sourceTree = "<group>"; };
+		AEABEFE724CEE18D0060849C /* GyparodyRg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GyparodyRg.ttf; sourceTree = "<group>"; };
 		C3DF5B7324C2549400F6D3EC /* jQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +71,6 @@
 		C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHandler.swift; sourceTree = "<group>"; };
 		C3DF5BAF24C260A600F6D3EC /* Clue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
 		C3FBE53524C2877C00D11A30 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		C3FBE53724C4DEA300D11A30 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,25 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		AEABEFDE24CEA7A90060849C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AEABEFDF24CEA7D20060849C /* UIImageView.swift */,
+				AEABEFE124CED6380060849C /* Int.swift */,
+				AEABEFE324CED83A0060849C /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AEABEFE524CEE1710060849C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AEABEFE624CEE18C0060849C /* GyparodyHv.ttf */,
+				AEABEFE724CEE18D0060849C /* GyparodyRg.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C3DF5B6A24C2549400F6D3EC = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +161,6 @@
 				C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */,
 				C3FBE53524C2877C00D11A30 /* SoundManager.swift */,
 				C3DF5BAF24C260A600F6D3EC /* Clue.swift */,
-				C3FBE53724C4DEA300D11A30 /* ImageCache.swift */,
 				C3DF5B7C24C2549400F6D3EC /* Main.storyboard */,
 				C3DF5B8424C2549A00F6D3EC /* LaunchScreen.storyboard */,
 				AEABEFD224CADFCC0060849C /* TableViewCells */,
@@ -142,6 +168,8 @@
 				C3DF5BAC24C256D600F6D3EC /* Assets */,
 				C3DF5B8724C2549A00F6D3EC /* Info.plist */,
 				AEABEFDC24CBD5850060849C /* JQuizGame.swift */,
+				AEABEFE524CEE1710060849C /* Resources */,
+				AEABEFDE24CEA7A90060849C /* Extensions */,
 			);
 			path = jQuiz;
 			sourceTree = "<group>";
@@ -269,8 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3DF5B8624C2549A00F6D3EC /* LaunchScreen.storyboard in Resources */,
+				AEABEFE824CEE18D0060849C /* GyparodyHv.ttf in Resources */,
 				AEABEFD424CADFF50060849C /* AnswerCell.xib in Resources */,
 				C3DF5B8324C2549A00F6D3EC /* Assets.xcassets in Resources */,
+				AEABEFE924CEE18D0060849C /* GyparodyRg.ttf in Resources */,
 				C3DF5B7E24C2549400F6D3EC /* Main.storyboard in Resources */,
 				C3DF5BAB24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 in Resources */,
 			);
@@ -298,15 +328,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3DF5BAE24C25E1A00F6D3EC /* NetworkingHandler.swift in Sources */,
+				AEABEFE424CED83A0060849C /* String.swift in Sources */,
 				AEABEFDD24CBD5850060849C /* JQuizGame.swift in Sources */,
 				C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */,
+				AEABEFE224CED6380060849C /* Int.swift in Sources */,
 				AEABEFDB24CAE2240060849C /* TableViewCellIdentifier.swift in Sources */,
+				AEABEFE024CEA7D20060849C /* UIImageView.swift in Sources */,
 				AEABEFD624CAE0850060849C /* AnswerCell.swift in Sources */,
 				C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */,
 				C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */,
 				C3DF5BB024C260A600F6D3EC /* Clue.swift in Sources */,
 				AEABEFD924CAE1F10060849C /* RegisterTableViewCells.swift in Sources */,
-				C3FBE53824C4DEA300D11A30 /* ImageCache.swift in Sources */,
 				C3FBE53624C2877C00D11A30 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
