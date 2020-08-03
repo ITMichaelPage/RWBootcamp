@@ -39,11 +39,11 @@ PlaygroundPage.current.liveView = view
 UIView.animate(withDuration: 1, animations: {
   // Move box to lower right corner
   box.center = CGPoint(x: 150, y: 150)
-  }, group: animationGroup, completion: { _ in
-    UIView.animate(withDuration: 2, animations: {
-      // Rotate box 45 degrees
-      box.transform = CGAffineTransform(rotationAngle: .pi/4)
-    }, group: animationGroup, completion: nil)
+}, group: animationGroup, completion: { _ in
+  UIView.animate(withDuration: 2, animations: {
+    // Rotate box 45 degrees
+    box.transform = CGAffineTransform(rotationAngle: .pi/4)
+  }, group: animationGroup, completion: nil)
 })
 
 UIView.animate(withDuration: 4, animations: { () -> Void in
