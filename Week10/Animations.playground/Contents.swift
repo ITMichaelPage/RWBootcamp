@@ -39,18 +39,17 @@ PlaygroundPage.current.liveView = view
 UIView.animate(withDuration: 1, animations: {
   // Move box to lower right corner
   box.center = CGPoint(x: 150, y: 150)
-  }, completion: {
-    _ in
+  }, group: animationGroup, completion: { _ in
     UIView.animate(withDuration: 2, animations: {
       // Rotate box 45 degrees
       box.transform = CGAffineTransform(rotationAngle: .pi/4)
-      }, completion: .none)
+    }, group: animationGroup, completion: nil)
 })
 
 UIView.animate(withDuration: 4, animations: { () -> Void in
   // Change background color to blue
   view.backgroundColor = UIColor.blue
-})
+}, group: animationGroup, completion: nil)
 
 // This should only print once all the animations are complete
 animationGroup.notify(queue: DispatchQueue.main) {
