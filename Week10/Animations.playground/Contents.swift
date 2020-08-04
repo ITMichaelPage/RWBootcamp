@@ -9,15 +9,12 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 //: **Step 1**: Implement this new `UIView` function:
 extension UIView {
   static func animate(withDuration duration: TimeInterval, animations: @escaping () -> Void, group: DispatchGroup, completion: ((Bool) -> Void)?) {
-    
     group.enter()
     animate(withDuration: duration, animations: animations) { (animationCompleted) in
-      guard let completion = completion else {
+      defer {
         group.leave()
-        return
       }
-      completion(animationCompleted)
-      group.leave()
+      completion?(animationCompleted)
     }
   }
 }
