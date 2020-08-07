@@ -38,6 +38,11 @@
                                     <action selector="centerButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="hPL-Ur-6mf"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qf0-bv-kS7">
+                                <rect key="frame" x="60" y="380" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -53,6 +58,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="animationObject" destination="qf0-bv-kS7" id="MGA-Tu-LOx"/>
                         <outlet property="centerButton" destination="LyJ-DE-b3W" id="y0s-tG-K4O"/>
                         <outlet property="colorButton" destination="gg6-P1-d4m" id="Qfr-4b-BHo"/>
                         <outlet property="sizeButton" destination="eGy-n7-cqg" id="0mi-KC-YxJ"/>

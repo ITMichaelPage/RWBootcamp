@@ -14,6 +14,7 @@ class ViewController: UIViewController {
   @IBOutlet var colorButton: UIButton!
   @IBOutlet var sizeButton: UIButton!
   @IBOutlet var speedButton: UIButton!
+  @IBOutlet var animationObject: UIView!
   
   private var menuIsOpen = false
   
