@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum ObjectAnimation {
+  case colorChange
+  case sizeChange
+  case positionChange
+}
+
 class ViewController: UIViewController {
   
   @IBOutlet var centerButton: UIButton!
@@ -17,6 +23,18 @@ class ViewController: UIViewController {
   @IBOutlet var animationObject: UIView!
   
   private var menuIsOpen = false
+  private var queuedAnimations: [ObjectAnimation] = []
+  
+  private var animationObjectIsRed: Bool {
+    animationObject.backgroundColor == UIColor.red
+  }
+  private var animationObjectIsBig: Bool {
+    animationObject.transform.scale > 1
+  }
+  private var animationObjectIsOnRightSideOfScreen: Bool {
+    animationObject.center.x > UIScreen.main.bounds.width / 2
+  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,8 +53,12 @@ extension ViewController {
       self.centerButton.isEnabled = true
     }
     
+    if menuIsOpen {
+      applyObjectAnimations()
+    }
+    
     menuIsOpen.toggle()
-
+    
     UIView.animateKeyframes(
       withDuration: 0.6,
       delay: 0,
@@ -57,6 +79,45 @@ extension ViewController {
         }
       }
     )
+  }
+  
+  @IBAction func addAnimationButtonPressed(_ sender: UIButton) {
+    switch sender {
+    case colorButton:
+      queuedAnimations.append(.colorChange)
+    case sizeButton:
+      queuedAnimations.append(.sizeChange)
+    case speedButton:
+      queuedAnimations.append(.positionChange)
+    default:
+      print("Error: Unknown button pressed!")
+    }
+  }
+  
+}
+
+extension ViewController {
+  
+  func applyObjectAnimations() {
+    queuedAnimations.forEach { (objectAnimation: ObjectAnimation) in
+      
+      UIView.animate(withDuration: 1) {
+        switch objectAnimation {
+        case .colorChange:
+          let color = self.animationObjectIsRed ? UIColor.black : UIColor.red
+          self.animationObject.backgroundColor = color
+        case .sizeChange:
+          let scale = self.animationObjectIsBig ? .identity : CGAffineTransform(scaleX: 2, y: 2)
+          self.animationObject.transform = scale
+        case .positionChange:
+          let newCenterPosition = self.animationObjectIsOnRightSideOfScreen ?  CGPoint(x: 90, y: 410) : CGPoint(x: 290, y: 510)
+          self.animationObject.center = newCenterPosition
+        }
+      }
+      
+    }
+    
+    queuedAnimations.removeAll()
   }
   
 }

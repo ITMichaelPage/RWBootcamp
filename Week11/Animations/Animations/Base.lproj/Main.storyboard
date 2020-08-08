@@ -19,16 +19,25 @@
                                 <rect key="frame" x="192" y="740" width="30" height="30"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Size"/>
+                                <connections>
+                                    <action selector="addAnimationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r9B-cX-1vH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHe-M9-nbh">
                                 <rect key="frame" x="185" y="740" width="44" height="30"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Speed"/>
+                                <connections>
+                                    <action selector="addAnimationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zeH-Fr-jYV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gg6-P1-d4m">
                                 <rect key="frame" x="188.5" y="740" width="37" height="30"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Color"/>
+                                <connections>
+                                    <action selector="addAnimationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U5y-NK-c0k"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyJ-DE-b3W">
                                 <rect key="frame" x="192" y="740" width="30" height="30"/>
