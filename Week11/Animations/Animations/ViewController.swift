@@ -21,9 +21,16 @@ class ViewController: UIViewController {
   @IBOutlet var sizeButton: UIButton!
   @IBOutlet var speedButton: UIButton!
   @IBOutlet var animationObject: UIView!
+  @IBOutlet weak var notificationView: UIView!
+  @IBOutlet weak var notificationViewTopConstraint: NSLayoutConstraint!
+  @IBOutlet weak var notificationStatusImageView: UIImageView!
+  @IBOutlet weak var notificationStatusMessageLabel: UILabel!
   
   private var menuIsOpen = false
   private var queuedAnimations: [ObjectAnimation] = []
+  private var queuedNotifications: [NotificationMessageStatus] = []
+  private let animationNotificationsGroup = DispatchGroup()
+  private var notificationIsVisible = false
   
   private var animationObjectIsRed: Bool {
     animationObject.backgroundColor == UIColor.red
@@ -35,10 +42,10 @@ class ViewController: UIViewController {
     animationObject.center.x > UIScreen.main.bounds.width / 2
   }
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+    hideNotification()
   }
   
 }
@@ -46,12 +53,7 @@ class ViewController: UIViewController {
 extension ViewController {
   
   @IBAction func centerButtonPressed() {
-    // Disable the center button
-    centerButton.isEnabled = false
-    delay(seconds: 0.5) {
-      // Renable the center button
-      self.centerButton.isEnabled = true
-    }
+    disableButtons(for: 0.3)
     
     if menuIsOpen {
       applyObjectAnimations()
@@ -59,39 +61,57 @@ extension ViewController {
     
     menuIsOpen.toggle()
     
-    UIView.animateKeyframes(
-      withDuration: 0.6,
-      delay: 0,
-      animations: { [colorButton = self.colorButton!, sizeButton = self.sizeButton!, speedButton = self.speedButton!] in
-        
-        UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-          if self.menuIsOpen {
-            // Move external buttons into the middle
-            colorButton.center.x -= 100
-            sizeButton.center.y -= 100
-            speedButton.center.x += 100
-          } else {
-            // Move external buttons out from the middle
-            colorButton.center.x += 100
-            sizeButton.center.y += 100
-            speedButton.center.x -= 100
-          }
-        }
+    animateMenuState()
+  }
+  
+  private func disableButtons(for duration: TimeInterval) {
+    let buttons = [centerButton, colorButton, sizeButton, speedButton]
+    
+    buttons.forEach { (button) in
+      // Disable button
+      button?.isEnabled = false
+      
+      delay(seconds: duration) {
+        // Re-enable the button
+        button?.isEnabled = true
       }
-    )
+    }
+  }
+  
+  private func animateMenuState() {
+    
+    UIView.animate(withDuration: 0.3) {
+      if self.menuIsOpen {
+        // Move external buttons into the middle
+        self.colorButton.center.x -= 100
+        self.sizeButton.center.y -= 100
+        self.speedButton.center.x += 100
+      } else {
+        // Move external buttons out from the middle
+        self.colorButton.center.x += 100
+        self.sizeButton.center.y += 100
+        self.speedButton.center.x -= 100
+      }
+      self.view.layoutIfNeeded()
+    }
   }
   
   @IBAction func addAnimationButtonPressed(_ sender: UIButton) {
     switch sender {
     case colorButton:
       queuedAnimations.append(.colorChange)
+      queuedNotifications.append(.success)
     case sizeButton:
       queuedAnimations.append(.sizeChange)
+      queuedNotifications.append(.success)
     case speedButton:
       queuedAnimations.append(.positionChange)
+      queuedNotifications.append(.success)
     default:
       print("Error: Unknown button pressed!")
     }
+    
+    processNotificationsQueue()
   }
   
 }
@@ -118,6 +138,74 @@ extension ViewController {
     }
     
     queuedAnimations.removeAll()
+  }
+  
+}
+
+extension ViewController {
+  
+  enum NotificationMessageStatus {
+    case success, failure
+  }
+  
+  func hideNotification() {
+    notificationViewTopConstraint.constant -= 120
+  }
+  
+  func configureNotification(for notificationMessageStatus: NotificationMessageStatus) {
+    notificationView.layer.cornerRadius = 10
+    
+    switch notificationMessageStatus {
+    case .success:
+      notificationStatusImageView.image = UIImage(systemName: "checkmark.circle.fill")
+      notificationStatusImageView.tintColor = .systemGreen
+      notificationStatusMessageLabel.text = "Animation successfully added"
+    case .failure:
+      notificationStatusImageView.image = UIImage(systemName: "xmark.circle.fill")
+      notificationStatusImageView.tintColor = .systemRed
+      notificationStatusMessageLabel.text = "Failed to add animation"
+    }
+  }
+  
+  func displayNotification(notificationMessageStatus: NotificationMessageStatus) {
+    self.configureNotification(for: notificationMessageStatus)
+    self.notificationIsVisible = true
+    
+    UIView.animate(
+      withDuration: 1.0,
+      animations: {
+        self.notificationView.center = CGPoint(x: 207, y: 74)
+      },
+      group: animationNotificationsGroup,
+      completion: { _ in
+        UIView.animate(
+          withDuration: 1.3,
+          animations: {
+            self.notificationView.center = CGPoint(x: 207, y: -46)
+          },
+          group: self.animationNotificationsGroup,
+          completion: { _ in
+            self.notificationIsVisible = false
+          }
+        )
+      }
+    )
+  }
+  
+  func processNotificationsQueue() {
+    // Ensure a notification is not currently visible and a pending notification is present
+    guard !notificationIsVisible, let nextNotification = queuedNotifications.first else {
+      return
+    }
+    
+    queuedNotifications.removeFirst()
+    
+    displayNotification(notificationMessageStatus: nextNotification)
+    
+    self.animationNotificationsGroup.notify(queue: DispatchQueue.main) {
+      // Trigger processNotificationsQueue to display the next notification in the queue
+      self.processNotificationsQueue()
+    }
   }
   
 }
