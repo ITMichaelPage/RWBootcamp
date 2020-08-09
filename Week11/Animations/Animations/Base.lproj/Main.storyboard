@@ -15,6 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Rxe-I3-fTk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-n7-cqg">
                                 <rect key="frame" x="192" y="740" width="30" height="30"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,14 +82,18 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Rxe-I3-fTk" secondAttribute="bottom" id="01v-H4-yvQ"/>
+                            <constraint firstItem="Rxe-I3-fTk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="286-tE-wDU"/>
+                            <constraint firstItem="Rxe-I3-fTk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="620-R8-IEC"/>
                             <constraint firstItem="YHe-M9-nbh" firstAttribute="centerY" secondItem="LyJ-DE-b3W" secondAttribute="centerY" id="8do-AL-Mmm"/>
                             <constraint firstItem="LyJ-DE-b3W" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9Sx-ZO-aQA"/>
                             <constraint firstItem="gg6-P1-d4m" firstAttribute="centerY" secondItem="LyJ-DE-b3W" secondAttribute="centerY" id="CtX-gm-8h1"/>
                             <constraint firstItem="eGy-n7-cqg" firstAttribute="centerY" secondItem="LyJ-DE-b3W" secondAttribute="centerY" id="LZW-D4-luB"/>
                             <constraint firstItem="YHe-M9-nbh" firstAttribute="centerX" secondItem="LyJ-DE-b3W" secondAttribute="centerX" id="T1g-c4-DDX"/>
                             <constraint firstItem="8dA-u2-B68" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZsK-oG-9zv"/>
+                            <constraint firstItem="Rxe-I3-fTk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dLx-bR-g5n"/>
                             <constraint firstItem="8dA-u2-B68" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kJP-5k-PgZ"/>
                             <constraint firstItem="eGy-n7-cqg" firstAttribute="centerX" secondItem="LyJ-DE-b3W" secondAttribute="centerX" id="n0K-4G-HLo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8dA-u2-B68" secondAttribute="trailing" constant="20" id="ne6-ae-Jl8"/>
@@ -113,6 +120,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="608" height="1080"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
