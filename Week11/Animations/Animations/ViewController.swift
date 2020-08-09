@@ -48,6 +48,10 @@ class ViewController: UIViewController {
     hideNotification()
   }
   
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+  
 }
 
 extension ViewController {
