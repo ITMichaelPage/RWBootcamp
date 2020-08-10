@@ -46,10 +46,15 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     hideNotification()
+    setAnimationObjectImage()
   }
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
+  }
+  
+  func setAnimationObjectImage() {
+    animationObject.layer.contents = #imageLiteral(resourceName: "PaperBoo").cgImage
   }
   
 }
