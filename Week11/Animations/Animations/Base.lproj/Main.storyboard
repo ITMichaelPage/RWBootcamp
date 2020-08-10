@@ -63,7 +63,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qf0-bv-kS7">
-                                <rect key="frame" x="60" y="380" width="70" height="60"/>
+                                <rect key="frame" x="60" y="180" width="70" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-u2-B68">

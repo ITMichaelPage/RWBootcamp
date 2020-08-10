@@ -166,7 +166,7 @@ extension ViewController {
             let y: CGFloat = 1 * newScaleMultiplier
             self.animationObject.transform = CGAffineTransform(scaleX: scaleX, y: y)
           case .positionChange:
-            let newCenterPosition = self.animationObjectIsOnRightSideOfScreen ?  CGPoint(x: 90, y: 410) : CGPoint(x: 290, y: 510)
+            let newCenterPosition = self.animationObjectIsOnRightSideOfScreen ?  CGPoint(x: 90, y: 210) : CGPoint(x: 290, y: 410)
             self.animationObject.center = newCenterPosition
           }
         },
