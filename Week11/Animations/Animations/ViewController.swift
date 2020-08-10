@@ -9,7 +9,7 @@
 import UIKit
 
 enum ObjectAnimation {
-  case colorChange
+  case opacityChange
   case sizeChange
   case positionChange
 }
@@ -17,7 +17,7 @@ enum ObjectAnimation {
 class ViewController: UIViewController {
   
   @IBOutlet var centerButton: UIButton!
-  @IBOutlet var colorButton: UIButton!
+  @IBOutlet var opacityButton: UIButton!
   @IBOutlet var sizeButton: UIButton!
   @IBOutlet var speedButton: UIButton!
   @IBOutlet var animationObject: UIView!
@@ -32,8 +32,8 @@ class ViewController: UIViewController {
   private let animationNotificationsGroup = DispatchGroup()
   private var notificationIsVisible = false
   
-  private var animationObjectIsRed: Bool {
-    animationObject.backgroundColor == UIColor.red
+  private var animationObjectIsTranslucent: Bool {
+    animationObject.alpha < 1
   }
   private var animationObjectIsBig: Bool {
     animationObject.transform.scale > 1
@@ -74,7 +74,7 @@ extension ViewController {
   }
   
   private func disableButtons(for duration: TimeInterval) {
-    let buttons = [centerButton, colorButton, sizeButton, speedButton]
+    let buttons = [centerButton, opacityButton, sizeButton, speedButton]
     
     buttons.forEach { (button) in
       // Disable button
@@ -92,12 +92,12 @@ extension ViewController {
     UIView.animate(withDuration: 0.3) {
       if self.menuIsOpen {
         // Move external buttons into the middle
-        self.colorButton.center.x -= 100
+        self.opacityButton.center.x -= 100
         self.sizeButton.center.y -= 100
         self.speedButton.center.x += 100
       } else {
         // Move external buttons out from the middle
-        self.colorButton.center.x += 100
+        self.opacityButton.center.x += 100
         self.sizeButton.center.y += 100
         self.speedButton.center.x -= 100
       }
@@ -107,8 +107,8 @@ extension ViewController {
   
   @IBAction func addAnimationButtonPressed(_ sender: UIButton) {
     switch sender {
-    case colorButton:
-      queuedAnimations.append(.colorChange)
+    case opacityButton:
+      queuedAnimations.append(.opacityChange)
       queuedNotifications.append(.success)
     case sizeButton:
       queuedAnimations.append(.sizeChange)
@@ -132,9 +132,9 @@ extension ViewController {
       
       UIView.animate(withDuration: 1) {
         switch objectAnimation {
-        case .colorChange:
-          let color = self.animationObjectIsRed ? UIColor.black : UIColor.red
-          self.animationObject.backgroundColor = color
+        case .opacityChange:
+          let opacity: CGFloat = self.animationObjectIsTranslucent ? 1 : 0.2
+          self.animationObject.alpha = opacity
         case .sizeChange:
           let scale = self.animationObjectIsBig ? .identity : CGAffineTransform(scaleX: 2, y: 2)
           self.animationObject.transform = scale

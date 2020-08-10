@@ -35,9 +35,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gg6-P1-d4m">
-                                <rect key="frame" x="188.5" y="740" width="37" height="30"/>
+                                <rect key="frame" x="180" y="740" width="54" height="30"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Color"/>
+                                <state key="normal" title="Opacity"/>
                                 <connections>
                                     <action selector="addAnimationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U5y-NK-c0k"/>
                                 </connections>
@@ -104,11 +104,11 @@
                     <connections>
                         <outlet property="animationObject" destination="qf0-bv-kS7" id="MGA-Tu-LOx"/>
                         <outlet property="centerButton" destination="LyJ-DE-b3W" id="y0s-tG-K4O"/>
-                        <outlet property="colorButton" destination="gg6-P1-d4m" id="Qfr-4b-BHo"/>
                         <outlet property="notificationStatusImageView" destination="FHb-EC-v7P" id="wdR-Ye-sAt"/>
                         <outlet property="notificationStatusMessageLabel" destination="LAn-NH-uSn" id="RE6-EJ-Wzb"/>
                         <outlet property="notificationView" destination="8dA-u2-B68" id="j6k-aK-fxz"/>
                         <outlet property="notificationViewTopConstraint" destination="ZsK-oG-9zv" id="3i3-Hm-YHJ"/>
+                        <outlet property="opacityButton" destination="gg6-P1-d4m" id="Qfr-4b-BHo"/>
                         <outlet property="sizeButton" destination="eGy-n7-cqg" id="0mi-KC-YxJ"/>
                         <outlet property="speedButton" destination="YHe-M9-nbh" id="wlA-Ok-KAy"/>
                     </connections>
