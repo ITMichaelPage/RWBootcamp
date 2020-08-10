@@ -52,10 +52,15 @@ class ViewController: UIViewController {
     hideNotification()
     setAnimationObjectImage()
     animateBooHover()
+    NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
   }
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
+  }
+  
+  @objc private func applicationWillEnterForeground() {
+    animateBooHover()
   }
   
   func setAnimationObjectImage() {
