@@ -47,6 +47,7 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view.
     hideNotification()
     setAnimationObjectImage()
+    animateBooHover()
   }
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -88,7 +89,6 @@ extension ViewController {
   }
   
   private func animateMenuState() {
-    
     UIView.animate(withDuration: 0.3) {
       if self.menuIsOpen {
         // Move external buttons into the middle
@@ -129,20 +129,29 @@ extension ViewController {
   
   func applyObjectAnimations() {
     queuedAnimations.forEach { (objectAnimation: ObjectAnimation) in
-      
-      UIView.animate(withDuration: 1) {
-        switch objectAnimation {
-        case .opacityChange:
-          let opacity: CGFloat = self.animationObjectIsTranslucent ? 1 : 0.2
-          self.animationObject.alpha = opacity
-        case .sizeChange:
-          let scale = self.animationObjectIsBig ? .identity : CGAffineTransform(scaleX: 2, y: 2)
-          self.animationObject.transform = scale
-        case .positionChange:
-          let newCenterPosition = self.animationObjectIsOnRightSideOfScreen ?  CGPoint(x: 90, y: 410) : CGPoint(x: 290, y: 510)
-          self.animationObject.center = newCenterPosition
+            
+      UIView.animate(
+        withDuration: 1,
+        animations: {
+          switch objectAnimation {
+          case .opacityChange:
+            let newOpacity: CGFloat = self.animationObjectIsTranslucent ? 1 : 0.2
+            self.animationObject.alpha = newOpacity
+          case .sizeChange:
+            let newScale = self.animationObjectIsBig ? .identity : CGAffineTransform(scaleX: 2, y: 2)
+            self.animationObject.transform = newScale
+          case .positionChange:
+            let newCenterPosition = self.animationObjectIsOnRightSideOfScreen ?  CGPoint(x: 90, y: 410) : CGPoint(x: 290, y: 510)
+            self.animationObject.center = newCenterPosition
+          }
+        },
+        completion: { _ in
+          if objectAnimation == .positionChange {
+            // Start hovering again
+            self.animateBooHover()
+          }
         }
-      }
+      )
       
     }
     
@@ -215,6 +224,22 @@ extension ViewController {
       // Trigger processNotificationsQueue to display the next notification in the queue
       self.processNotificationsQueue()
     }
+  }
+  
+}
+
+extension ViewController {
+  
+  private func animateBooHover() {
+    UIView.animate(
+      withDuration: 1.5,
+      delay: 0,
+      options: [.repeat, .autoreverse],
+      animations: {
+        self.animationObject.center.y += 24
+      },
+      completion: nil
+    )
   }
   
 }
