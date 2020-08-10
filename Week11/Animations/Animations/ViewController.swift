@@ -38,9 +38,13 @@ class ViewController: UIViewController {
   private var animationObjectIsBig: Bool {
     animationObject.transform.scale > 1
   }
+  private var animationObjectScaleMultiplier: CGFloat {
+    self.animationObjectIsBig ? 2 : 1
+  }
   private var animationObjectIsOnRightSideOfScreen: Bool {
     animationObject.center.x > UIScreen.main.bounds.width / 2
   }
+  private var animationObjectIsFacingRightSideOfScreen = true
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -138,8 +142,11 @@ extension ViewController {
             let newOpacity: CGFloat = self.animationObjectIsTranslucent ? 1 : 0.2
             self.animationObject.alpha = newOpacity
           case .sizeChange:
-            let newScale = self.animationObjectIsBig ? .identity : CGAffineTransform(scaleX: 2, y: 2)
-            self.animationObject.transform = newScale
+            let newScaleMultiplier: CGFloat = self.animationObjectScaleMultiplier == 1 ? 2 : 1
+            // Increase the size of Boo without changing the facing direction
+            let scaleX: CGFloat = (self.animationObjectIsFacingRightSideOfScreen ? 1 : -1) * newScaleMultiplier
+            let y: CGFloat = 1 * newScaleMultiplier
+            self.animationObject.transform = CGAffineTransform(scaleX: scaleX, y: y)
           case .positionChange:
             let newCenterPosition = self.animationObjectIsOnRightSideOfScreen ?  CGPoint(x: 90, y: 410) : CGPoint(x: 290, y: 510)
             self.animationObject.center = newCenterPosition
@@ -149,6 +156,8 @@ extension ViewController {
           if objectAnimation == .positionChange {
             // Start hovering again
             self.animateBooHover()
+            // Flip Boo to face the center
+            self.horizontallyFlipBoo()
           }
         }
       )
@@ -237,6 +246,19 @@ extension ViewController {
       options: [.repeat, .autoreverse],
       animations: {
         self.animationObject.center.y += 24
+      },
+      completion: nil
+    )
+  }
+  
+  private func horizontallyFlipBoo() {
+    UIView.animate(
+      withDuration: 0.7,
+      animations: {
+        let scaleX: CGFloat = (self.animationObjectIsFacingRightSideOfScreen ? -1 : 1) * self.animationObjectScaleMultiplier
+        let y: CGFloat = 1 * self.animationObjectScaleMultiplier
+        self.animationObject.transform = CGAffineTransform(scaleX: scaleX, y: y)
+        self.animationObjectIsFacingRightSideOfScreen.toggle()
       },
       completion: nil
     )
