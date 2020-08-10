@@ -51,8 +51,13 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view.
     hideNotification()
     setAnimationObjectImage()
-    animateBooHover()
+    animationObject.alpha = 0
     NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    curlDownBooTransition(duration: 2)
   }
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -264,6 +269,18 @@ extension ViewController {
         let y: CGFloat = 1 * self.animationObjectScaleMultiplier
         self.animationObject.transform = CGAffineTransform(scaleX: scaleX, y: y)
         self.animationObjectIsFacingRightSideOfScreen.toggle()
+      },
+      completion: nil
+    )
+  }
+  
+  private func curlDownBooTransition(duration: TimeInterval) {
+    UIView.transition(
+      with: animationObject,
+      duration: duration,
+      options: [.transitionCurlDown],
+      animations: {
+        self.animationObject.alpha = 1
       },
       completion: nil
     )
