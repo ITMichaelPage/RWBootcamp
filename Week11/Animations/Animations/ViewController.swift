@@ -19,7 +19,7 @@ class ViewController: UIViewController {
   @IBOutlet var centerButton: UIButton!
   @IBOutlet var opacityButton: UIButton!
   @IBOutlet var sizeButton: UIButton!
-  @IBOutlet var speedButton: UIButton!
+  @IBOutlet var changePositionButton: UIButton!
   @IBOutlet var animationObject: UIView!
   @IBOutlet weak var notificationView: UIView!
   @IBOutlet weak var notificationViewTopConstraint: NSLayoutConstraint!
@@ -52,6 +52,7 @@ class ViewController: UIViewController {
     hideNotification()
     setAnimationObjectImage()
     animationObject.alpha = 0
+    setButtonImages()
     NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
   }
   
@@ -72,6 +73,13 @@ class ViewController: UIViewController {
     animationObject.layer.contents = #imageLiteral(resourceName: "PaperBoo").cgImage
   }
   
+  private func setButtonImages() {
+    centerButton.setImage(UIImage(named: "PlayButton"), for: .normal)
+    opacityButton.setImage(UIImage(named: "ChangeOpacityButton"), for: .normal)
+    sizeButton.setImage(UIImage(named: "IncreaseSizeButton"), for: .normal)
+    changePositionButton.setImage(UIImage(named: "ChangePositionButton"), for: .normal)
+  }
+  
 }
 
 extension ViewController {
@@ -89,7 +97,7 @@ extension ViewController {
   }
   
   private func disableButtons(for duration: TimeInterval) {
-    let buttons = [centerButton, opacityButton, sizeButton, speedButton]
+    let buttons = [centerButton, opacityButton, sizeButton, changePositionButton]
     
     buttons.forEach { (button) in
       // Disable button
@@ -108,12 +116,12 @@ extension ViewController {
         // Move external buttons into the middle
         self.opacityButton.center.x -= 100
         self.sizeButton.center.y -= 100
-        self.speedButton.center.x += 100
+        self.changePositionButton.center.x += 100
       } else {
         // Move external buttons out from the middle
         self.opacityButton.center.x += 100
         self.sizeButton.center.y += 100
-        self.speedButton.center.x -= 100
+        self.changePositionButton.center.x -= 100
       }
       self.view.layoutIfNeeded()
     }
@@ -127,7 +135,7 @@ extension ViewController {
     case sizeButton:
       queuedAnimations.append(.sizeChange)
       queuedNotifications.append(.success)
-    case speedButton:
+    case changePositionButton:
       queuedAnimations.append(.positionChange)
       queuedNotifications.append(.success)
     default:
