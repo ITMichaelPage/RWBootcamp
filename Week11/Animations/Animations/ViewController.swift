@@ -219,14 +219,14 @@ extension ViewController {
     UIView.animate(
       withDuration: 1.0,
       animations: {
-        self.notificationView.center = CGPoint(x: 207, y: 74)
+        self.notificationView.center = CGPoint(x: UIScreen.screenHorizontalCenter, y: 74)
       },
       group: animationNotificationsGroup,
       completion: { _ in
         UIView.animate(
           withDuration: 1.3,
           animations: {
-            self.notificationView.center = CGPoint(x: 207, y: -46)
+            self.notificationView.center = CGPoint(x: UIScreen.screenHorizontalCenter, y: -46)
           },
           group: self.animationNotificationsGroup,
           completion: { _ in
