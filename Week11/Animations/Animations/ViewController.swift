@@ -9,7 +9,7 @@
 import UIKit
 
 enum ObjectAnimation {
-  case colorChange
+  case opacityChange
   case sizeChange
   case positionChange
 }
@@ -17,9 +17,9 @@ enum ObjectAnimation {
 class ViewController: UIViewController {
   
   @IBOutlet var centerButton: UIButton!
-  @IBOutlet var colorButton: UIButton!
+  @IBOutlet var opacityButton: UIButton!
   @IBOutlet var sizeButton: UIButton!
-  @IBOutlet var speedButton: UIButton!
+  @IBOutlet var changePositionButton: UIButton!
   @IBOutlet var animationObject: UIView!
   @IBOutlet weak var notificationView: UIView!
   @IBOutlet weak var notificationViewTopConstraint: NSLayoutConstraint!
@@ -32,24 +32,47 @@ class ViewController: UIViewController {
   private let animationNotificationsGroup = DispatchGroup()
   private var notificationIsVisible = false
   
-  private var animationObjectIsRed: Bool {
-    animationObject.backgroundColor == UIColor.red
+  private var animationObjectIsTranslucent: Bool {
+    animationObject.alpha < 1
   }
   private var animationObjectIsBig: Bool {
     animationObject.transform.scale > 1
   }
+  private var animationObjectScaleMultiplier: CGFloat {
+    self.animationObjectIsBig ? 2 : 1
+  }
   private var animationObjectIsOnRightSideOfScreen: Bool {
     animationObject.center.x > UIScreen.main.bounds.width / 2
   }
+  private var animationObjectIsFacingRightSideOfScreen = true
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     hideNotification()
+    setAnimationObjectImage()
+    animationObject.alpha = 0
+    setButtonImages()
+    // Setup notifcation for when app will return to the foreground
+    NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    curlDownBooTransition(duration: 2)
+  }
+  
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+  
+  @objc private func applicationWillEnterForeground() {
+    animateBooHover()
   }
   
 }
 
+// MARK: - Controls
 extension ViewController {
   
   @IBAction func centerButtonPressed() {
@@ -64,8 +87,15 @@ extension ViewController {
     animateMenuState()
   }
   
+  private func setButtonImages() {
+    centerButton.setImage(UIImage(named: "PlayButton"), for: .normal)
+    opacityButton.setImage(UIImage(named: "ChangeOpacityButton"), for: .normal)
+    sizeButton.setImage(UIImage(named: "IncreaseSizeButton"), for: .normal)
+    changePositionButton.setImage(UIImage(named: "ChangePositionButton"), for: .normal)
+  }
+  
   private func disableButtons(for duration: TimeInterval) {
-    let buttons = [centerButton, colorButton, sizeButton, speedButton]
+    let buttons = [centerButton, opacityButton, sizeButton, changePositionButton]
     
     buttons.forEach { (button) in
       // Disable button
@@ -79,18 +109,17 @@ extension ViewController {
   }
   
   private func animateMenuState() {
-    
     UIView.animate(withDuration: 0.3) {
       if self.menuIsOpen {
         // Move external buttons into the middle
-        self.colorButton.center.x -= 100
+        self.opacityButton.center.x -= 100
         self.sizeButton.center.y -= 100
-        self.speedButton.center.x += 100
+        self.changePositionButton.center.x += 100
       } else {
         // Move external buttons out from the middle
-        self.colorButton.center.x += 100
+        self.opacityButton.center.x += 100
         self.sizeButton.center.y += 100
-        self.speedButton.center.x -= 100
+        self.changePositionButton.center.x -= 100
       }
       self.view.layoutIfNeeded()
     }
@@ -98,13 +127,13 @@ extension ViewController {
   
   @IBAction func addAnimationButtonPressed(_ sender: UIButton) {
     switch sender {
-    case colorButton:
-      queuedAnimations.append(.colorChange)
+    case opacityButton:
+      queuedAnimations.append(.opacityChange)
       queuedNotifications.append(.success)
     case sizeButton:
       queuedAnimations.append(.sizeChange)
       queuedNotifications.append(.success)
-    case speedButton:
+    case changePositionButton:
       queuedAnimations.append(.positionChange)
       queuedNotifications.append(.success)
     default:
@@ -116,24 +145,39 @@ extension ViewController {
   
 }
 
+// MARK: - Apply object animations
 extension ViewController {
   
-  func applyObjectAnimations() {
+  private func applyObjectAnimations() {
     queuedAnimations.forEach { (objectAnimation: ObjectAnimation) in
-      
-      UIView.animate(withDuration: 1) {
-        switch objectAnimation {
-        case .colorChange:
-          let color = self.animationObjectIsRed ? UIColor.black : UIColor.red
-          self.animationObject.backgroundColor = color
-        case .sizeChange:
-          let scale = self.animationObjectIsBig ? .identity : CGAffineTransform(scaleX: 2, y: 2)
-          self.animationObject.transform = scale
-        case .positionChange:
-          let newCenterPosition = self.animationObjectIsOnRightSideOfScreen ?  CGPoint(x: 90, y: 410) : CGPoint(x: 290, y: 510)
-          self.animationObject.center = newCenterPosition
+            
+      UIView.animate(
+        withDuration: 1,
+        animations: {
+          switch objectAnimation {
+          case .opacityChange:
+            let newOpacity: CGFloat = self.animationObjectIsTranslucent ? 1 : 0.2
+            self.animationObject.alpha = newOpacity
+          case .sizeChange:
+            let newScaleMultiplier: CGFloat = self.animationObjectScaleMultiplier == 1 ? 2 : 1
+            // Increase the size of Boo without changing the facing direction
+            let scaleX: CGFloat = (self.animationObjectIsFacingRightSideOfScreen ? 1 : -1) * newScaleMultiplier
+            let y: CGFloat = 1 * newScaleMultiplier
+            self.animationObject.transform = CGAffineTransform(scaleX: scaleX, y: y)
+          case .positionChange:
+            let newCenterPosition = self.animationObjectIsOnRightSideOfScreen ?  CGPoint(x: 90, y: 210) : CGPoint(x: 290, y: 410)
+            self.animationObject.center = newCenterPosition
+          }
+        },
+        completion: { _ in
+          if objectAnimation == .positionChange {
+            // Start hovering again
+            self.animateBooHover()
+            // Flip Boo to face the center
+            self.horizontallyFlipBoo()
+          }
         }
-      }
+      )
       
     }
     
@@ -142,17 +186,18 @@ extension ViewController {
   
 }
 
+// MARK: - Notifications
 extension ViewController {
   
   enum NotificationMessageStatus {
     case success, failure
   }
   
-  func hideNotification() {
+  private func hideNotification() {
     notificationViewTopConstraint.constant -= 120
   }
   
-  func configureNotification(for notificationMessageStatus: NotificationMessageStatus) {
+  private func configureNotification(for notificationMessageStatus: NotificationMessageStatus) {
     notificationView.layer.cornerRadius = 10
     
     switch notificationMessageStatus {
@@ -167,21 +212,21 @@ extension ViewController {
     }
   }
   
-  func displayNotification(notificationMessageStatus: NotificationMessageStatus) {
+  private func displayNotification(notificationMessageStatus: NotificationMessageStatus) {
     self.configureNotification(for: notificationMessageStatus)
     self.notificationIsVisible = true
     
     UIView.animate(
       withDuration: 1.0,
       animations: {
-        self.notificationView.center = CGPoint(x: 207, y: 74)
+        self.notificationView.center = CGPoint(x: UIScreen.screenHorizontalCenter, y: 74)
       },
       group: animationNotificationsGroup,
       completion: { _ in
         UIView.animate(
           withDuration: 1.3,
           animations: {
-            self.notificationView.center = CGPoint(x: 207, y: -46)
+            self.notificationView.center = CGPoint(x: UIScreen.screenHorizontalCenter, y: -46)
           },
           group: self.animationNotificationsGroup,
           completion: { _ in
@@ -192,7 +237,7 @@ extension ViewController {
     )
   }
   
-  func processNotificationsQueue() {
+  private func processNotificationsQueue() {
     // Ensure a notification is not currently visible and a pending notification is present
     guard !notificationIsVisible, let nextNotification = queuedNotifications.first else {
       return
@@ -206,6 +251,52 @@ extension ViewController {
       // Trigger processNotificationsQueue to display the next notification in the queue
       self.processNotificationsQueue()
     }
+  }
+  
+}
+
+// MARK: - Boo
+extension ViewController {
+  
+  private func setAnimationObjectImage() {
+    animationObject.layer.contents = #imageLiteral(resourceName: "PaperBoo").cgImage
+  }
+  
+  private func animateBooHover() {
+    UIView.animate(
+      withDuration: 1.5,
+      delay: 0,
+      options: [.repeat, .autoreverse],
+      animations: {
+        self.animationObject.center.y += 24
+      },
+      completion: nil
+    )
+  }
+  
+  private func horizontallyFlipBoo() {
+    UIView.animate(
+      withDuration: 0.7,
+      animations: {
+        let scaleX: CGFloat = (self.animationObjectIsFacingRightSideOfScreen ? -1 : 1) * self.animationObjectScaleMultiplier
+        let y: CGFloat = 1 * self.animationObjectScaleMultiplier
+        self.animationObject.transform = CGAffineTransform(scaleX: scaleX, y: y)
+        self.animationObjectIsFacingRightSideOfScreen.toggle()
+      },
+      completion: nil
+    )
+  }
+  
+  private func curlDownBooTransition(duration: TimeInterval) {
+    UIView.transition(
+      with: animationObject,
+      duration: duration,
+      options: [.transitionCurlDown],
+      animations: {
+        self.animationObject.alpha = 1
+      },
+      completion: nil
+    )
   }
   
 }

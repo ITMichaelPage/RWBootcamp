@@ -15,42 +15,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-n7-cqg">
-                                <rect key="frame" x="192" y="740" width="30" height="30"/>
-                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Rxe-I3-fTk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-n7-cqg">
+                                <rect key="frame" x="177" y="710" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="eS0-ss-iV7"/>
+                                    <constraint firstAttribute="width" secondItem="eGy-n7-cqg" secondAttribute="height" multiplier="1:1" id="wYx-Yk-gUr"/>
+                                </constraints>
                                 <state key="normal" title="Size"/>
                                 <connections>
                                     <action selector="addAnimationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r9B-cX-1vH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHe-M9-nbh">
-                                <rect key="frame" x="185" y="740" width="44" height="30"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Speed"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHe-M9-nbh">
+                                <rect key="frame" x="177" y="710" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YHe-M9-nbh" secondAttribute="height" multiplier="1:1" id="ig6-CA-NBJ"/>
+                                    <constraint firstAttribute="height" constant="60" id="mOh-Lg-Jwb"/>
+                                </constraints>
+                                <state key="normal" title="Change Position"/>
                                 <connections>
                                     <action selector="addAnimationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zeH-Fr-jYV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gg6-P1-d4m">
-                                <rect key="frame" x="188.5" y="740" width="37" height="30"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Color"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gg6-P1-d4m">
+                                <rect key="frame" x="177" y="710" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gg6-P1-d4m" secondAttribute="height" multiplier="1:1" id="GlU-c9-eQ1"/>
+                                    <constraint firstAttribute="height" constant="60" id="ha5-KO-bIz"/>
+                                </constraints>
+                                <state key="normal" title="Opacity"/>
                                 <connections>
                                     <action selector="addAnimationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U5y-NK-c0k"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyJ-DE-b3W">
-                                <rect key="frame" x="192" y="740" width="30" height="30"/>
-                                <color key="backgroundColor" red="0.93668943640000002" green="0.62620407339999995" blue="0.3175327778" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyJ-DE-b3W">
+                                <rect key="frame" x="177" y="710" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LyJ-DE-b3W" secondAttribute="height" multiplier="1:1" id="Cdu-DP-Ets"/>
+                                    <constraint firstAttribute="height" constant="60" id="atc-de-VUd"/>
+                                </constraints>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="centerButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="hPL-Ur-6mf"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qf0-bv-kS7">
-                                <rect key="frame" x="60" y="380" width="60" height="60"/>
+                                <rect key="frame" x="60" y="180" width="70" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-u2-B68">
                                 <rect key="frame" x="20" y="44" width="374" height="60"/>
@@ -79,14 +93,18 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Rxe-I3-fTk" secondAttribute="bottom" id="01v-H4-yvQ"/>
+                            <constraint firstItem="Rxe-I3-fTk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="286-tE-wDU"/>
+                            <constraint firstItem="Rxe-I3-fTk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="620-R8-IEC"/>
                             <constraint firstItem="YHe-M9-nbh" firstAttribute="centerY" secondItem="LyJ-DE-b3W" secondAttribute="centerY" id="8do-AL-Mmm"/>
                             <constraint firstItem="LyJ-DE-b3W" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9Sx-ZO-aQA"/>
                             <constraint firstItem="gg6-P1-d4m" firstAttribute="centerY" secondItem="LyJ-DE-b3W" secondAttribute="centerY" id="CtX-gm-8h1"/>
                             <constraint firstItem="eGy-n7-cqg" firstAttribute="centerY" secondItem="LyJ-DE-b3W" secondAttribute="centerY" id="LZW-D4-luB"/>
                             <constraint firstItem="YHe-M9-nbh" firstAttribute="centerX" secondItem="LyJ-DE-b3W" secondAttribute="centerX" id="T1g-c4-DDX"/>
                             <constraint firstItem="8dA-u2-B68" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZsK-oG-9zv"/>
+                            <constraint firstItem="Rxe-I3-fTk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dLx-bR-g5n"/>
                             <constraint firstItem="8dA-u2-B68" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kJP-5k-PgZ"/>
                             <constraint firstItem="eGy-n7-cqg" firstAttribute="centerX" secondItem="LyJ-DE-b3W" secondAttribute="centerX" id="n0K-4G-HLo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8dA-u2-B68" secondAttribute="trailing" constant="20" id="ne6-ae-Jl8"/>
@@ -98,13 +116,13 @@
                     <connections>
                         <outlet property="animationObject" destination="qf0-bv-kS7" id="MGA-Tu-LOx"/>
                         <outlet property="centerButton" destination="LyJ-DE-b3W" id="y0s-tG-K4O"/>
-                        <outlet property="colorButton" destination="gg6-P1-d4m" id="Qfr-4b-BHo"/>
+                        <outlet property="changePositionButton" destination="YHe-M9-nbh" id="wlA-Ok-KAy"/>
                         <outlet property="notificationStatusImageView" destination="FHb-EC-v7P" id="wdR-Ye-sAt"/>
                         <outlet property="notificationStatusMessageLabel" destination="LAn-NH-uSn" id="RE6-EJ-Wzb"/>
                         <outlet property="notificationView" destination="8dA-u2-B68" id="j6k-aK-fxz"/>
                         <outlet property="notificationViewTopConstraint" destination="ZsK-oG-9zv" id="3i3-Hm-YHJ"/>
+                        <outlet property="opacityButton" destination="gg6-P1-d4m" id="Qfr-4b-BHo"/>
                         <outlet property="sizeButton" destination="eGy-n7-cqg" id="0mi-KC-YxJ"/>
-                        <outlet property="speedButton" destination="YHe-M9-nbh" id="wlA-Ok-KAy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -113,6 +131,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="608" height="1080"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
