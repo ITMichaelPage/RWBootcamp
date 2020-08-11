@@ -53,6 +53,7 @@ class ViewController: UIViewController {
     setAnimationObjectImage()
     animationObject.alpha = 0
     setButtonImages()
+    // Setup notifcation for when app will return to the foreground
     NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
   }
   
@@ -69,19 +70,9 @@ class ViewController: UIViewController {
     animateBooHover()
   }
   
-  func setAnimationObjectImage() {
-    animationObject.layer.contents = #imageLiteral(resourceName: "PaperBoo").cgImage
-  }
-  
-  private func setButtonImages() {
-    centerButton.setImage(UIImage(named: "PlayButton"), for: .normal)
-    opacityButton.setImage(UIImage(named: "ChangeOpacityButton"), for: .normal)
-    sizeButton.setImage(UIImage(named: "IncreaseSizeButton"), for: .normal)
-    changePositionButton.setImage(UIImage(named: "ChangePositionButton"), for: .normal)
-  }
-  
 }
 
+// MARK: - Controls
 extension ViewController {
   
   @IBAction func centerButtonPressed() {
@@ -94,6 +85,13 @@ extension ViewController {
     menuIsOpen.toggle()
     
     animateMenuState()
+  }
+  
+  private func setButtonImages() {
+    centerButton.setImage(UIImage(named: "PlayButton"), for: .normal)
+    opacityButton.setImage(UIImage(named: "ChangeOpacityButton"), for: .normal)
+    sizeButton.setImage(UIImage(named: "IncreaseSizeButton"), for: .normal)
+    changePositionButton.setImage(UIImage(named: "ChangePositionButton"), for: .normal)
   }
   
   private func disableButtons(for duration: TimeInterval) {
@@ -147,9 +145,10 @@ extension ViewController {
   
 }
 
+// MARK: - Apply object animations
 extension ViewController {
   
-  func applyObjectAnimations() {
+  private func applyObjectAnimations() {
     queuedAnimations.forEach { (objectAnimation: ObjectAnimation) in
             
       UIView.animate(
@@ -187,17 +186,18 @@ extension ViewController {
   
 }
 
+// MARK: - Notifications
 extension ViewController {
   
   enum NotificationMessageStatus {
     case success, failure
   }
   
-  func hideNotification() {
+  private func hideNotification() {
     notificationViewTopConstraint.constant -= 120
   }
   
-  func configureNotification(for notificationMessageStatus: NotificationMessageStatus) {
+  private func configureNotification(for notificationMessageStatus: NotificationMessageStatus) {
     notificationView.layer.cornerRadius = 10
     
     switch notificationMessageStatus {
@@ -212,7 +212,7 @@ extension ViewController {
     }
   }
   
-  func displayNotification(notificationMessageStatus: NotificationMessageStatus) {
+  private func displayNotification(notificationMessageStatus: NotificationMessageStatus) {
     self.configureNotification(for: notificationMessageStatus)
     self.notificationIsVisible = true
     
@@ -237,7 +237,7 @@ extension ViewController {
     )
   }
   
-  func processNotificationsQueue() {
+  private func processNotificationsQueue() {
     // Ensure a notification is not currently visible and a pending notification is present
     guard !notificationIsVisible, let nextNotification = queuedNotifications.first else {
       return
@@ -255,7 +255,12 @@ extension ViewController {
   
 }
 
+// MARK: - Boo
 extension ViewController {
+  
+  private func setAnimationObjectImage() {
+    animationObject.layer.contents = #imageLiteral(resourceName: "PaperBoo").cgImage
+  }
   
   private func animateBooHover() {
     UIView.animate(
